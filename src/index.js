@@ -1,14 +1,18 @@
 const { app, BrowserWindow } = require("electron");
 const windowStateKeeper = require("electron-window-state");
 
+//Sets Up Window
 function createWindow(){
+    const _width = 1045;
+    const _height = 660;
+
     let winState = windowStateKeeper({
-        defaultWidth: 1280, defaultHeight: 720
+        defaultWidth: _width, defaultHeight:_height
     });
 
     let mainWindow = new BrowserWindow({
-        width: 1400, height: 800,
-        minWidth:750, minHeight: 450,
+        width: _width, height: _height,
+        minWidth: _width, minHeight: _height, maxWidth: _width, maxHeight: _height,
         x: winState.x, y: winState.y,
         webPreferences: {
             nodeIntegration: true,
