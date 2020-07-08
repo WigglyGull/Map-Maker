@@ -9,12 +9,23 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Hello World</h2>
-        <p>
-            We are using Node.js <strong><script>document.write(process.versions.node)</script></strong>,
-            and Electron <strong><script>document.write(process.versions.electron)</script></strong>.
-        </p>
-    </div>
+    <section class="toolBar">
+        <div class="roomTool tool activeTool">
+            <img src="../assets/ui/sqaure.svg" class="sqaureIcon icon">
+        </div>
+        <div class="doorTool tool">
+            <img src="../assets//ui/door.svg" class="doorIcon icon">
+        </div>
+        <div class="iconTool tool">
+            <img src="../assets/ui/key.svg" class="keyIcon icon">
+        </div>
+        <div class="textTool tool">
+            <img src="../assets//ui/text.svg" class="textIcon icon">
+        </div>
+    </section>
+    <!-- <main class="map">
+
+    </main>
+    <section class="biome"></section> -->
 </body>
 </html>

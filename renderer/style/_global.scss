@@ -1,39 +1,11 @@
-* {
-    margin: 0;
+*{
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 html {
-    font-size: 62.5%;
+    font-size: 10px;
 }
 body {
-    overflow: hidden;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // Add Font Family
-}
-h1 {
-    font-size: $header1;
-}
-h2 {
-    font-size: $header2;
-}
-h3 {
-    font-size: $header3;
-}
-h4,h5 {
-    font-size: $header4;
-}
-li, button, label, input, a, p {
-    font-size: $text;
-}
-ul {
-    list-style: none;
-}
-a {
-    text-decoration: none;
+    color: #F9F9F9;
 }

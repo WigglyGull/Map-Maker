@@ -1,0 +1,28 @@
+.toolBar{
+    display: inline-block;
+    margin: 2rem;
+}
+.tool{
+    background: $uiColor;
+    height: 6rem;
+    width: 6rem;
+    margin: 2rem 0rem;
+    border-radius: 50%;
+    box-shadow: $boxShadow;
+
+    //Centers icons
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.activeTool{
+    width: 7rem;
+    height: 7rem;
+    box-shadow: $boxShadowActive;
+    border: 3px solid white;
+    background: $uiHighlight;
+    border-radius: 50%;
+    position: relative;
+    right: 0.5rem;
+}

@@ -1,11 +1,20 @@
+//Sizes
 $header1: 1.5rem;
 $header2: 3rem;
 $header3: 1.5rem;
 $header4: 1rem;
 $text: 1.5rem;
 
-@import "global";
+//Colours
+$uiColor: #53555F; 
+$uiHighlight: #2B2C31;
+$roomGrey: #9F9F9F;
+$roomDarkGrey: #383838;
+$roomGreen: #14A653;
+$roomDarkGreen: #073F1F;
+$boxShadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+$boxShadowActive: 0px 7px 5px rgba(0, 0, 0, 0.25);
 
-.container{
-    text-align: center;
-}
+//Imports
+@import "global";
+@import "toolBar";
