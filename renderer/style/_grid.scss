@@ -1,20 +1,18 @@
+//This shit isn't responsive but i dont care lol
 .map{
     display: grid;
     grid-template-columns: $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid;
-    grid-template-rows: $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid;
+    grid-template-rows: $grid $grid $grid $grid $grid $grid $grid $grid $grid;
     width: fit-content;
     height: fit-content;
-
-    position: absolute;
-	top:0rem;
-	bottom: 0;
-	left: 0;
-    right: 0;
     margin: auto;
-    margin-top: 10rem;
+
+    border-left: $gridBorderSize solid #383838;
+    border-bottom: $gridBorderSize solid #383838;
 }
 .grid{
     border: $gridBorderSize solid #DADEEB;
     width: $gridSize;
     height: $gridSize;
+    z-index: -1;
 }
