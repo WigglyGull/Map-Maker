@@ -18,6 +18,7 @@ body {
 .toolBar {
   display: inline-block;
   margin: 2rem;
+  position: absolute;
 }
 
 .tool {
@@ -65,6 +66,7 @@ body {
   height: -moz-fit-content;
   height: fit-content;
   margin: auto;
+  margin-top: 3.5rem;
   border-left: 0.4rem solid #383838;
   border-bottom: 0.4rem solid #383838;
 }
@@ -74,5 +76,54 @@ body {
   width: 6rem;
   height: 6rem;
   z-index: -1;
+}
+
+.biomeBar {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 2rem;
+  border: 3px solid #383838;
+}
+
+.biome {
+  background: #53555F;
+  height: 6rem;
+  width: 6rem;
+  margin: 0rem 2rem;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 0.5rem;
+}
+
+.activeBiome {
+  width: 7rem;
+  height: 7rem;
+  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+  border: 3px solid #383838;
+  background: #2B2C31;
+  border-radius: 50%;
+  margin-top: 0;
+}
+
+.normalBiome {
+  background: #9F9F9F;
+}
+
+.grassBiome {
+  background: #14A653;
 }
 /*# sourceMappingURL=style.css.map */

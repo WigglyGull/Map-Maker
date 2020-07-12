@@ -13,7 +13,19 @@ $gridSize: 6rem;
 $gridBorderSize: 0.4rem;
 $grid: calc(6rem - 0.4rem);
 
+//Mixins
+@mixin activeBiome($color) {
+    width: 7rem;
+    height: 7rem;
+    box-shadow: $boxShadowActive;
+    border: 3px solid $color;
+    background: $uiHighlight;
+    border-radius: 50%;
+    position: relative;
+}
+
 //Imports
 @import "global";
 @import "toolBar";
 @import "grid";
+@import "biome";

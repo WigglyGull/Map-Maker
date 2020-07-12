@@ -1,29 +1,35 @@
-.toolBar{
-    display: inline-block;
+.biomeBar{
+    display: inline-flex;
     margin: 2rem;
-    position: absolute;
 }
-.tool{
+.biome{
     background: $uiColor;
     height: 6rem;
     width: 6rem;
-    margin: 2rem 0rem;
+    margin: 0rem 2rem;
     border-radius: 50%;
     box-shadow: $boxShadow;
+    transform-origin: center;
 
     //Centers icons
     display: flex;
     justify-content: center; 
     align-items: center;
+    margin-top: 0.5rem;
 }
-
-.activeTool{
+.activeBiome{
     width: 7rem;
     height: 7rem;
     box-shadow: $boxShadowActive;
-    border: 3px solid white;
+    border: 3px solid $roomDarkGrey;
     background: $uiHighlight;
     border-radius: 50%;
-    position: relative;
-    right: 0.5rem;
+    margin-top: 0;
+}
+
+.normalBiome{
+    background: $roomGrey;
+}
+.grassBiome{
+    background: $roomGreen;
 }
