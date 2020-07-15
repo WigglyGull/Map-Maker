@@ -1,10 +1,10 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Menu } = require("electron");
 const windowStateKeeper = require("electron-window-state");
 
 //Sets Up Window
 function createWindow(){
-    const _width = 1045;
-    const _height = 660;
+    const _width = 1300;
+    const _height = 850;
 
     let winState = windowStateKeeper({
         defaultWidth: _width, defaultHeight:_height
@@ -12,7 +12,7 @@ function createWindow(){
 
     let mainWindow = new BrowserWindow({
         width: _width, height: _height,
-        minWidth: _width, minHeight: _height, maxWidth: _width, maxHeight: _height,
+        minWidth: _width, minHeight: _height, maxWidth:_width, maxHeight: _height,
         x: winState.x, y: winState.y,
         webPreferences: {
             nodeIntegration: true,
@@ -21,6 +21,10 @@ function createWindow(){
 
     mainWindow.loadFile('renderer/main.html');
     mainWindow.webContents.openDevTools();
+
+    const template = [];
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
 
     winState.manage(mainWindow);
 }

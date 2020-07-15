@@ -1,13 +1,16 @@
-const mapX = 0;
-const mapY = 0;
+const map = document.querySelector(".map");
+const mapRows = 16;
+const mapColumns = 9;
+
+createGrid();
 
 function createGrid(){
-    const map = document.querySelector(".map");
     if(map === null) return;
-    for (let index = 0; index < 135; index++) {
+    const amountofSqaures = mapRows * mapColumns;
+
+    for (let index = 0; index < amountofSqaures; index++) {
         const grid = document.createElement("div");
         grid.classList.add("grid");
         map.appendChild(grid);
     }
 }
-createGrid();

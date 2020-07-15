@@ -7,18 +7,23 @@
 
 html {
   font-size: 10px;
+  height: 100%;
 }
 
 body {
   color: #F9F9F9;
   position: static;
   overflow: hidden;
+  height: 100%;
 }
 
 .toolBar {
   display: inline-block;
-  margin: 2rem;
   position: absolute;
+  left: 0%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .tool {
@@ -52,29 +57,42 @@ body {
   right: 0.5rem;
 }
 
+.centerMap {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .map {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem);
-      grid-template-columns: calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem);
-  -ms-grid-rows: calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem);
-      grid-template-rows: calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem) calc(6rem - 0.4rem);
+  -ms-grid-columns: calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem);
+      grid-template-columns: calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem);
+  -ms-grid-rows: calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem);
+      grid-template-rows: calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem);
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  margin: auto;
-  margin-top: 3.5rem;
+  position: relative;
   border-left: 0.4rem solid #383838;
   border-bottom: 0.4rem solid #383838;
 }
 
 .grid {
   border: 0.4rem solid #DADEEB;
-  width: 6rem;
-  height: 6rem;
+  width: 7rem;
+  height: 7rem;
   z-index: -1;
 }
 
@@ -82,8 +100,11 @@ body {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  margin: 2rem;
-  border: 3px solid #383838;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
 }
 
 .biome {
