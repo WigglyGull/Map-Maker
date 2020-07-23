@@ -9,10 +9,11 @@
 .map{
     display: grid;
     grid-template-columns: $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid;
-    grid-template-rows: $grid $grid $grid $grid $grid $grid $grid $grid $grid;
+    grid-template-rows: $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid;
     width: fit-content;
     height: fit-content;
     position: relative;
+    top: -1rem;
 
     border-left: $gridBorderSize solid #383838;
     border-bottom: $gridBorderSize solid #383838;

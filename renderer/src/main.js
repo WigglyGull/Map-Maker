@@ -1,16 +1,13 @@
+const grid = require("./src/grid.js");
+const tool = require("./src/tool.js");
+const biome = require("./src/biome.js");
+
 const map = document.querySelector(".map");
-const mapRows = 16;
-const mapColumns = 9;
+const toolBar = document.querySelector(".toolBar");
+const biomeBar = document.querySelector(".biomeBar");
+let tools = document.querySelectorAll(".tool");
+let biomes = document.querySelectorAll(".biome");
 
-createGrid();
-
-function createGrid(){
-    if(map === null) return;
-    const amountofSqaures = mapRows * mapColumns;
-
-    for (let index = 0; index < amountofSqaures; index++) {
-        const grid = document.createElement("div");
-        grid.classList.add("grid");
-        map.appendChild(grid);
-    }
-}
+grid.createGrid(map);
+tool.createToolbar(tools);
+biome.createBiome(biomes);

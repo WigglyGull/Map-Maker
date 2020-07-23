@@ -52,9 +52,6 @@ body {
           box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
   border: 3px solid white;
   background: #2B2C31;
-  border-radius: 50%;
-  position: relative;
-  right: 0.5rem;
 }
 
 .centerMap {
@@ -76,8 +73,8 @@ body {
   display: grid;
   -ms-grid-columns: calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem);
       grid-template-columns: calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem);
-  -ms-grid-rows: calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem);
-      grid-template-rows: calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem);
+  -ms-grid-rows: calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem);
+      grid-template-rows: calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem) calc(7rem - 0.4rem);
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -85,6 +82,7 @@ body {
   height: -moz-fit-content;
   height: fit-content;
   position: relative;
+  top: -1rem;
   border-left: 0.4rem solid #383838;
   border-bottom: 0.4rem solid #383838;
 }
