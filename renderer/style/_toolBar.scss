@@ -1,8 +1,11 @@
 .toolBar{
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     position: absolute;
-    left: 0%;
+    left: -0.3rem;
     top: 50%;
     transform: translate(-50%, -50%);
 }
@@ -10,7 +13,7 @@
     background: $uiColor;
     height: 6rem;
     width: 6rem;
-    margin: 2rem 0rem;
+    margin: 1rem 0rem;
     border-radius: 50%;
     box-shadow: $boxShadow;
 
