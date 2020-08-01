@@ -9,9 +9,11 @@ $boxShadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
 $boxShadowActive: 0px 7px 5px rgba(0, 0, 0, 0.25);
 
 //Sizes
-$gridSize: 7rem;
+$gridSize: 7.5rem;
+//roomsize is gird - gird*2
+$roomSize: calc(7.5rem - 0.8rem);
 $gridBorderSize: 0.4rem;
-$grid: calc(7rem - 0.4rem);
+$grid: calc(7.5rem - 0.4rem);
 
 //Mixins
 @mixin activeBiome($color) {

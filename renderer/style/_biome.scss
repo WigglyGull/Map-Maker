@@ -1,8 +1,8 @@
 .biomeBar{
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid $roomDarkGrey;
+    flex-direction: row;
 
     position: absolute;
     bottom: 0%;
@@ -16,13 +16,11 @@
     margin: 0rem 2rem;
     border-radius: 50%;
     box-shadow: $boxShadow;
-    transform-origin: center;
 
     //Centers icons
     display: flex;
     justify-content: center; 
     align-items: center;
-    margin-top: 0.5rem;
 }
 .activeBiome{
     width: 7rem;

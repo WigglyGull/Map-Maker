@@ -7,13 +7,10 @@
     align-items: center;
 }
 .map{
-    display: grid;
-    grid-template-columns: $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid;
-    grid-template-rows: $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid;
     width: fit-content;
     height: fit-content;
     position: relative;
-    top: -1rem;
+    top: -1.7rem;
 
     border-left: $gridBorderSize solid #383838;
     border-bottom: $gridBorderSize solid #383838;
@@ -23,4 +20,21 @@
     width: $gridSize;
     height: $gridSize;
     z-index: -1;
+}
+.gridHolder{
+    display: grid;
+    grid-template-columns: $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid;
+    grid-template-rows: $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid;
+}
+.room{
+    width: $roomSize;
+    height: $roomSize;
+    background: $roomGrey;
+
+    border: 0.3rem solid $roomDarkGrey;
+    border-radius:  0.4rem;
+    z-index: 1;
+}
+.check{
+    background: black;
 }
