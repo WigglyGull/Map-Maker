@@ -97,7 +97,6 @@ body {
   border: 0.4rem solid #DADEEB;
   width: 7.5rem;
   height: 7.5rem;
-  z-index: -1;
 }
 
 .gridHolder {
@@ -115,7 +114,6 @@ body {
   background: #9F9F9F;
   border: 0.3rem solid #383838;
   border-radius: 0.4rem;
-  z-index: 1;
 }
 
 .check {
