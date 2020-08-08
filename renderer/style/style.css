@@ -173,6 +173,7 @@ body {
   background: #9F9F9F;
   position: absolute;
   border: 0.3rem solid #383838;
+  border-radius: 0.4rem;
 }
 
 .room-left {

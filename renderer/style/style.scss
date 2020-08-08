@@ -19,8 +19,7 @@ $grid: calc(7.5rem - 0.4rem);
 
 //Mixins
 @mixin baseRoom() {
-    width: $roomSize;
-    height: $roomSize;
+    width: $roomSize; height: $roomSize;
     background: $roomGrey;
     position: absolute;
 }

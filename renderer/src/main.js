@@ -12,3 +12,5 @@ let biomes = document.querySelectorAll(".biome");
 grid.createGrid(gridHolder);
 tool.createToolbar(tools);
 biome.createBiome(biomes);
+
+tool.setActive(tools[0], tools);

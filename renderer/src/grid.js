@@ -1,6 +1,6 @@
-const mapRows = 16;
-const mapColumns = 10;
-
+const room = require("./room");
+exports.mapRows = 16;
+exports.mapColumns = 10;
 exports.gridList = [];
 
 exports.createGrid = gridHolder => {
@@ -10,7 +10,7 @@ exports.createGrid = gridHolder => {
     }
 
     //Spawns the grid
-    const amountofSqaures = mapRows * mapColumns;
+    const amountofSqaures = this.mapRows * this.mapColumns;
     for (let index = 0; index < amountofSqaures; index++) {
         const grid = document.createElement("div");
         grid.classList.add("grid");
@@ -18,21 +18,13 @@ exports.createGrid = gridHolder => {
         gridHolder.appendChild(grid);
         
         grid.addEventListener("click", ()=>{
-            createRoom(grid);
+            room.createNewRoom(grid, "room");
         });
         grid.addEventListener("contextmenu", ()=>{
-            addRoom(grid);
+            const direction = room.findPos(grid);
+            if(direction[0] === false && direction[1] === false && direction[2] === false && direction[3] === false) room.createNewRoom(grid, "room");
+            else room.createRoom(grid, direction);
         });
     }
     this.gridList = document.querySelectorAll(".grid");
-}
-
-function createRoom(grid){
-    const room = document.createElement("div");
-    room.classList.add("room");
-    grid.appendChild(room);
-}
-
-function addRoom(grid){
-    createRoom(grid);
 }
