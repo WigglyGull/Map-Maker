@@ -22,9 +22,9 @@ function createWindow(){
     mainWindow.loadFile('renderer/main.html');
     mainWindow.webContents.openDevTools();
 
-    const template = [];
-    const menu = Menu.buildFromTemplate(template);
-    Menu.setApplicationMenu(menu);
+    // const template = [];
+    // const menu = Menu.buildFromTemplate(template);
+    // Menu.setApplicationMenu(menu);
 
     winState.manage(mainWindow);
 }

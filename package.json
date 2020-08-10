@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A tool to make maps",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
     "start": "electron ."
   },

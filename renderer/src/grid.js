@@ -16,12 +16,6 @@ exports.createGrid = gridHolder => {
         grid.classList.add("grid");
         grid.classList.add(`${index}`);
         gridHolder.appendChild(grid);
-
-        if(index === 85){
-            const room = document.createElement("div");
-            room.classList.add("room-left-right-up-down");
-            grid.appendChild(room);
-        }
         
         grid.addEventListener("click", ()=>{
             if(grid.firstChild !== null) return;

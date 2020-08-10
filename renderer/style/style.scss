@@ -13,15 +13,16 @@ $gridSize: 7.5rem;
 //roomsize is gird - gird+0.5
 $roomSize: calc(7.5rem - 0.8rem);
 $roomSizeFacing: calc(8rem - 0.8rem);
-$roomSizeFacingDouble: calc(9.5rem - 0.8rem);
+$roomSizeFacingDouble: calc(8.5rem - 0.8rem);
 $gridBorderSize: 0.4rem;
 $grid: calc(7.5rem - 0.4rem);
 
 //Mixins
-@mixin baseRoom() {
-    width: $roomSize; height: $roomSize;
+@mixin baseRoom($width, $height, $index) {
+    width: $width; height: $height;
     background: $roomGrey;
     position: absolute;
+    z-index: $index;
 }
 
 //Imports

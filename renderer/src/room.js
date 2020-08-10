@@ -1,3 +1,4 @@
+
 const gridItem = require("./grid.js");
 
 exports.findPos = grid => {
