@@ -1,55 +1,64 @@
-
 const gridItem = require("./grid.js");
 
-exports.findPos = grid => {
-    let left=false, right=false, top=false, bottom = false;
-    const neighbours = getNeighbours(grid);
-    const [leftGrid, rightGrid, topGrid, bottomGrid] = neighbours;
-    if(leftGrid !== undefined && leftGrid.firstChild !== null) left = true;
-    if(rightGrid !== undefined && rightGrid.firstChild !== null) right = true;
-    if(topGrid !== undefined && topGrid.firstChild !== null) top = true;
-    if(bottomGrid !== undefined && bottomGrid.firstChild !== null) bottom = true;
+exports.roomList = [];
 
-    return directions = [left, right, top, bottom];
+exports.findPos = (grid) => {
+    const directions = [left = false, right = false, top = false, bottom = false];
+    const neighbours = getNeighbours(grid);
+
+    if(directions.length !== neighbours.length) throw "Hey idoit these values aren't matching!!!!!";
+    for (let i = 0; i < directions.length; i++) {
+        if(neighbours[i] === undefined) continue;
+        if(neighbours[i].firstChild !== null) directions[i] = true;
+    }
+    return directions;
 }
 
 exports.createRoom = grid =>{
     const neighbours = getNeighbours(grid);
-    const [leftGrid, rightGrid, topGrid, bottomGrid] = neighbours;
     const directions = this.findPos(grid);
     const roomString = getClass(directions);
+    this.createNewRoom(grid, roomString);
+    
+    neighbours.forEach(neighbour =>{
+        if(neighbour === undefined) return;
+        if(neighbour.firstChild !== null) this.changeNeighbour(neighbour);
+    });
+}
 
+exports.createNewRoom = (grid, roomString)=>{
     const room = document.createElement("div");
     room.classList.add(roomString);
     grid.appendChild(room);
-    
-    if(leftGrid !== undefined && leftGrid.firstChild !== null) this.changeNeighbour(leftGrid);
-    if(rightGrid !== undefined && rightGrid.firstChild !== null) this.changeNeighbour(rightGrid);
-    if(topGrid !== undefined && topGrid.firstChild !== null) this.changeNeighbour(topGrid);
-    if(bottomGrid !== undefined && bottomGrid.firstChild !== null) this.changeNeighbour(bottomGrid);
+    this.roomList.push(room);
+    console.log();
 }
 
-exports.createNewRoom = (grid)=>{
-    const room = document.createElement("div");
-    room.classList.add("room");
-    grid.appendChild(room);
-}
-
-exports.changeNeighbour = grid => {
-    const leftDirections = this.findPos(grid);
-    const leftRoomString = getClass(leftDirections);
+exports.changeNeighbour = (grid) => {
+    const directions = this.findPos(grid);
+    const roomString = getClass(directions);
     grid.firstChild.classList.remove(grid.firstChild.classList.item(0));
-    grid.firstChild.classList.add(leftRoomString);
+    grid.firstChild.classList.add(roomString);
+}
+
+exports.fillSqaures = () => {
+    const gridList = gridItem.gridList;
+    gridList.forEach(grid =>{
+        const index = Number(grid.classList.item(1));
+        rightGrid = gridList[index + 1]
+    });
 }
 
 function getNeighbours(grid){
     const index = Number(grid.classList.item(1));
-    const leftGrid = gridItem.gridList[index-1];
-    const rightGrid = gridItem.gridList[index+1];
+    let leftGrid = gridItem.gridList[index-1];
+    if(gridItem.checkLeftSide(grid)) leftGrid = undefined;
+    let rightGrid = gridItem.gridList[index+1];
+    if(gridItem.checkRightSide(grid)) rightGrid = undefined;
+
     const topGrid = gridItem.gridList[index - gridItem.mapRows];
     const bottomGrid = gridItem.gridList[index + gridItem.mapRows];
-
-    return nieghbours = [leftGrid, rightGrid, topGrid, bottomGrid];
+    return neighbours = [leftGrid, rightGrid, topGrid, bottomGrid];
 }
 
 function getClass(directions){
