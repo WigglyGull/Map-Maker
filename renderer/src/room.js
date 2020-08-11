@@ -15,6 +15,7 @@ exports.findPos = (grid) => {
 }
 
 exports.createRoom = grid =>{
+    fillSqaures();
     const neighbours = getNeighbours(grid);
     const directions = this.findPos(grid);
     const roomString = getClass(directions);
@@ -24,6 +25,7 @@ exports.createRoom = grid =>{
         if(neighbour === undefined) return;
         if(neighbour.firstChild !== null) this.changeNeighbour(neighbour);
     });
+    fillSqaures();
 }
 
 exports.createNewRoom = (grid, roomString)=>{
@@ -31,7 +33,7 @@ exports.createNewRoom = (grid, roomString)=>{
     room.classList.add(roomString);
     grid.appendChild(room);
     this.roomList.push(room);
-    console.log();
+    fillSqaures();
 }
 
 exports.changeNeighbour = (grid) => {
@@ -41,12 +43,35 @@ exports.changeNeighbour = (grid) => {
     grid.firstChild.classList.add(roomString);
 }
 
-exports.fillSqaures = () => {
+function fillSqaures(){
     const gridList = gridItem.gridList;
     gridList.forEach(grid =>{
         const index = Number(grid.classList.item(1));
-        rightGrid = gridList[index + 1]
+        let rightGrid = gridItem.gridList[index+1];
+        if(gridItem.checkRightSide(grid)) rightGrid = undefined;
+        const bottomGrid = gridItem.gridList[index + gridItem.mapRows];
+        const bottomRightGrid = gridItem.gridList[index + (gridItem.mapRows+1)];
+
+        if(rightGrid !== undefined && bottomGrid !== undefined && bottomRightGrid !== undefined){
+            if(grid.firstChild !== null && rightGrid.firstChild !== null && bottomGrid.firstChild !== null && bottomRightGrid.firstChild !== null){
+                const roomString = grid.firstChild.classList.item(0);
+                if(roomString ==="room-right-down"){
+                    grid.firstChild.style.width = "7.2rem";
+                    grid.firstChild.style.height = "7.2rem";
+                }else if(roomString === "room-left-right-down") resetStyle(grid, roomString, "room-left-right-down-fill");
+                else if(roomString === "room-right-up-down") resetStyle(grid, roomString, "room-right-up-down-fill");
+                else if(roomString === "room-left-right-up-down") resetStyle(grid, roomString, "room-left-right-up-down-fill");
+                
+            }
+        }else return;
+        
     });
+}
+function resetStyle(grid, roomString, newString){
+    grid.firstChild.style.width = "";
+    grid.firstChild.style.height = "";
+    grid.firstChild.classList.remove(roomString);
+    grid.firstChild.classList.add(newString);
 }
 
 function getNeighbours(grid){

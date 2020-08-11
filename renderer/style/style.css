@@ -88,7 +88,9 @@ body {
   height: -moz-fit-content;
   height: fit-content;
   position: relative;
-  top: -2.4rem;
+  top: -2rem;
+  padding-bottom: 0.4rem;
+  padding-right: 0.4rem;
   border-left: 0.4rem solid #383838;
   border-bottom: 0.4rem solid #383838;
 }
@@ -452,6 +454,82 @@ body {
 }
 
 .room-left-right-up-down::after {
+  content: "";
+  width: calc(7.5rem - 0.8rem);
+  height: calc(8.5rem - 0.8rem);
+  background: #9F9F9F;
+  position: absolute;
+  z-index: 1;
+  -webkit-transform: translate(0.5rem, -0.5rem);
+          transform: translate(0.5rem, -0.5rem);
+}
+
+.room-left-right-down-fill {
+  width: calc(8.5rem - 0.8rem);
+  height: calc(7.5rem - 0.8rem);
+  background: #9F9F9F;
+  position: absolute;
+  z-index: 1;
+  border-top: 0.3rem solid #383838;
+  -webkit-transform: translate(-0.5rem, 0rem);
+          transform: translate(-0.5rem, 0rem);
+}
+
+.room-left-right-down-fill::after {
+  content: "";
+  width: calc(8rem - 0.8rem);
+  height: 5rem;
+  background: #9F9F9F;
+  position: absolute;
+  z-index: 2;
+  -webkit-transform: translate(0.5rem, 2rem);
+          transform: translate(0.5rem, 2rem);
+}
+
+.room-right-up-down-fill {
+  width: calc(7.5rem - 0.8rem);
+  height: calc(8.5rem - 0.8rem);
+  background: #9F9F9F;
+  position: absolute;
+  z-index: 1;
+  border-left: 0.3rem solid #383838;
+  -webkit-transform: translate(0rem, -0.5rem);
+          transform: translate(0rem, -0.5rem);
+}
+
+.room-right-up-down-fill::after {
+  content: "";
+  width: 5rem;
+  height: calc(8rem - 0.8rem);
+  background: #9F9F9F;
+  position: absolute;
+  z-index: 2;
+  -webkit-transform: translate(1.8rem, 0.5rem);
+          transform: translate(1.8rem, 0.5rem);
+}
+
+.room-left-right-up-down-fill {
+  width: calc(8.5rem - 0.8rem);
+  height: calc(7.5rem - 0.8rem);
+  background: #9F9F9F;
+  position: absolute;
+  z-index: 1;
+  -webkit-transform: translate(-0.5rem, 0rem);
+          transform: translate(-0.5rem, 0rem);
+}
+
+.room-left-right-up-down-fill::before {
+  content: "";
+  width: calc(7.5rem - 0.8rem);
+  height: calc(7.5rem - 0.8rem);
+  background: #9F9F9F;
+  position: absolute;
+  z-index: 1;
+  -webkit-transform: translate(1rem, 0.5rem);
+          transform: translate(1rem, 0.5rem);
+}
+
+.room-left-right-up-down-fill::after {
   content: "";
   width: calc(7.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);

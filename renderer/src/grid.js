@@ -61,7 +61,6 @@ exports.checkRightSide = grid => {
     }
     return false;
 }
-
 exports.gridIndex = grid => {
     return Number(grid.classList.item(1));
 }
