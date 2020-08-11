@@ -2,6 +2,7 @@ const gridItem = require("./grid.js");
 
 exports.roomList = [];
 
+//Sets direction depending if the neighbouring grids have a room
 exports.findPos = (grid) => {
     const directions = [left = false, right = false, top = false, bottom = false];
     const neighbours = getNeighbours(grid);
@@ -14,6 +15,7 @@ exports.findPos = (grid) => {
     return directions;
 }
 
+//Joins a room to another room and changes neighbours
 exports.createRoom = grid =>{
     fillSqaures();
     const neighbours = getNeighbours(grid);
@@ -23,11 +25,17 @@ exports.createRoom = grid =>{
     
     neighbours.forEach(neighbour =>{
         if(neighbour === undefined) return;
-        if(neighbour.firstChild !== null) this.changeNeighbour(neighbour);
+        if(neighbour.firstChild !== null){
+            const directions = this.findPos(grid);
+            const roomString = getClass(directions);
+            grid.firstChild.classList.remove(grid.firstChild.classList.item(0));
+            grid.firstChild.classList.add(roomString);
+        }
     });
     fillSqaures();
 }
 
+//Spawns a sperate room
 exports.createNewRoom = (grid, roomString)=>{
     const room = document.createElement("div");
     room.classList.add(roomString);
@@ -36,13 +44,7 @@ exports.createNewRoom = (grid, roomString)=>{
     fillSqaures();
 }
 
-exports.changeNeighbour = (grid) => {
-    const directions = this.findPos(grid);
-    const roomString = getClass(directions);
-    grid.firstChild.classList.remove(grid.firstChild.classList.item(0));
-    grid.firstChild.classList.add(roomString);
-}
-
+//Goes through all the grids changing the class if it makes a sqaure
 function fillSqaures(){
     const gridList = gridItem.gridList;
     gridList.forEach(grid =>{
@@ -55,25 +57,23 @@ function fillSqaures(){
         if(rightGrid !== undefined && bottomGrid !== undefined && bottomRightGrid !== undefined){
             if(grid.firstChild !== null && rightGrid.firstChild !== null && bottomGrid.firstChild !== null && bottomRightGrid.firstChild !== null){
                 const roomString = grid.firstChild.classList.item(0);
-                if(roomString ==="room-right-down"){
-                    grid.firstChild.style.width = "7.2rem";
-                    grid.firstChild.style.height = "7.2rem";
-                }else if(roomString === "room-left-right-down") resetStyle(grid, roomString, "room-left-right-down-fill");
-                else if(roomString === "room-right-up-down") resetStyle(grid, roomString, "room-right-up-down-fill");
-                else if(roomString === "room-left-right-up-down") resetStyle(grid, roomString, "room-left-right-up-down-fill");
-                
+                switch(roomString){
+                    case "room-right-down": resetStyle(grid, roomString, "room-right-down-fill"); break;
+                    case "room-left-right-down": resetStyle(grid, roomString, "room-left-right-down-fill"); break;
+                    case "room-right-up-down": resetStyle(grid, roomString, "room-right-up-down-fill"); break;    
+                    case "room-left-right-up-down": resetStyle(grid, roomString, "room-left-right-up-down-fill"); break;    
+                }
             }
         }else return;
-        
     });
 }
 function resetStyle(grid, roomString, newString){
-    grid.firstChild.style.width = "";
-    grid.firstChild.style.height = "";
+    grid.style.background = "#9F9F9F";
     grid.firstChild.classList.remove(roomString);
     grid.firstChild.classList.add(newString);
 }
 
+//Returns the surrounding grids
 function getNeighbours(grid){
     const index = Number(grid.classList.item(1));
     let leftGrid = gridItem.gridList[index-1];
@@ -86,6 +86,7 @@ function getNeighbours(grid){
     return neighbours = [leftGrid, rightGrid, topGrid, bottomGrid];
 }
 
+//Returns a class depending on position
 function getClass(directions){
     let roomString = "";
     const [left, right, up, down] = directions;

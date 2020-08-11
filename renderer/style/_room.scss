@@ -34,47 +34,48 @@
 .room-left-up{
     @include baseRoom($roomSizeFacing, $roomSize, 1);
     transform: translateX(-0.5rem);
-    border-bottom: 0.3rem solid $roomDarkGrey; border-right: 0.3rem solid $roomDarkGrey; border-bottom-right-radius: 0.4rem;
+    border-bottom: 0.3rem solid $roomDarkGrey; border-right: 0.3rem solid $roomDarkGrey; border-bottom-right-radius: 0.4rem; border-top: 0.3rem solid $roomDarkGrey;
 }
 .room-left-up::after{
     content:"";
-    @include baseRoom(6.4rem, 2rem, 1);
-    border-right: 0.3rem solid $roomDarkGrey;
-    transform: translate(0.5rem, -0.5rem);
+    @include baseRoom(6.1rem, 0.7rem, 1);
+    border-right: 0.3rem solid $roomDarkGrey; border-left: 0.3rem solid $roomDarkGrey;
+    transform: translate(0.5rem, -0.7rem);
 }
 
 .room-left-down{
     @include baseRoom($roomSizeFacing, $roomSize, 1);
     transform: translateX(-0.5rem);
     border-top: 0.3rem solid $roomDarkGrey; border-right: 0.3rem solid $roomDarkGrey; border-top-right-radius: 0.4rem;
+    border-bottom: 0.3rem solid $roomDarkGrey;
 }
 .room-left-down::after{
     content:"";
-    @include baseRoom(6.4rem, 2rem, 1);
-    transform: translate(0.5rem, 5rem);
-    border-right: 0.3rem solid $roomDarkGrey;
+    @include baseRoom(6.1rem, 0.7rem, 1);
+    transform: translate(0.5rem, 6.1rem);
+    border-right: 0.3rem solid $roomDarkGrey; border-left: 0.3rem solid $roomDarkGrey;
 }
 
 .room-right-up{
     @include baseRoom($roomSizeFacing, $roomSize, 1);
-    border-bottom: 0.3rem solid $roomDarkGrey; border-left: 0.3rem solid $roomDarkGrey; border-bottom-left-radius: 0.4rem;
+    border-bottom: 0.3rem solid $roomDarkGrey; border-left: 0.3rem solid $roomDarkGrey; border-bottom-left-radius: 0.4rem;border-top: 0.3rem solid $roomDarkGrey;
 }
 .room-right-up::after{
     content:"";
-    @include baseRoom(6.4rem, 2rem, 1);
-    transform: translate(-0.3rem, -0.5rem);
-    border-left: 0.3rem solid $roomDarkGrey;
+    @include baseRoom(6.1rem, 0.7rem, 1);
+    transform: translate(-0.3rem, -0.7rem);
+    border-left: 0.3rem solid $roomDarkGrey;border-right: 0.3rem solid $roomDarkGrey;           
 }
 
 .room-right-down{
     @include baseRoom($roomSizeFacing, $roomSize, 1);
-    border-top: 0.3rem solid $roomDarkGrey; border-left: 0.3rem solid $roomDarkGrey; border-top-left-radius: 0.4rem;
+    border-top: 0.3rem solid $roomDarkGrey; border-left: 0.3rem solid $roomDarkGrey; border-top-left-radius: 0.4rem; border-bottom: 0.3rem solid $roomDarkGrey;
 }
 .room-right-down::after{
     content:"";
-    @include baseRoom(6.4rem, 2rem, 1);
-    transform: translate(-0.3rem, 5rem);
-    border-left: 0.3rem solid $roomDarkGrey;
+    @include baseRoom(6.1rem, 0.7rem, 1);
+    transform: translate(-0.3rem, 6.1rem);
+    border-left: 0.3rem solid $roomDarkGrey; border-right: 0.3rem solid $roomDarkGrey;
 }
 
 .room-up-down{
@@ -85,54 +86,66 @@
 
 .room-left-right-up{
     @include baseRoom($roomSizeFacingDouble, $roomSize, 1);
-    border-bottom: 0.3rem solid $roomDarkGrey;
+    border-bottom: 0.3rem solid $roomDarkGrey; border-top: 0.3rem solid $roomDarkGrey;
     transform: translate(-0.5rem,0rem);
 }
 .room-left-right-up::after{
     content: "";
-    @include baseRoom($roomSize, 5rem, 2);
-    transform: translate(0.5rem, -0.5rem);
+    @include baseRoom(6.1rem, 0.7rem, 2);
+    transform: translate(0.5rem, -0.7rem);
+    border-left: 0.3rem solid $roomDarkGrey; border-right: 0.3rem solid $roomDarkGrey;
 }
 
 .room-right-up-down{
     @include baseRoom($roomSize, $roomSizeFacingDouble, 1);
-    border-left: 0.3rem solid $roomDarkGrey;
+    border-left: 0.3rem solid $roomDarkGrey; border-right: 0.3rem solid $roomDarkGrey;
     transform: translate(-0rem,-0.5rem);
 }
 .room-right-up-down::after{
     content: "";
-    @include baseRoom(5rem, $roomSize, 2);
-    transform: translate(1.8rem, 0.5rem);
+    @include baseRoom(0.7rem, 6.1rem, 2);
+    transform: translate(6.1rem, 0.5rem);
+    border-top: 0.3rem solid $roomDarkGrey; border-bottom: 0.3rem solid $roomDarkGrey;
 }
 
 .room-left-right-down{
     @include baseRoom($roomSizeFacingDouble, $roomSize, 1);
-    border-top: 0.3rem solid $roomDarkGrey;
+    border-top: 0.3rem solid $roomDarkGrey; border-bottom: 0.3rem solid $roomDarkGrey;
     transform: translate(-0.5rem,0rem);
 }
 .room-left-right-down::after{
     content: "";
-    @include baseRoom($roomSize, 5rem, 2);
-    transform: translate(0.5rem, 2rem);
+    @include baseRoom(6.1rem, 0.7rem, 2);
+    transform: translate(0.5rem, 6.1rem);
+    border-left: 0.3rem solid $roomDarkGrey; border-right: 0.3rem solid $roomDarkGrey;
 }
 
 .room-left-up-down{
     @include baseRoom($roomSize, $roomSizeFacingDouble, 1);
-    border-right: 0.3rem solid $roomDarkGrey;
+    border-right: 0.3rem solid $roomDarkGrey; border-left: 0.3rem solid $roomDarkGrey;
     transform: translate(-0rem,-0.5rem);
 }
 .room-left-up-down::after{
     content: "";
-    @include baseRoom(5rem, $roomSize, 2);
-    transform: translate(-0.5rem, 0.5rem);
+    @include baseRoom(0.7rem, 6.1rem, 2);
+    border-top: 0.3rem solid $roomDarkGrey; border-bottom: 0.3rem solid $roomDarkGrey;
+    transform: translate(-0.7rem, 0.5rem);
 }
 
 .room-left-right-up-down{
     @include baseRoom($roomSizeFacingDouble, $roomSize, 1);
+    border-top: 0.3rem solid $roomDarkGrey; border-bottom: 0.3rem solid $roomDarkGrey;
     transform: translate(-0.5rem,0rem);
 }
 .room-left-right-up-down::after{
     content: "";
-    @include baseRoom($roomSize, $roomSizeFacingDouble, 1);
-    transform: translate(0.5rem, -0.5rem);
+    @include baseRoom(6.1rem, 0.7rem, 1);
+    border-left: 0.3rem solid $roomDarkGrey; border-right: 0.3rem solid $roomDarkGrey;
+    transform: translate(0.5rem, -0.7rem);
+}
+.room-left-right-up-down::before{
+    content: "";
+    @include baseRoom(6.1rem, 0.7rem, 1);
+    border-left: 0.3rem solid $roomDarkGrey; border-right: 0.3rem solid $roomDarkGrey;
+    transform: translate(0.5rem,6.1rem);
 }
