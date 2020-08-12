@@ -25,12 +25,7 @@ exports.createRoom = grid =>{
     
     neighbours.forEach(neighbour =>{
         if(neighbour === undefined) return;
-        if(neighbour.firstChild !== null){
-            const directions = this.findPos(grid);
-            const roomString = getClass(directions);
-            grid.firstChild.classList.remove(grid.firstChild.classList.item(0));
-            grid.firstChild.classList.add(roomString);
-        }
+        if(neighbour.firstChild !== null) this.changeNeighbour(neighbour);
     });
     fillSqaures();
 }
@@ -42,6 +37,14 @@ exports.createNewRoom = (grid, roomString)=>{
     grid.appendChild(room);
     this.roomList.push(room);
     fillSqaures();
+}
+
+//Changes class to fit with the new room placement
+exports.changeNeighbour = (grid) => {
+    const directions = this.findPos(grid);
+    const roomString = getClass(directions);
+    grid.firstChild.classList.remove(grid.firstChild.classList.item(0));
+    grid.firstChild.classList.add(roomString);
 }
 
 //Goes through all the grids changing the class if it makes a sqaure
