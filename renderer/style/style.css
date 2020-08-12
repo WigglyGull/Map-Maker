@@ -169,16 +169,6 @@ body {
   background: #14A653;
 }
 
-.room {
-  width: calc(7.5rem - 0.8rem);
-  height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
-  position: absolute;
-  z-index: 2;
-  border: 0.3rem solid #383838;
-  border-radius: 0.4rem;
-}
-
 .room-left {
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
@@ -295,10 +285,10 @@ body {
   background: #9F9F9F;
   position: absolute;
   z-index: 1;
-  -webkit-transform: translate(0.5rem, 6.1rem);
-          transform: translate(0.5rem, 6.1rem);
   border-right: 0.3rem solid #383838;
   border-left: 0.3rem solid #383838;
+  -webkit-transform: translate(0.5rem, 6.1rem);
+          transform: translate(0.5rem, 6.1rem);
 }
 
 .room-right-up {
@@ -320,10 +310,10 @@ body {
   background: #9F9F9F;
   position: absolute;
   z-index: 1;
+  border-right: 0.3rem solid #383838;
+  border-left: 0.3rem solid #383838;
   -webkit-transform: translate(-0.3rem, -0.7rem);
           transform: translate(-0.3rem, -0.7rem);
-  border-left: 0.3rem solid #383838;
-  border-right: 0.3rem solid #383838;
 }
 
 .room-right-down {
@@ -345,10 +335,10 @@ body {
   background: #9F9F9F;
   position: absolute;
   z-index: 1;
+  border-right: 0.3rem solid #383838;
+  border-left: 0.3rem solid #383838;
   -webkit-transform: translate(-0.3rem, 6.1rem);
           transform: translate(-0.3rem, 6.1rem);
-  border-left: 0.3rem solid #383838;
-  border-right: 0.3rem solid #383838;
 }
 
 .room-up-down {
@@ -382,10 +372,10 @@ body {
   background: #9F9F9F;
   position: absolute;
   z-index: 2;
+  border-right: 0.3rem solid #383838;
+  border-left: 0.3rem solid #383838;
   -webkit-transform: translate(0.5rem, -0.7rem);
           transform: translate(0.5rem, -0.7rem);
-  border-left: 0.3rem solid #383838;
-  border-right: 0.3rem solid #383838;
 }
 
 .room-right-up-down {
@@ -394,8 +384,8 @@ body {
   background: #9F9F9F;
   position: absolute;
   z-index: 1;
-  border-left: 0.3rem solid #383838;
   border-right: 0.3rem solid #383838;
+  border-left: 0.3rem solid #383838;
   -webkit-transform: translate(0rem, -0.5rem);
           transform: translate(0rem, -0.5rem);
 }
@@ -432,10 +422,10 @@ body {
   background: #9F9F9F;
   position: absolute;
   z-index: 2;
+  border-right: 0.3rem solid #383838;
+  border-left: 0.3rem solid #383838;
   -webkit-transform: translate(0.5rem, 6.1rem);
           transform: translate(0.5rem, 6.1rem);
-  border-left: 0.3rem solid #383838;
-  border-right: 0.3rem solid #383838;
 }
 
 .room-left-up-down {
@@ -482,8 +472,8 @@ body {
   background: #9F9F9F;
   position: absolute;
   z-index: 1;
-  border-left: 0.3rem solid #383838;
   border-right: 0.3rem solid #383838;
+  border-left: 0.3rem solid #383838;
   -webkit-transform: translate(0.5rem, -0.7rem);
           transform: translate(0.5rem, -0.7rem);
 }
@@ -495,8 +485,8 @@ body {
   background: #9F9F9F;
   position: absolute;
   z-index: 1;
-  border-left: 0.3rem solid #383838;
   border-right: 0.3rem solid #383838;
+  border-left: 0.3rem solid #383838;
   -webkit-transform: translate(0.5rem, 6.1rem);
           transform: translate(0.5rem, 6.1rem);
 }

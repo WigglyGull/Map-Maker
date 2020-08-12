@@ -1,6 +1,7 @@
 const gridItem = require("./grid.js");
 
 exports.roomList = [];
+exports.numOfRooms = 0;
 
 //Sets direction depending if the neighbouring grids have a room
 exports.findPos = (grid) => {
@@ -33,18 +34,36 @@ exports.createRoom = grid =>{
 //Spawns a sperate room
 exports.createNewRoom = (grid, roomString)=>{
     const room = document.createElement("div");
-    room.classList.add(roomString);
+    if(roomString === ""){
+        setStyle(room);
+        this.numOfRooms++;
+    }else room.classList.add(roomString);
+    room.classList.add(`room${this.numOfRooms}`);
     grid.appendChild(room);
+
     this.roomList.push(room);
     fillSqaures();
+    console.log(this.numOfRooms);
+}
+
+const setStyle = (room) => {
+    room.style.width = "6.7rem";
+    room.style.height = "6.7rem";
+    room.style.background = "#9F9F9F";
+    room.style.zIndex = "2";
+    room.style.border = "0.3rem solid #383838";
+    room.style.borderRadius = "0.4rem";
 }
 
 //Changes class to fit with the new room placement
 exports.changeNeighbour = (grid) => {
     const directions = this.findPos(grid);
     const roomString = getClass(directions);
-    grid.firstChild.classList.remove(grid.firstChild.classList.item(0));
+    
+    grid.firstChild.style = "";
+    grid.firstChild.className = "";
     grid.firstChild.classList.add(roomString);
+    grid.firstChild.classList.add(`room${this.numOfRooms}`);
 }
 
 //Goes through all the grids changing the class if it makes a sqaure

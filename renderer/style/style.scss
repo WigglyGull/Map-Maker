@@ -18,11 +18,16 @@ $gridBorderSize: 0.4rem;
 $grid: calc(7.5rem - 0.4rem);
 
 //Mixins
-@mixin baseRoom($width, $height, $index) {
+@mixin baseRoom($width, $height, $index, $left-right: false, $up-down: false) {
     width: $width; height: $height;
     background: $roomGrey;
     position: absolute;
     z-index: $index;
+
+    @if $left-right {
+        border-right: 0.3rem solid $roomDarkGrey; 
+        border-left: 0.3rem solid $roomDarkGrey;
+    }
 }
 
 //Imports
