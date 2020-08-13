@@ -32,7 +32,44 @@ exports.createGrid = gridHolder => {
     this.gridList = document.querySelectorAll(".grid");
 }
 
-//This is dymanic see i am a good programmer
+//Goes through all the grids changing the class if it makes a sqaure
+exports.fillSqaures=()=>{
+    const gridList = this.gridList;
+    gridList.forEach(grid =>{
+        const index = Number(grid.classList.item(1));
+        const rightGrid = this.checkRightSide(grid) ? undefined : gridList[index+1];
+        const bottomGrid = gridList[index + this.mapRows];
+        const bottomRightGrid = gridList[index + (this.mapRows+1)];
+
+        if(rightGrid !== undefined && bottomGrid !== undefined && bottomRightGrid !== undefined){
+            if(grid.firstChild !== null && rightGrid.firstChild !== null && bottomGrid.firstChild !== null && bottomRightGrid.firstChild !== null){
+                const currentRoom = grid.firstChild.classList.item(1);
+                const rightRoom = rightGrid.firstChild.classList.item(1);
+                const bottomRoom = bottomGrid.firstChild.classList.item(1)
+                const bottomRightRoom = bottomRightGrid.firstChild.classList.item(1)
+
+                if(rightRoom === currentRoom && bottomRoom === currentRoom && bottomRightRoom === currentRoom){
+                    const roomString = grid.firstChild.classList.item(0);
+                    switch(roomString){
+                        case "room-right-down": resetStyle(grid, "room-right-down-fill"); break;
+                        case "room-left-right-down": resetStyle(grid, "room-left-right-down-fill"); break;
+                        case "room-right-up-down": resetStyle(grid, "room-right-up-down-fill"); break;    
+                        case "room-left-right-up-down": resetStyle(grid, "room-left-right-up-down-fill"); break;    
+                    }
+                }
+            }
+        }else return;
+    });
+}
+const resetStyle = (grid, newString)=>{
+    const roomNum = grid.firstChild.classList.item(1);
+    grid.style.background = "#9F9F9F";
+    grid.firstChild.className = "";
+    grid.firstChild.classList.add(newString);
+    grid.firstChild.classList.add(roomNum);
+}
+
+//A bunch of helper grid scripts
 exports.checkLeftSide = grid => {
     let index = this.gridIndex(grid);
     for (let i = 0; i < this.mapColumns+1; i++) {
