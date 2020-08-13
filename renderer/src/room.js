@@ -24,46 +24,78 @@ exports.createRoom = grid =>{
     const roomString = getClass(directions);
     this.createNewRoom(grid, roomString);
     
+    const rooms = []
     neighbours.forEach(neighbour =>{
-        if(neighbour === undefined) return;
-        if(neighbour.firstChild !== null) this.changeNeighbour(neighbour);
+        if(neighbour === undefined || neighbour.firstChild === null) return;
+        this.changeNeighbour(neighbour);
+
+        const neighbourRoomNum = neighbour.firstChild.classList.item(1);
+        rooms.push(neighbourRoomNum);
     });
+    for (let i = 0; i < rooms.length; i++) {
+        if(i === 1){
+            if(rooms[i] !== rooms[i - 1]){
+                setRoomNum(rooms[i], rooms[i-1]);
+            }
+        }
+    }
+    setStyle(grid.firstChild, roomString);
     fillSqaures();
 }
 
 //Spawns a sperate room
 exports.createNewRoom = (grid, roomString)=>{
     const room = document.createElement("div");
-    if(roomString === ""){
-        setStyle(room);
-        this.numOfRooms++;
-    }else room.classList.add(roomString);
-    room.classList.add(`room${this.numOfRooms}`);
+    if(roomString === "") setStyle(room, roomString);
     grid.appendChild(room);
-
     this.roomList.push(room);
     fillSqaures();
-    console.log(this.numOfRooms);
 }
 
-const setStyle = (room) => {
-    room.style.width = "6.7rem";
-    room.style.height = "6.7rem";
-    room.style.background = "#9F9F9F";
-    room.style.zIndex = "2";
-    room.style.border = "0.3rem solid #383838";
-    room.style.borderRadius = "0.4rem";
+const setStyle = (room, roomString) => {
+    if(roomString === ""){
+        room.style.width = "6.7rem";
+        room.style.height = "6.7rem";
+        room.style.background = "#9F9F9F";
+        room.style.zIndex = "2";
+        room.style.border = "0.3rem solid #383838";
+        room.style.borderRadius = "0.4rem";
+        this.numOfRooms++;
+    }else room.classList.add(roomString);
+    console.log(this.numOfRooms);
+    room.classList.add(`${this.numOfRooms}`);
+}
+
+const setRoomNum = (firstRoom, secondRoom) => {
+    this.numOfRooms -= 1;
+    const mainRoom = Math.min(firstRoom, secondRoom);
+    const changeRoom = Math.max(firstRoom, secondRoom);
+    
+    const gridList = gridItem.gridList;
+    gridList.forEach((grid)=>{
+        if(grid.firstChild === null) return;
+        const room = grid.firstChild;
+        if(room.classList.item(1) === `${changeRoom}`){
+            console.log("doing a thing");
+            const roomString = room.classList.item(0);
+            room.className = "";
+            room.classList.add(roomString);
+            room.classList.add(mainRoom);
+        }
+    })
 }
 
 //Changes class to fit with the new room placement
-exports.changeNeighbour = (grid) => {
+exports.changeNeighbour = (grid)=>{
     const directions = this.findPos(grid);
     const roomString = getClass(directions);
+    const room = grid.firstChild;
+    let roomNum = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
     
-    grid.firstChild.style = "";
-    grid.firstChild.className = "";
-    grid.firstChild.classList.add(roomString);
-    grid.firstChild.classList.add(`room${this.numOfRooms}`);
+    room.style = "";
+    room.className = "";
+    room.classList.add(roomString);
+    room.classList.add(roomNum);
 }
 
 //Goes through all the grids changing the class if it makes a sqaure
@@ -80,19 +112,21 @@ function fillSqaures(){
             if(grid.firstChild !== null && rightGrid.firstChild !== null && bottomGrid.firstChild !== null && bottomRightGrid.firstChild !== null){
                 const roomString = grid.firstChild.classList.item(0);
                 switch(roomString){
-                    case "room-right-down": resetStyle(grid, roomString, "room-right-down-fill"); break;
-                    case "room-left-right-down": resetStyle(grid, roomString, "room-left-right-down-fill"); break;
-                    case "room-right-up-down": resetStyle(grid, roomString, "room-right-up-down-fill"); break;    
-                    case "room-left-right-up-down": resetStyle(grid, roomString, "room-left-right-up-down-fill"); break;    
+                    case "room-right-down": resetStyle(grid, "room-right-down-fill"); break;
+                    case "room-left-right-down": resetStyle(grid, "room-left-right-down-fill"); break;
+                    case "room-right-up-down": resetStyle(grid, "room-right-up-down-fill"); break;    
+                    case "room-left-right-up-down": resetStyle(grid, "room-left-right-up-down-fill"); break;    
                 }
             }
         }else return;
     });
 }
-function resetStyle(grid, roomString, newString){
+const resetStyle = (grid, newString)=>{
+    const roomNum = grid.firstChild.classList.item(1);
     grid.style.background = "#9F9F9F";
-    grid.firstChild.classList.remove(roomString);
+    grid.firstChild.className = "";
     grid.firstChild.classList.add(newString);
+    grid.firstChild.classList.add(roomNum);
 }
 
 //Returns the surrounding grids
