@@ -22,11 +22,13 @@ exports.createGrid = gridHolder => {
             const direction = room.findPos(grid);
             if(direction[0] === false && direction[1] === false && direction[2] === false && direction[3] === false) room.createNewRoom(grid, "");
             else room.createRoom(grid);
+            console.log(room.numOfRooms);
         });
         
         grid.addEventListener("contextmenu", ()=>{
             if(grid.firstChild !== null) return;
             room.createNewRoom(grid, "");
+            console.log(room.numOfRooms);
         });
     }
     this.gridList = document.querySelectorAll(".grid");
