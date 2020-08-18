@@ -1,4 +1,4 @@
-const room = require("./room");
+const roomItem = require("./room");
 exports.mapRows = 16;
 exports.mapColumns = 10;
 exports.gridList = [];
@@ -16,19 +16,37 @@ exports.createGrid = gridHolder => {
         
         grid.addEventListener("click", ()=>{
             if(grid.firstChild !== null) return;
-            const direction = room.findPos(grid);
-            if(direction[0] === false && direction[1] === false && direction[2] === false && direction[3] === false) room.createNewRoom(grid, "");
-            else room.createRoom(grid);
-            console.log(room.numOfRooms);
+            const direction = roomItem.findPos(grid);
+            if(direction[0] === false && direction[1] === false && direction[2] === false && direction[3] === false) this.createNewRoom(grid);
+            else roomItem.createRoom(grid);
+            console.log(roomItem.numOfRooms);
         });
         
         grid.addEventListener("contextmenu", ()=>{
             if(grid.firstChild !== null) return;
-            room.createNewRoom(grid, "");
-            console.log(room.numOfRooms);
+            this.createNewRoom(grid);
+            console.log(roomItem.numOfRooms);
         });
     }
     this.gridList = document.querySelectorAll(".grid");
+}
+
+//Spawns a sperate room
+exports.createNewRoom = (grid)=>{
+    const room = document.createElement("div");
+    room.style.width = "6.7rem";
+    room.style.height = "6.7rem";
+    room.style.background = roomItem.currentRoomColor;
+    room.style.zIndex = "2";
+    room.style.border = "0.3rem solid #383838";
+    room.style.borderRadius = "0.4rem";
+    roomItem.numOfRooms++;
+    room.classList.add(`${roomItem.numOfRooms}`);
+    roomItem.currentRoom = room.classList.item(0);
+    
+    room.style.setProperty("--room", roomItem.currentRoomColor);
+    grid.appendChild(room);
+    roomItem.roomList.push(room);
 }
 
 //Goes through all the grids changing the class if it makes a sqaure
@@ -43,11 +61,7 @@ exports.fillSqaures=()=>{
         if(rightGrid !== undefined && bottomGrid !== undefined && bottomRightGrid !== undefined){
             if(grid.firstChild !== null && rightGrid.firstChild !== null && bottomGrid.firstChild !== null && bottomRightGrid.firstChild !== null){
                 const currentRoom = grid.firstChild.classList.item(1);
-                const rightRoom = rightGrid.firstChild.classList.item(1);
-                const bottomRoom = bottomGrid.firstChild.classList.item(1)
-                const bottomRightRoom = bottomRightGrid.firstChild.classList.item(1)
-
-                if(rightRoom === currentRoom && bottomRoom === currentRoom && bottomRightRoom === currentRoom){
+                if(rightGrid.firstChild.classList.item(1) === currentRoom && bottomGrid.firstChild.classList.item(1) === currentRoom && bottomRightGrid.firstChild.classList.item(1) === currentRoom){
                     const roomString = grid.firstChild.classList.item(0);
                     switch(roomString){
                         case "room-right-down": resetStyle(grid, "room-right-down-fill"); break;
@@ -62,7 +76,7 @@ exports.fillSqaures=()=>{
 }
 const resetStyle = (grid, newString)=>{
     const roomNum = grid.firstChild.classList.item(1);
-    grid.style.background = room.currentRoomColor;
+    grid.style.background = roomItem.currentRoomColor;
     grid.firstChild.className = "";
     grid.firstChild.classList.add(newString);
     grid.firstChild.classList.add(roomNum);

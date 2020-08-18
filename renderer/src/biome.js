@@ -18,7 +18,7 @@ exports.createBiome = biomes => {
                 activeBiome = biome.classList.item(0);
                 setActive(biome, biomes);
             }
-            this.setRoomBiome();
+            setRoomBiome();
         });
     });
 }
@@ -31,7 +31,7 @@ const setActive = (currentBiome, biomes)=>{
     
 }
 
-exports.setRoomBiome = room =>{
+const setRoomBiome = room =>{
     switch(activeBiome){
         case "normalBiome": 
             roomItem.currentRoomColor = this.roomGrey;
