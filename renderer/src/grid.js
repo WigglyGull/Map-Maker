@@ -4,10 +4,7 @@ exports.mapColumns = 10;
 exports.gridList = [];
 
 exports.createGrid = gridHolder => {
-    if(gridHolder === null){
-        console.error("GridHolder not found");
-        return;
-    }
+    if(gridHolder === null) throw "Gridholder not found";
 
     //Spawns the grid
     const amountofSqaures = this.mapRows * this.mapColumns;
@@ -65,7 +62,7 @@ exports.fillSqaures=()=>{
 }
 const resetStyle = (grid, newString)=>{
     const roomNum = grid.firstChild.classList.item(1);
-    grid.style.background = "#9F9F9F";
+    grid.style.background = room.currentRoomColor;
     grid.firstChild.className = "";
     grid.firstChild.classList.add(newString);
     grid.firstChild.classList.add(roomNum);

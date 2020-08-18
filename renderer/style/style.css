@@ -36,6 +36,7 @@ body {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  z-index: 100;
 }
 
 .tool {
@@ -170,14 +171,15 @@ body {
 }
 
 .room-left {
+  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-right: 0.3rem solid #383838;
-  border-top: 0.3rem solid #383838;
-  border-bottom: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-top: 0.3rem solid var(--roomBorder);
+  border-bottom: 0.3rem solid var(--roomBorder);
   border-top-right-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
   -webkit-transform: translate(-0.5rem, 0);
@@ -185,27 +187,29 @@ body {
 }
 
 .room-right {
+  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-left: 0.3rem solid #383838;
-  border-top: 0.3rem solid #383838;
-  border-bottom: 0.3rem solid #383838;
+  border-left: 0.3rem solid var(--roomBorder);
+  border-top: 0.3rem solid var(--roomBorder);
+  border-bottom: 0.3rem solid var(--roomBorder);
   border-top-left-radius: 0.4rem;
   border-bottom-left-radius: 0.4rem;
 }
 
 .room-up {
+  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(8rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-left: 0.3rem solid #383838;
-  border-bottom: 0.3rem solid #383838;
-  border-right: 0.3rem solid #383838;
+  border-left: 0.3rem solid var(--roomBorder);
+  border-bottom: 0.3rem solid var(--roomBorder);
+  border-right: 0.3rem solid var(--roomBorder);
   border-bottom-right-radius: 0.4rem;
   border-bottom-left-radius: 0.4rem;
   -webkit-transform: translate(0, -0.5rem);
@@ -213,311 +217,336 @@ body {
 }
 
 .room-down {
+  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(8rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-left: 0.3rem solid #383838;
-  border-top: 0.3rem solid #383838;
-  border-right: 0.3rem solid #383838;
+  border-left: 0.3rem solid var(--roomBorder);
+  border-top: 0.3rem solid var(--roomBorder);
+  border-right: 0.3rem solid var(--roomBorder);
   border-top-right-radius: 0.4rem;
   border-top-left-radius: 0.4rem;
 }
 
 .room-left-right {
+  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-bottom: 0.3rem solid #383838;
-  border-top: 0.3rem solid #383838;
+  border-bottom: 0.3rem solid var(--roomBorder);
+  border-top: 0.3rem solid var(--roomBorder);
   -webkit-transform: translateX(-0.5rem);
           transform: translateX(-0.5rem);
 }
 
 .room-left-up {
+  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
   -webkit-transform: translateX(-0.5rem);
           transform: translateX(-0.5rem);
-  border-bottom: 0.3rem solid #383838;
-  border-right: 0.3rem solid #383838;
+  border-bottom: 0.3rem solid var(--roomBorder);
+  border-right: 0.3rem solid var(--roomBorder);
   border-bottom-right-radius: 0.4rem;
-  border-top: 0.3rem solid #383838;
+  border-top: 0.3rem solid var(--roomBorder);
 }
 
 .room-left-up::after {
   content: "";
+  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, -0.7rem);
           transform: translate(0.5rem, -0.7rem);
 }
 
 .room-left-down {
+  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
   -webkit-transform: translateX(-0.5rem);
           transform: translateX(-0.5rem);
-  border-top: 0.3rem solid #383838;
-  border-right: 0.3rem solid #383838;
+  border-top: 0.3rem solid var(--roomBorder);
+  border-right: 0.3rem solid var(--roomBorder);
   border-top-right-radius: 0.4rem;
-  border-bottom: 0.3rem solid #383838;
+  border-bottom: 0.3rem solid var(--roomBorder);
 }
 
 .room-left-down::after {
   content: "";
+  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, 6.1rem);
           transform: translate(0.5rem, 6.1rem);
 }
 
 .room-right-up {
+  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-bottom: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-bottom: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   border-bottom-left-radius: 0.4rem;
-  border-top: 0.3rem solid #383838;
+  border-top: 0.3rem solid var(--roomBorder);
 }
 
 .room-right-up::after {
   content: "";
+  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.3rem, -0.7rem);
           transform: translate(-0.3rem, -0.7rem);
 }
 
 .room-right-down {
+  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-top: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-top: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   border-top-left-radius: 0.4rem;
-  border-bottom: 0.3rem solid #383838;
+  border-bottom: 0.3rem solid var(--roomBorder);
 }
 
 .room-right-down::after {
   content: "";
+  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.3rem, 6.1rem);
           transform: translate(-0.3rem, 6.1rem);
 }
 
 .room-up-down {
+  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translateY(-0.5rem);
           transform: translateY(-0.5rem);
 }
 
 .room-left-right-up {
+  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-bottom: 0.3rem solid #383838;
-  border-top: 0.3rem solid #383838;
+  border-bottom: 0.3rem solid var(--roomBorder);
+  border-top: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
           transform: translate(-0.5rem, 0rem);
 }
 
 .room-left-right-up::after {
   content: "";
+  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, -0.7rem);
           transform: translate(0.5rem, -0.7rem);
 }
 
 .room-right-up-down {
+  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0rem, -0.5rem);
           transform: translate(0rem, -0.5rem);
 }
 
 .room-right-up-down::after {
   content: "";
+  --roomBorder: #383838;
   width: 0.7rem;
   height: 6.1rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
   -webkit-transform: translate(6.1rem, 0.5rem);
           transform: translate(6.1rem, 0.5rem);
-  border-top: 0.3rem solid #383838;
-  border-bottom: 0.3rem solid #383838;
+  border-top: 0.3rem solid var(--roomBorder);
+  border-bottom: 0.3rem solid var(--roomBorder);
 }
 
 .room-left-right-down {
+  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-top: 0.3rem solid #383838;
-  border-bottom: 0.3rem solid #383838;
+  border-top: 0.3rem solid var(--roomBorder);
+  border-bottom: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
           transform: translate(-0.5rem, 0rem);
 }
 
 .room-left-right-down::after {
   content: "";
+  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, 6.1rem);
           transform: translate(0.5rem, 6.1rem);
 }
 
 .room-left-up-down {
+  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0rem, -0.5rem);
           transform: translate(0rem, -0.5rem);
 }
 
 .room-left-up-down::after {
   content: "";
+  --roomBorder: #383838;
   width: 0.7rem;
   height: 6.1rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-top: 0.3rem solid #383838;
-  border-bottom: 0.3rem solid #383838;
+  border-top: 0.3rem solid var(--roomBorder);
+  border-bottom: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.7rem, 0.5rem);
           transform: translate(-0.7rem, 0.5rem);
 }
 
 .room-left-right-up-down {
+  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-top: 0.3rem solid #383838;
-  border-bottom: 0.3rem solid #383838;
+  border-top: 0.3rem solid var(--roomBorder);
+  border-bottom: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
           transform: translate(-0.5rem, 0rem);
 }
 
 .room-left-right-up-down::after {
   content: "";
+  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, -0.7rem);
           transform: translate(0.5rem, -0.7rem);
 }
 
 .room-left-right-up-down::before {
   content: "";
+  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 1;
-  border-right: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-right: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, 6.1rem);
           transform: translate(0.5rem, 6.1rem);
 }
 
 .room-right-down-fill {
+  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-top: 0.3rem solid #383838;
-  border-left: 0.3rem solid #383838;
+  border-top: 0.3rem solid var(--roomBorder);
+  border-left: 0.3rem solid var(--roomBorder);
   border-top-left-radius: 0.4rem;
 }
 
 .room-left-right-down-fill {
+  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: 6.4rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-top: 0.3rem solid #383838;
+  border-top: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
           transform: translate(-0.5rem, 0rem);
 }
 
 .room-left-right-down-fill::before {
   content: "";
+  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: 5rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
   -webkit-transform: translate(0.8rem, 2.5rem);
@@ -525,21 +554,23 @@ body {
 }
 
 .room-right-up-down-fill {
+  --roomBorder: #383838;
   width: 6.4rem;
   height: calc(8.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
-  border-left: 0.3rem solid #383838;
+  border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0rem, -0.5rem);
           transform: translate(0rem, -0.5rem);
 }
 
 .room-right-up-down-fill::after {
   content: "";
+  --roomBorder: #383838;
   width: 5rem;
   height: calc(8.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
   -webkit-transform: translate(2.2rem, 0.8rem);
@@ -547,9 +578,10 @@ body {
 }
 
 .room-left-right-up-down-fill {
+  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: 5.6rem;
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
   -webkit-transform: translate(-0.5rem, 0.5rem);
@@ -558,9 +590,10 @@ body {
 
 .room-left-right-up-down-fill::before {
   content: "";
+  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
   -webkit-transform: translate(1.5rem, 0.5rem);
@@ -569,9 +602,10 @@ body {
 
 .room-left-right-up-down-fill::after {
   content: "";
+  --roomBorder: #383838;
   width: 5.7rem;
   height: calc(8.5rem - 0.8rem);
-  background: #9F9F9F;
+  background: var(--room);
   position: absolute;
   z-index: 2;
   -webkit-transform: translate(0.9rem, -1rem);
