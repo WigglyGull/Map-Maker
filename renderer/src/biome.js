@@ -31,7 +31,7 @@ const setActive = (currentBiome, biomes)=>{
     
 }
 
-const setRoomBiome = room =>{
+const setRoomBiome = () =>{
     switch(activeBiome){
         case "normalBiome": 
             roomItem.currentRoomColor = this.roomGrey;

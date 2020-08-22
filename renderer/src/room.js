@@ -17,16 +17,22 @@ exports.createRoom = grid =>{
     room.classList.add(roomString);
     room.classList.add(`${this.currentRoom}`);
     room.style.setProperty("--room", this.currentRoomColor);
+    room.style.setProperty("--roomBorder", this.currentBorderColor);
     grid.appendChild(room);
 
     let sameRoom = false;
+    let diffrentStyle = false;
     let neighbourRooms = [];
     neighbours.forEach((neighbour) =>{
         if(neighbour === undefined || neighbour.firstChild === null) return;
+        const roomStyle = grid.firstChild.style.getPropertyValue("--room");
+        const neighbourStyle = neighbour.firstChild.style.getPropertyValue("--room");
         changeNeighbour(neighbour);
-        
-        if(neighbour.firstChild.classList.item(1) === grid.firstChild.classList.item(1)) sameRoom = true;
-        else if(!neighbourRooms.includes(neighbour.firstChild.classList.item(1))) neighbourRooms.push(neighbour.firstChild.classList.item(1)); 
+
+        if(neighbour.firstChild.classList.item(1) === grid.firstChild.classList.item(1)){
+            sameRoom = true;
+            if(roomStyle !== neighbourStyle) diffrentStyle = true;
+        }else if(!neighbourRooms.includes(neighbour.firstChild.classList.item(1))) neighbourRooms.push(neighbour.firstChild.classList.item(1)); 
     });
     if(!sameRoom){
         const room = grid.firstChild;
@@ -37,18 +43,18 @@ exports.createRoom = grid =>{
             room.classList.add(roomString);
             room.classList.add(neighbour.firstChild.classList.item(1));
             changeNeighbour(neighbour);
+
+            const roomStyle = grid.firstChild.style.getPropertyValue("--room");
+            const neighbourStyle = neighbour.firstChild.style.getPropertyValue("--room");
+            if(roomStyle !== neighbourStyle) diffrentStyle = true;
         });
-        if(neighbourRooms.length >= 2){
-            grid.firstChild.remove();
-            gridItem.createNewRoom(grid);
-            neighbours.forEach(neighbour => {
-                if(neighbour === undefined || neighbour.firstChild === null) return;
-                changeNeighbour(neighbour);
-            });
-        }
+        if(neighbourRooms.length >= 2) createNewRoom(neighbours, grid); 
     }
+    if(diffrentStyle) createNewRoom(neighbours, grid);
+    
+    
     gridItem.fillSqaures();
-    this.currentRoom = grid.firstChild.classList.item(1);
+    this.currentRoom = grid.firstChild.classList.item(1) === null ? grid.firstChild.classList.item(0) : grid.firstChild.classList.item(1);
 }
 
 //Sets direction depending if the neighbouring grids have a room
@@ -59,24 +65,21 @@ exports.findPos = (grid, isNeighbour) => {
     if(directions.length !== neighbours.length) throw "Hey idoit these values aren't matching!!!!!";
     for (let i = 0; i < directions.length; i++) {
         if(neighbours[i] !== undefined && neighbours[i].firstChild !== null){
-            if(isNeighbour === undefined){
-                if(neighbours[i].firstChild !== null) directions[i] = true; 
-            }else if(isNeighbour === null){
-                const mainRoom = this.currentRoom;
-                const neighbourRoom = neighbours[i].firstChild.classList.item(1) === null ? neighbours[i].firstChild.classList.item(0) : neighbours[i].firstChild.classList.item(1);
-                if(mainRoom === neighbourRoom) directions[i] = true;
-            }else{
-                const mainRoom = grid.firstChild.classList.item(1) === null ? grid.firstChild.classList.item(0) : grid.firstChild.classList.item(1);
-                const neighbourRoom = neighbours[i].firstChild.classList.item(1) === null ? neighbours[i].firstChild.classList.item(0) : neighbours[i].firstChild.classList.item(1);
-                if(mainRoom === neighbourRoom) directions[i] = true;
-            }
+            const neighbourRoom = neighbours[i].firstChild.classList.item(1) === null ? neighbours[i].firstChild.classList.item(0) : neighbours[i].firstChild.classList.item(1);
+            let mainRoom = undefined;
+            
+            if(isNeighbour === undefined && neighbours[i].firstChild !== null) directions[i] = true; 
+            else if(isNeighbour === null) mainRoom = this.currentRoom;
+            else mainRoom = grid.firstChild.classList.item(1) === null ? grid.firstChild.classList.item(0) : grid.firstChild.classList.item(1);
+            
+            if(mainRoom !== undefined && mainRoom === neighbourRoom) directions[i] = true;
         }
     }
     return directions;
 }
 
 //Changes class to fit with the new room placement
-const changeNeighbour = (grid) =>{
+const changeNeighbour = grid =>{
     const room = grid.firstChild;
     const roomNum = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
     const roomString = getClass(this.findPos(grid, true));
@@ -87,6 +90,15 @@ const changeNeighbour = (grid) =>{
     room.classList.add(roomString);
     room.classList.add(roomNum);
     room.style.setProperty("--room", style);
+}
+
+const createNewRoom = (neighbours, grid)=>{
+    grid.firstChild.remove();
+    gridItem.createNewRoom(grid);
+    neighbours.forEach(neighbour => {
+        if(neighbour === undefined || neighbour.firstChild === null) return;
+        changeNeighbour(neighbour);
+    });
 }
 
 //Returns the surrounding grids
