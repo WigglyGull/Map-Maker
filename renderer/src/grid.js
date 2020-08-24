@@ -80,7 +80,6 @@ const resetStyle = (grid, newString)=>{
     grid.firstChild.classList.add(roomNum);
 }
 
-//A bunch of helper grid scripts
 exports.checkLeftSide = grid => {
     let index = this.gridIndex(grid);
     for (let i = 0; i < this.mapColumns+1; i++) {

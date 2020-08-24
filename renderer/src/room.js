@@ -10,8 +10,9 @@ exports.currentRoomColor = biome.roomGrey;
 exports.currentBorderColor = biome.roomDarkGrey;
 
 //Bug: changing neighbours is broken some where
+//Todo: a cojoin room button
+//Todo: click the room you want to add to
 
-//Joins a room to another room and changes neighbours
 exports.createRoom = grid =>{
     const neighbours = getNeighbours(grid);
     const roomString = getClass(this.findPos(grid, null));
@@ -60,8 +61,8 @@ exports.createRoom = grid =>{
     if(diffrentStyle){
         let twoOrMore = false;
         if(getOccurrence(neighbourStylesAll, roomStyle) >= 2) twoOrMore = true;
-
-        if(neighbourStyles.length >= 2 && twoOrMore ===  false){
+        console.log(twoOrMore);
+        if(neighbourStyles.length >= 2 && twoOrMore === false){
             const roomString = getClass(this.findPos(grid, true, true));
             
             room.style = "";
@@ -80,7 +81,6 @@ exports.createRoom = grid =>{
     this.currentRoom = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
 }
 
-//Sets direction depending if the neighbouring grids have a room
 exports.findPos = (grid, isNeighbour) => {
     const directions = [left = false, right = false, top = false, bottom = false];
     const neighbours = getNeighbours(grid);
@@ -101,7 +101,7 @@ exports.findPos = (grid, isNeighbour) => {
     return directions;
 }
 
-exports.findPosByStyle = (grid, isNeighbour) => {
+exports.findPosByStyle = (grid) => {
     const directions = [left = false, right = false, top = false, bottom = false];
     const neighbours = getNeighbours(grid);
 
@@ -122,7 +122,6 @@ const getOccurrence = (array, value) =>{
     return count;
 }
 
-//Changes class to fit with the new room placement
 const changeNeighbour = (grid, byStyle) =>{
     const room = grid.firstChild;
     const roomNum = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
@@ -145,7 +144,6 @@ const createNewRoom = (neighbours, grid)=>{
     });
 }
 
-//Returns the surrounding grids
 const getNeighbours = grid=>{
     const index = gridItem.gridIndex(grid);
     const leftGrid = gridItem.checkLeftSide(grid) ? undefined : gridItem.gridList[index-1];
@@ -155,7 +153,6 @@ const getNeighbours = grid=>{
     return neighbours = [leftGrid, rightGrid, topGrid, bottomGrid];
 }
 
-//Returns a class depending on position
 const getClass = directions=>{
     let roomString = "";
     const [left, right, up, down] = directions;

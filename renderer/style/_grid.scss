@@ -4,14 +4,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgb(235, 237, 243);
 }
 .map{
     width: fit-content;
     height: fit-content;
     position: relative;
-    top: -2rem;
+    top: -1rem;
     padding-bottom: 0.4rem;
     padding-right: 0.4rem;
+    background: white;
 
     border-left: $gridBorderSize solid #383838;
     border-bottom: $gridBorderSize solid #383838;

@@ -1,10 +1,10 @@
 const { app, BrowserWindow, Menu } = require("electron");
 const windowStateKeeper = require("electron-window-state");
 
-//Sets Up Window
 function createWindow(){
-    const _width = 1300;
-    const _height = 850;
+    //Todo: Make desgin responsive
+    const _width = 1500;
+    const _height = 936;
 
     let winState = windowStateKeeper({
         defaultWidth: _width, defaultHeight:_height
