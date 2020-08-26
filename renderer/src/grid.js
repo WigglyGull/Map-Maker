@@ -32,12 +32,7 @@ exports.createGrid = gridHolder => {
 //Spawns a sperate room
 exports.createNewRoom = (grid)=>{
     const room = document.createElement("div");
-    room.style.width = "6.7rem";
-    room.style.height = "6.7rem";
-    room.style.background = roomItem.currentRoomColor;
-    room.style.zIndex = "2";
-    room.style.border = "0.3rem solid #383838";
-    room.style.borderRadius = "0.4rem";
+    this.setDefault(room, roomItem.currentRoomColor);
     roomItem.numOfRooms++;
     room.classList.add(`${roomItem.numOfRooms}`);
     roomItem.currentRoom = room.classList.item(0);
@@ -46,6 +41,17 @@ exports.createNewRoom = (grid)=>{
     room.style.setProperty("--room", roomItem.currentRoomColor);
     grid.appendChild(room);
     roomItem.roomList.push(room);
+}
+
+exports.setDefault = (room, style) =>{
+    room.style = "";
+    room.className = "";
+    room.style.width = "6.7rem";
+    room.style.height = "6.7rem";
+    room.style.background = style;
+    room.style.zIndex = "2";
+    room.style.border = "0.3rem solid #383838";
+    room.style.borderRadius = "0.4rem";
 }
 
 //Goes through all the grids changing the class if it makes a sqaure

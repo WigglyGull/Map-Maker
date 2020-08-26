@@ -10,7 +10,7 @@ exports.currentRoom = this.numOfRooms;
 exports.currentRoomColor = biome.roomGrey;
 exports.currentBorderColor = biome.roomDarkGrey;
 
-//Bug: changing neighbours is broken some where
+//Todo: clean everything up so its easier to expand on
 //Todo: a cojoin room button
 //Todo: click the room you want to add to
 
@@ -46,24 +46,25 @@ exports.createRoom = grid =>{
         }else if(!neighbourRooms.includes(neighbour.firstChild.classList.item(1))) neighbourRooms.push(neighbour.firstChild.classList.item(1)); 
     });
     if(!sameRoom){
-        const roomString = getClass(this.findPos(grid));
-        room.className = "";
-        neighbours.forEach(neighbour =>{
-            if(neighbour === undefined || neighbour.firstChild === null) return;
-            room.classList.add(roomString);
-            room.classList.add(neighbour.firstChild.classList.item(1));
-            changeNeighbour(neighbour);
-
-            const neighbourStyle = neighbour.firstChild.style.getPropertyValue("--room");
-            if(roomStyle !== neighbourStyle) diffrentStyle = true;
-        });
         if(neighbourRooms.length >= 2 && !diffrentStyle) createNewRoom(neighbours, grid); 
+        else{
+            const roomString = getClass(this.findPos(grid));
+            room.className = "";
+            neighbours.forEach(neighbour =>{
+                if(neighbour === undefined || neighbour.firstChild === null) return;
+                room.classList.add(roomString);
+                room.classList.add(neighbour.firstChild.classList.item(1));
+                changeNeighbour(neighbour);
+
+                const neighbourStyle = neighbour.firstChild.style.getPropertyValue("--room");
+                if(roomStyle !== neighbourStyle) diffrentStyle = true;
+            });
+        }
     }
     if(diffrentStyle){
         let twoOrMore = false;
         if(getOccurrence(neighbourStyles, roomStyle) >= 2) twoOrMore = true;
         if(getOccurrence(neighbourStyles, roomStyle) == 1 && twoOrMore === false){
-            console.log("worked")
             const roomString = getClass(this.findPosByStyle(grid, true, true));
             
             room.style = "";
@@ -128,23 +129,35 @@ const getOccurrence = (array, value) =>{
 const changeNeighbour = (grid, byStyle) =>{
     const room = grid.firstChild;
     const roomNum = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
-    const roomString = byStyle === undefined ? getClass(this.findPos(grid, true)) : getClass(this.findPosByStyle(grid));
+    const pos = this.findPos(grid, true);
+    const roomString = byStyle === undefined ? getClass(pos) : getClass(this.findPosByStyle(grid));
     const style = room.style.getPropertyValue("--room");
-    
-    room.style = "";
-    room.className = "";
-    room.classList.add(roomString);
-    room.classList.add(roomNum);
-    room.style.setProperty("--room", style);
+
+    let single = true;
+    for (let index = 0; index < pos.length; index++) {
+        if(pos[index] === true) single = false;
+    }
+    if(single){
+        console.log(room);
+        gridItem.setDefault(room, style);
+        room.classList.add(roomNum);
+        room.style.setProperty("--room", style);
+    }else{
+        room.style = "";
+        room.className = "";
+        room.classList.add(roomString);
+        room.classList.add(roomNum);
+        room.style.setProperty("--room", style);
+    }
 }
 
 const createNewRoom = (neighbours, grid)=>{
     grid.firstChild.remove();
     gridItem.createNewRoom(grid);
     createdNew = true;
+
     neighbours.forEach(neighbour => {
         if(neighbour === undefined || neighbour.firstChild === null) return;
-        if(neighbour.firstChild.classList.item(1) === null) console.log("we got them")
         changeNeighbour(neighbour);
     });
 }
