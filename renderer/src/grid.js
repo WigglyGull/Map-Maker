@@ -41,6 +41,7 @@ exports.createNewRoom = (grid)=>{
     roomItem.numOfRooms++;
     room.classList.add(`${roomItem.numOfRooms}`);
     roomItem.currentRoom = room.classList.item(0);
+    console.log(roomItem.currentRoom);
     
     room.style.setProperty("--room", roomItem.currentRoomColor);
     grid.appendChild(room);

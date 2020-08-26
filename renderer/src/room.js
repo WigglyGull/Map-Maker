@@ -1,6 +1,7 @@
 const gridItem = require("./grid.js");
 const biome = require("./biome");
 const keyInputs = require("./keyInputs"); 
+let createdNew = false;
 
 exports.roomList = [];
 exports.numOfRooms = 0;
@@ -14,6 +15,8 @@ exports.currentBorderColor = biome.roomDarkGrey;
 //Todo: click the room you want to add to
 
 exports.createRoom = grid =>{
+    console.log(this.currentRoom);
+    createdNew = false;
     const neighbours = getNeighbours(grid);
     const roomString = getClass(this.findPos(grid, null));
     const _room = document.createElement("div");
@@ -27,7 +30,6 @@ exports.createRoom = grid =>{
     let diffrentStyle = false;
     let neighbourRooms = [];
     let neighbourStyles = [];
-    let neighbourStylesAll = [];
 
     const room = grid.firstChild;
     const roomStyle = room.style.getPropertyValue("--room");
@@ -36,7 +38,7 @@ exports.createRoom = grid =>{
         changeNeighbour(neighbour);
 
         const neighbourStyle = neighbour.firstChild.style.getPropertyValue("--room");
-        neighbourStylesAll.push(neighbourStyle);
+        neighbourStyles.push(neighbourStyle);
 
         if(neighbour.firstChild.classList.item(1) === room.classList.item(1)){
             sameRoom = true;
@@ -54,16 +56,15 @@ exports.createRoom = grid =>{
 
             const neighbourStyle = neighbour.firstChild.style.getPropertyValue("--room");
             if(roomStyle !== neighbourStyle) diffrentStyle = true;
-            if(!neighbourStyles.includes(neighbourStyle)) neighbourStyles.push(neighbourStyle);
         });
-        if(neighbourRooms.length >= 2) createNewRoom(neighbours, grid); 
+        if(neighbourRooms.length >= 2 && !diffrentStyle) createNewRoom(neighbours, grid); 
     }
     if(diffrentStyle){
         let twoOrMore = false;
-        if(getOccurrence(neighbourStylesAll, roomStyle) >= 2) twoOrMore = true;
-        console.log(twoOrMore);
-        if(neighbourStyles.length >= 2 && twoOrMore === false){
-            const roomString = getClass(this.findPos(grid, true, true));
+        if(getOccurrence(neighbourStyles, roomStyle) >= 2) twoOrMore = true;
+        if(getOccurrence(neighbourStyles, roomStyle) == 1 && twoOrMore === false){
+            console.log("worked")
+            const roomString = getClass(this.findPosByStyle(grid, true, true));
             
             room.style = "";
             room.className = "";
@@ -76,9 +77,9 @@ exports.createRoom = grid =>{
             });
         }else createNewRoom(neighbours, grid);
     }
-    
+ 
     gridItem.fillSqaures();
-    this.currentRoom = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
+    if(!createdNew)this.currentRoom = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
 }
 
 exports.findPos = (grid, isNeighbour) => {
@@ -118,7 +119,9 @@ exports.findPosByStyle = (grid) => {
 
 const getOccurrence = (array, value) =>{
     var count = 0;
-    array.forEach((v) => (v === value && count++));
+    array.forEach((v) => {
+        if(v === value) count+=1;
+    });
     return count;
 }
 
@@ -138,8 +141,10 @@ const changeNeighbour = (grid, byStyle) =>{
 const createNewRoom = (neighbours, grid)=>{
     grid.firstChild.remove();
     gridItem.createNewRoom(grid);
+    createdNew = true;
     neighbours.forEach(neighbour => {
         if(neighbour === undefined || neighbour.firstChild === null) return;
+        if(neighbour.firstChild.classList.item(1) === null) console.log("we got them")
         changeNeighbour(neighbour);
     });
 }
