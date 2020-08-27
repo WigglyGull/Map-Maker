@@ -15,15 +15,13 @@ exports.currentBorderColor = biome.roomDarkGrey;
 //Todo: click the room you want to add to
 
 exports.createRoom = grid =>{
-    console.log(this.currentRoom);
     createdNew = false;
     const neighbours = getNeighbours(grid);
     const roomString = getClass(this.findPos(grid, null));
     const _room = document.createElement("div");
     _room.classList.add(roomString);
     _room.classList.add(`${this.currentRoom}`);
-    _room.style.setProperty("--room", this.currentRoomColor);
-    _room.style.setProperty("--roomBorder", this.currentBorderColor);
+    setStyle(_room);
     grid.appendChild(_room);
 
     let sameRoom = false;
@@ -46,31 +44,26 @@ exports.createRoom = grid =>{
         }else if(!neighbourRooms.includes(neighbour.firstChild.classList.item(1))) neighbourRooms.push(neighbour.firstChild.classList.item(1)); 
     });
     if(!sameRoom){
-        if(neighbourRooms.length >= 2 && !diffrentStyle) createNewRoom(neighbours, grid); 
-        else{
-            const roomString = getClass(this.findPos(grid));
-            room.className = "";
-            neighbours.forEach(neighbour =>{
-                if(neighbour === undefined || neighbour.firstChild === null) return;
-                room.classList.add(roomString);
-                room.classList.add(neighbour.firstChild.classList.item(1));
-                changeNeighbour(neighbour);
+        const roomString = getClass(this.findPos(grid));
+        room.className = "";
+        neighbours.forEach(neighbour =>{
+            if(neighbour === undefined || neighbour.firstChild === null) return;
+            room.classList.add(roomString);
+            room.classList.add(neighbour.firstChild.classList.item(1));
+            changeNeighbour(neighbour);
 
-                const neighbourStyle = neighbour.firstChild.style.getPropertyValue("--room");
-                if(roomStyle !== neighbourStyle) diffrentStyle = true;
-            });
-        }
+            const neighbourStyle = neighbour.firstChild.style.getPropertyValue("--room");
+            if(roomStyle !== neighbourStyle) diffrentStyle = true;
+        });
+        if(neighbourRooms.length >= 2 && !diffrentStyle) createNewRoom(neighbours, grid); 
     }
     if(diffrentStyle){
-        let twoOrMore = false;
-        if(getOccurrence(neighbourStyles, roomStyle) >= 2) twoOrMore = true;
-        if(getOccurrence(neighbourStyles, roomStyle) == 1 && twoOrMore === false){
-            const roomString = getClass(this.findPosByStyle(grid, true, true));
-            
+        if(getOccurrence(neighbourStyles, roomStyle) == 1){
+            const roomString = getClass(this.findPosByStyle(grid));
             room.style = "";
             room.className = "";
             room.classList.add(roomString);
-            room.style.setProperty("--room", roomStyle);
+            setStyle(room);
             neighbours.forEach(neighbour => {
                 if(neighbour === undefined || neighbour.firstChild === null) return;
                 changeNeighbour(neighbour, true);
@@ -129,26 +122,33 @@ const getOccurrence = (array, value) =>{
 const changeNeighbour = (grid, byStyle) =>{
     const room = grid.firstChild;
     const roomNum = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
-    const pos = this.findPos(grid, true);
-    const roomString = byStyle === undefined ? getClass(pos) : getClass(this.findPosByStyle(grid));
+    const pos = byStyle === undefined ? this.findPos(grid, true) : this.findPosByStyle(grid);
+    const roomString = getClass(pos);
     const style = room.style.getPropertyValue("--room");
+    const borderStyle = room.style.getPropertyValue("--roomBorder");
 
     let single = true;
     for (let index = 0; index < pos.length; index++) {
         if(pos[index] === true) single = false;
     }
     if(single){
-        console.log(room);
         gridItem.setDefault(room, style);
         room.classList.add(roomNum);
         room.style.setProperty("--room", style);
+        room.style.setProperty("--roomBorder", borderStyle);
     }else{
         room.style = "";
         room.className = "";
         room.classList.add(roomString);
         room.classList.add(roomNum);
         room.style.setProperty("--room", style);
+        room.style.setProperty("--roomBorder", borderStyle);
     }
+}
+
+const setStyle = (room)=>{
+    room.style.setProperty("--room", this.currentRoomColor);
+    room.style.setProperty("--roomBorder", this.currentBorderColor);
 }
 
 const createNewRoom = (neighbours, grid)=>{

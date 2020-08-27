@@ -1,4 +1,6 @@
 const roomItem = require("./room");
+const tools = require("./tool");
+const doors = require("./door");
 exports.mapRows = 16;
 exports.mapColumns = 10;
 exports.gridList = [];
@@ -14,15 +16,22 @@ exports.createGrid = gridHolder => {
         grid.classList.add(`${index}`);
         gridHolder.appendChild(grid);
         
+        // if(index === 88 || index === 89){
+        //     const room = document.createElement("div");
+        //     this.setDefault(room, roomItem.currentRoomColor);
+        //     room.style.setProperty("--room", roomItem.currentRoomColor);
+        //     grid.appendChild(room);
+        //     if(index === 88) doors.createDoor(grid, room);
+        // }
         grid.addEventListener("click", ()=>{
-            if(grid.firstChild !== null) return;
+            if(grid.firstChild !== null || tools.activeTool !== "roomTool") return;
             const direction = roomItem.findPos(grid);
             if(direction[0] === false && direction[1] === false && direction[2] === false && direction[3] === false) this.createNewRoom(grid);
             else roomItem.createRoom(grid);
         });
         
         grid.addEventListener("contextmenu", ()=>{
-            if(grid.firstChild !== null) return;
+            if(grid.firstChild !== null || tools.activeTool !== "roomTool") return;
             this.createNewRoom(grid);
         });
     }
@@ -36,9 +45,9 @@ exports.createNewRoom = (grid)=>{
     roomItem.numOfRooms++;
     room.classList.add(`${roomItem.numOfRooms}`);
     roomItem.currentRoom = room.classList.item(0);
-    console.log(roomItem.currentRoom);
     
     room.style.setProperty("--room", roomItem.currentRoomColor);
+    room.style.setProperty("--roomBorder", roomItem.currentBorderColor);
     grid.appendChild(room);
     roomItem.roomList.push(room);
 }

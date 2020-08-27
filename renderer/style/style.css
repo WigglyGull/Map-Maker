@@ -178,7 +178,6 @@ body {
 }
 
 .room-left {
-  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -194,7 +193,6 @@ body {
 }
 
 .room-right {
-  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -208,7 +206,6 @@ body {
 }
 
 .room-up {
-  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(8rem - 0.8rem);
   background: var(--room);
@@ -224,7 +221,6 @@ body {
 }
 
 .room-down {
-  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(8rem - 0.8rem);
   background: var(--room);
@@ -238,7 +234,6 @@ body {
 }
 
 .room-left-right {
-  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -251,7 +246,6 @@ body {
 }
 
 .room-left-up {
-  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -267,7 +261,6 @@ body {
 
 .room-left-up::after {
   content: "";
-  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
   background: var(--room);
@@ -280,7 +273,6 @@ body {
 }
 
 .room-left-down {
-  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -296,7 +288,6 @@ body {
 
 .room-left-down::after {
   content: "";
-  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
   background: var(--room);
@@ -309,7 +300,6 @@ body {
 }
 
 .room-right-up {
-  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -323,7 +313,6 @@ body {
 
 .room-right-up::after {
   content: "";
-  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
   background: var(--room);
@@ -336,7 +325,6 @@ body {
 }
 
 .room-right-down {
-  --roomBorder: #383838;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -350,7 +338,6 @@ body {
 
 .room-right-down::after {
   content: "";
-  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
   background: var(--room);
@@ -363,7 +350,6 @@ body {
 }
 
 .room-up-down {
-  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -376,7 +362,6 @@ body {
 }
 
 .room-left-right-up {
-  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -390,7 +375,6 @@ body {
 
 .room-left-right-up::after {
   content: "";
-  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
   background: var(--room);
@@ -403,7 +387,6 @@ body {
 }
 
 .room-right-up-down {
-  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -417,7 +400,6 @@ body {
 
 .room-right-up-down::after {
   content: "";
-  --roomBorder: #383838;
   width: 0.7rem;
   height: 6.1rem;
   background: var(--room);
@@ -430,7 +412,6 @@ body {
 }
 
 .room-left-right-down {
-  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -444,7 +425,6 @@ body {
 
 .room-left-right-down::after {
   content: "";
-  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
   background: var(--room);
@@ -457,7 +437,6 @@ body {
 }
 
 .room-left-up-down {
-  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -471,7 +450,6 @@ body {
 
 .room-left-up-down::after {
   content: "";
-  --roomBorder: #383838;
   width: 0.7rem;
   height: 6.1rem;
   background: var(--room);
@@ -484,7 +462,6 @@ body {
 }
 
 .room-left-right-up-down {
-  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -498,7 +475,6 @@ body {
 
 .room-left-right-up-down::after {
   content: "";
-  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
   background: var(--room);
@@ -512,7 +488,6 @@ body {
 
 .room-left-right-up-down::before {
   content: "";
-  --roomBorder: #383838;
   width: 6.1rem;
   height: 0.7rem;
   background: var(--room);
@@ -525,7 +500,6 @@ body {
 }
 
 .room-right-down-fill {
-  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -537,7 +511,6 @@ body {
 }
 
 .room-left-right-down-fill {
-  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: 6.4rem;
   background: var(--room);
@@ -550,7 +523,6 @@ body {
 
 .room-left-right-down-fill::before {
   content: "";
-  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: 5rem;
   background: var(--room);
@@ -561,7 +533,6 @@ body {
 }
 
 .room-right-up-down-fill {
-  --roomBorder: #383838;
   width: 6.4rem;
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -574,7 +545,6 @@ body {
 
 .room-right-up-down-fill::after {
   content: "";
-  --roomBorder: #383838;
   width: 5rem;
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -585,7 +555,6 @@ body {
 }
 
 .room-left-right-up-down-fill {
-  --roomBorder: #383838;
   width: calc(8.5rem - 0.8rem);
   height: 5.6rem;
   background: var(--room);
@@ -597,7 +566,6 @@ body {
 
 .room-left-right-up-down-fill::before {
   content: "";
-  --roomBorder: #383838;
   width: calc(7.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -609,7 +577,6 @@ body {
 
 .room-left-right-up-down-fill::after {
   content: "";
-  --roomBorder: #383838;
   width: 5.7rem;
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -617,5 +584,12 @@ body {
   z-index: 2;
   -webkit-transform: translate(0.9rem, -1rem);
           transform: translate(0.9rem, -1rem);
+}
+
+.door {
+  background: black;
+  width: 0.4rem;
+  height: 3rem;
+  position: absolute;
 }
 /*# sourceMappingURL=style.css.map */

@@ -21,7 +21,7 @@ exports.setActive=(currentTool, tools)=>{
     tools.forEach(tool => {
         if(tool === currentTool){
             tool.classList.add(activeClass);
-            this.activeTool = tool;
+            this.activeTool = tool.classList.item(0);
             return;
         } 
         tool.classList.remove(activeClass);

@@ -19,7 +19,6 @@ $grid: calc(7.5rem - 0.4rem);
 
 //Mixins
 @mixin baseRoom($width, $height, $index, $left-right: false, $up-down: false) {
-    --roomBorder: #383838;
     width: $width; height: $height;
     background: var(--room);
     position: absolute;
@@ -38,3 +37,4 @@ $grid: calc(7.5rem - 0.4rem);
 @import "biome";
 @import "room";
 @import "roomFill";
+@import "door";
