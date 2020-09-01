@@ -16,6 +16,7 @@ $roomSizeFacing: calc(8rem - 0.8rem);
 $roomSizeFacingDouble: calc(8.5rem - 0.8rem);
 $gridBorderSize: 0.4rem;
 $grid: calc(7.5rem - 0.4rem);
+$borderRadius: 0.6rem;
 
 //Mixins
 @mixin baseRoom($width, $height, $index, $left-right: false, $up-down: false) {

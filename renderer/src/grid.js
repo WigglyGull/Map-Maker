@@ -16,13 +16,6 @@ exports.createGrid = gridHolder => {
         grid.classList.add(`${index}`);
         gridHolder.appendChild(grid);
         
-        // if(index === 88 || index === 89){
-        //     const room = document.createElement("div");
-        //     this.setDefault(room, roomItem.currentRoomColor);
-        //     room.style.setProperty("--room", roomItem.currentRoomColor);
-        //     grid.appendChild(room);
-        //     if(index === 88) doors.createDoor(grid, room);
-        // }
         grid.addEventListener("click", ()=>{
             if(grid.firstChild !== null || tools.activeTool !== "roomTool") return;
             const direction = roomItem.findPos(grid);
@@ -34,6 +27,8 @@ exports.createGrid = gridHolder => {
             if(grid.firstChild !== null || tools.activeTool !== "roomTool") return;
             this.createNewRoom(grid);
         });
+
+        doors.createDoor(grid);
     }
     this.gridList = document.querySelectorAll(".grid");
 }
@@ -60,7 +55,7 @@ exports.setDefault = (room, style) =>{
     room.style.background = style;
     room.style.zIndex = "2";
     room.style.border = "0.3rem solid #383838";
-    room.style.borderRadius = "0.4rem";
+    room.style.borderRadius = "0.6rem";
 }
 
 //Goes through all the grids changing the class if it makes a sqaure
@@ -96,6 +91,15 @@ const resetStyle = (grid, newString)=>{
     grid.firstChild.classList.add(roomNum);
 }
 
+exports.getNeighbours = grid=>{
+    const gridList = this.gridList;
+    const index = this.gridIndex(grid);
+    const leftGrid = this.checkLeftSide(grid) ? undefined : gridList[index-1];
+    const rightGrid = this.checkRightSide(grid) ? undefined : gridList[index+1];
+    const topGrid = gridList[index - this.mapRows];
+    const bottomGrid = gridList[index + this.mapRows];
+    return neighbours = [leftGrid, rightGrid, topGrid, bottomGrid];
+}
 exports.checkLeftSide = grid => {
     let index = this.gridIndex(grid);
     for (let i = 0; i < this.mapColumns+1; i++) {

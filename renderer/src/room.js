@@ -16,7 +16,7 @@ exports.currentBorderColor = biome.roomDarkGrey;
 
 exports.createRoom = grid =>{
     createdNew = false;
-    const neighbours = getNeighbours(grid);
+    const neighbours = gridItem.getNeighbours(grid);
     const roomString = getClass(this.findPos(grid, null));
     const _room = document.createElement("div");
     _room.classList.add(roomString);
@@ -78,7 +78,7 @@ exports.createRoom = grid =>{
 
 exports.findPos = (grid, isNeighbour) => {
     const directions = [left = false, right = false, top = false, bottom = false];
-    const neighbours = getNeighbours(grid);
+    const neighbours = gridItem.getNeighbours(grid);
 
     if(directions.length !== neighbours.length) throw "Hey idoit these values aren't matching!!!!!";
     for (let i = 0; i < directions.length; i++) {
@@ -98,7 +98,7 @@ exports.findPos = (grid, isNeighbour) => {
 
 exports.findPosByStyle = (grid) => {
     const directions = [left = false, right = false, top = false, bottom = false];
-    const neighbours = getNeighbours(grid);
+    const neighbours = gridItem.getNeighbours(grid);
 
     if(directions.length !== neighbours.length) throw "Hey idoit these values aren't matching!!!!!";
     for (let i = 0; i < directions.length; i++) {
@@ -160,15 +160,6 @@ const createNewRoom = (neighbours, grid)=>{
         if(neighbour === undefined || neighbour.firstChild === null) return;
         changeNeighbour(neighbour);
     });
-}
-
-const getNeighbours = grid=>{
-    const index = gridItem.gridIndex(grid);
-    const leftGrid = gridItem.checkLeftSide(grid) ? undefined : gridItem.gridList[index-1];
-    const rightGrid = gridItem.checkRightSide(grid) ? undefined : gridItem.gridList[index+1];
-    const topGrid = gridItem.gridList[index - gridItem.mapRows];
-    const bottomGrid = gridItem.gridList[index + gridItem.mapRows];
-    return neighbours = [leftGrid, rightGrid, topGrid, bottomGrid];
 }
 
 const getClass = directions=>{

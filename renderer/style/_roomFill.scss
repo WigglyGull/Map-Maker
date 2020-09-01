@@ -1,6 +1,6 @@
 .room-right-down-fill{
     @include baseRoom($roomSizeFacingDouble, $roomSizeFacingDouble, 2);
-    border-top: 0.3rem solid var(--roomBorder); border-left: 0.3rem solid var(--roomBorder); border-top-left-radius: 0.4rem;
+    border-top: 0.3rem solid var(--roomBorder); border-left: 0.3rem solid var(--roomBorder); border-top-left-radius: $borderRadius;
 }
 
 .room-left-right-down-fill{

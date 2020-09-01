@@ -40,6 +40,7 @@ const setRoomBiome = () =>{
         case "grassBiome": 
             roomItem.currentRoomColor = this.roomGreen;
             roomItem.currentBorderColor = this.roomDarkGreen;
+            console.log("working")
             break;
     }
 }

@@ -1,6 +1,39 @@
-.door {
-    background: black;
+.doorRight {
+    background: $roomDarkGrey;
     width: $gridBorderSize;
     height: 3rem;
     position: absolute;
+    left: 6.5rem;
+    bottom: 2rem;
+    z-index: 100;
+}
+
+.doorDown {
+    background: $roomDarkGrey;
+    width: 3rem;
+    height: $gridBorderSize;
+    position: absolute;
+    left: 1.8rem;
+    bottom: -0.3rem;
+    z-index: 100;
+}
+
+.doorLeft {
+    background: var(--background);
+    width: $gridBorderSize;
+    height: 3rem;
+    position: absolute;
+    left: -0.2rem;
+    bottom: 2rem;
+    z-index: 100;
+}
+
+.doorUp {
+    background: var(--background);
+    width: 3rem;
+    height: $gridBorderSize;
+    position: absolute;
+    left: 1.8rem;
+    bottom: 6.5rem;
+    z-index: 100;
 }

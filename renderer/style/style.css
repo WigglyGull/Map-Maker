@@ -103,6 +103,7 @@ body {
 }
 
 .grid {
+  position: relative;
   border: 0.4rem solid #DADEEB;
   width: 7.5rem;
   height: 7.5rem;
@@ -186,8 +187,8 @@ body {
   border-right: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
-  border-top-right-radius: 0.4rem;
-  border-bottom-right-radius: 0.4rem;
+  border-top-right-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
   -webkit-transform: translate(-0.5rem, 0);
           transform: translate(-0.5rem, 0);
 }
@@ -201,8 +202,8 @@ body {
   border-left: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
-  border-top-left-radius: 0.4rem;
-  border-bottom-left-radius: 0.4rem;
+  border-top-left-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
 }
 
 .room-up {
@@ -214,8 +215,8 @@ body {
   border-left: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
   border-right: 0.3rem solid var(--roomBorder);
-  border-bottom-right-radius: 0.4rem;
-  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
   -webkit-transform: translate(0, -0.5rem);
           transform: translate(0, -0.5rem);
 }
@@ -229,8 +230,8 @@ body {
   border-left: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   border-right: 0.3rem solid var(--roomBorder);
-  border-top-right-radius: 0.4rem;
-  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.6rem;
+  border-top-left-radius: 0.6rem;
 }
 
 .room-left-right {
@@ -255,7 +256,7 @@ body {
           transform: translateX(-0.5rem);
   border-bottom: 0.3rem solid var(--roomBorder);
   border-right: 0.3rem solid var(--roomBorder);
-  border-bottom-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.6rem;
   border-top: 0.3rem solid var(--roomBorder);
 }
 
@@ -282,7 +283,7 @@ body {
           transform: translateX(-0.5rem);
   border-top: 0.3rem solid var(--roomBorder);
   border-right: 0.3rem solid var(--roomBorder);
-  border-top-right-radius: 0.4rem;
+  border-top-right-radius: 0.6rem;
   border-bottom: 0.3rem solid var(--roomBorder);
 }
 
@@ -307,7 +308,7 @@ body {
   z-index: 1;
   border-bottom: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
-  border-bottom-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.6rem;
   border-top: 0.3rem solid var(--roomBorder);
 }
 
@@ -332,7 +333,7 @@ body {
   z-index: 1;
   border-top: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
-  border-top-left-radius: 0.4rem;
+  border-top-left-radius: 0.6rem;
   border-bottom: 0.3rem solid var(--roomBorder);
 }
 
@@ -507,7 +508,7 @@ body {
   z-index: 2;
   border-top: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
-  border-top-left-radius: 0.4rem;
+  border-top-left-radius: 0.6rem;
 }
 
 .room-left-right-down-fill {
@@ -586,10 +587,43 @@ body {
           transform: translate(0.9rem, -1rem);
 }
 
-.door {
-  background: black;
+.doorRight {
+  background: #383838;
   width: 0.4rem;
   height: 3rem;
   position: absolute;
+  left: 6.5rem;
+  bottom: 2rem;
+  z-index: 100;
+}
+
+.doorDown {
+  background: #383838;
+  width: 3rem;
+  height: 0.4rem;
+  position: absolute;
+  left: 1.8rem;
+  bottom: -0.3rem;
+  z-index: 100;
+}
+
+.doorLeft {
+  background: var(--background);
+  width: 0.4rem;
+  height: 3rem;
+  position: absolute;
+  left: -0.2rem;
+  bottom: 2rem;
+  z-index: 100;
+}
+
+.doorUp {
+  background: var(--background);
+  width: 3rem;
+  height: 0.4rem;
+  position: absolute;
+  left: 1.8rem;
+  bottom: 6.5rem;
+  z-index: 100;
 }
 /*# sourceMappingURL=style.css.map */
