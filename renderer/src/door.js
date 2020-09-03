@@ -43,7 +43,8 @@ const spawnDoor = (grid, direction) =>{
     door.style.setProperty("--background", roomColour);
     switch(direction) {
         case"right": 
-            if(rightGrid.firstChild === null) return;
+            if(checkSpawnable(room, rightGrid.firstChild)) return;
+
             door.classList.add("doorRight"); 
             roomStyle.borderTopRightRadius = "0rem";
             roomStyle.borderBottomRightRadius = "0rem";
@@ -52,7 +53,8 @@ const spawnDoor = (grid, direction) =>{
             spawnNeighbourDoor(grid, rightGrid, "left", neighbourStyle.borderBottomLeftRadius, neighbourStyle.borderTopLeftRadius);
             break;
         case"bottom": 
-            if(bottomGrid.firstChild === null) return;
+            if(checkSpawnable(room, bottomGrid.firstChild)) return;
+
             door.classList.add("doorDown");
             roomStyle.borderBottomRightRadius = "0rem";
             roomStyle.borderBottomLeftRadius = "0rem"; 
@@ -61,7 +63,8 @@ const spawnDoor = (grid, direction) =>{
             spawnNeighbourDoor(grid, bottomGrid, "top", neighbourStyle.borderTopLeftRadius, neighbourStyle.borderTopRightRadius);
             break;
         case"left":
-            if(leftGrid.firstChild === null) return;
+            if(checkSpawnable(room, leftGrid.firstChild)) return;
+
             door.classList.add("doorLeft");
             roomStyle.borderTopLeftRadius = "0rem";
             roomStyle.borderBottomLeftRadius = "0rem"; 
@@ -70,7 +73,8 @@ const spawnDoor = (grid, direction) =>{
             spawnNeighbourDoor(grid, leftGrid, "right", neighbourStyle.borderTopRightRadius, neighbourStyle.borderBottomRightRadius);
             break;
         case"top":
-            if(topGrid.firstChild === null) return;
+            if(checkSpawnable(room, topGrid.firstChild)) return;
+
             door.classList.add("doorUp");
             roomStyle.borderTopRightRadius = "0rem";
             roomStyle.borderTopLeftRadius = "0rem"; 
@@ -82,11 +86,16 @@ const spawnDoor = (grid, direction) =>{
     grid.appendChild(door);
 }
 
+const checkSpawnable = (room, neighbour) => {
+    if(neighbour === null) return true;
+    const roomNum = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
+    const neighbourRoomNum = neighbour.classList.item(1) === null ? neighbour.classList.item(0) : neighbour.classList.item(1);
+    if(roomNum === neighbourRoomNum) return true;
+}
+
 const spawnNeighbourDoor = (grid, neighbourGrid, direction, corner1, corner2) =>{
     if(corner1 !== "0rem" || corner2 !== "0rem"){
-        const roomNum = grid.firstChild.classList.item(1) === null ? grid.firstChild.classList.item(0) : grid.firstChild.classList.item(1);
-        const neighbourRoomNum = neighbourGrid.firstChild.classList.item(1) === null ? neighbourGrid.firstChild.classList.item(0) : neighbourGrid.firstChild.classList.item(1);
-        if(roomNum !== neighbourRoomNum) spawnDoor(neighbourGrid, direction);
+        spawnDoor(neighbourGrid, direction);
     }
 }
 

@@ -7,6 +7,8 @@ exports.roomDarkGrey = "#383838";
 exports.roomGreen = "#14A653";
 exports.roomDarkGreen = "#073F1F";
 
+//ToDo: Make the expand button actually add more biomes
+
 exports.createBiome = biomes => {
     if(biomes === null) throw "Biomes element not found";
 
@@ -40,7 +42,6 @@ const setRoomBiome = () =>{
         case "grassBiome": 
             roomItem.currentRoomColor = this.roomGreen;
             roomItem.currentBorderColor = this.roomDarkGreen;
-            console.log("working")
             break;
     }
 }

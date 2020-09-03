@@ -1,5 +1,5 @@
 const roomItem = require("./room");
-const tools = require("./tool");
+const toolItem = require("./tool");
 const doors = require("./door");
 exports.mapRows = 16;
 exports.mapColumns = 10;
@@ -16,15 +16,11 @@ exports.createGrid = gridHolder => {
         grid.classList.add(`${index}`);
         gridHolder.appendChild(grid);
         
-        grid.addEventListener("click", ()=>{
-            if(grid.firstChild !== null || tools.activeTool !== "roomTool") return;
-            const direction = roomItem.findPos(grid);
-            if(direction[0] === false && direction[1] === false && direction[2] === false && direction[3] === false) this.createNewRoom(grid);
-            else roomItem.createRoom(grid);
-        });
+        grid.addEventListener("click", () => this.spawnRoom(grid));
         
         grid.addEventListener("contextmenu", ()=>{
-            if(grid.firstChild !== null || tools.activeTool !== "roomTool") return;
+            if(checkSpawnable(grid)) return;
+            if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
             this.createNewRoom(grid);
         });
 
@@ -33,29 +29,29 @@ exports.createGrid = gridHolder => {
     this.gridList = document.querySelectorAll(".grid");
 }
 
+exports.spawnRoom = (grid) => {
+    if(checkSpawnable(grid)) return;
+
+    const direction = roomItem.findPos(grid);
+    if(roomItem.singleRoom(direction)) this.createNewRoom(grid);
+    else roomItem.createRoom(grid);
+}
+
 //Spawns a sperate room
 exports.createNewRoom = (grid)=>{
     const room = document.createElement("div");
-    this.setDefault(room, roomItem.currentRoomColor);
     roomItem.numOfRooms++;
-    room.classList.add(`${roomItem.numOfRooms}`);
+    this.setDefault(room, roomItem.currentRoomColor, `${roomItem.numOfRooms}`);
     roomItem.currentRoom = room.classList.item(0);
     
-    room.style.setProperty("--room", roomItem.currentRoomColor);
-    room.style.setProperty("--roomBorder", roomItem.currentBorderColor);
+    roomItem.setStyle(room);
     grid.appendChild(room);
     roomItem.roomList.push(room);
 }
 
-exports.setDefault = (room, style) =>{
-    room.style = "";
-    room.className = "";
-    room.style.width = "6.7rem";
-    room.style.height = "6.7rem";
-    room.style.background = style;
-    room.style.zIndex = "2";
-    room.style.border = "0.3rem solid #383838";
-    room.style.borderRadius = "0.6rem";
+const checkSpawnable = (grid)=>{
+    if(grid.firstChild !== null) return true;
+    if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
 }
 
 //Goes through all the grids changing the class if it makes a sqaure
@@ -84,11 +80,27 @@ exports.fillSqaures=()=>{
     });
 }
 const resetStyle = (grid, newString)=>{
-    const roomNum = grid.firstChild.classList.item(1);
-    grid.style.background = roomItem.currentRoomColor;
-    grid.firstChild.className = "";
-    grid.firstChild.classList.add(newString);
-    grid.firstChild.classList.add(roomNum);
+    const room = grid.firstChild;
+    const roomNum = room.classList.item(1);
+
+    const style = room.style.getPropertyValue("--room");
+    grid.style.background = style;
+
+    room.className = "";
+    room.classList.add(newString);
+    room.classList.add(roomNum);
+}
+
+exports.setDefault = (room, style, roomNum) =>{
+    room.style = "";
+    room.className = "";
+    room.style.width = "6.7rem";
+    room.style.height = "6.7rem";
+    room.style.background = style;
+    room.style.zIndex = "2";
+    room.style.border = "0.3rem solid #383838";
+    room.style.borderRadius = "0.6rem";
+    room.classList.add(roomNum);
 }
 
 exports.getNeighbours = grid=>{

@@ -588,7 +588,7 @@ body {
 }
 
 .doorRight {
-  background: #383838;
+  background: var(--background);
   width: 0.4rem;
   height: 3rem;
   position: absolute;
@@ -598,7 +598,7 @@ body {
 }
 
 .doorDown {
-  background: #383838;
+  background: var(--background);
   width: 3rem;
   height: 0.4rem;
   position: absolute;

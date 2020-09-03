@@ -1,5 +1,5 @@
 .doorRight {
-    background: $roomDarkGrey;
+    background: var(--background);
     width: $gridBorderSize;
     height: 3rem;
     position: absolute;
@@ -9,7 +9,7 @@
 }
 
 .doorDown {
-    background: $roomDarkGrey;
+    background: var(--background);
     width: 3rem;
     height: $gridBorderSize;
     position: absolute;

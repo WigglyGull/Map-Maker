@@ -11,8 +11,8 @@ let tools = document.querySelectorAll(".tool");
 let biomes = document.querySelectorAll(".biome");
 
 keyInput.getKeyEvents();
-grid.createGrid(gridHolder);
 tool.createToolbar(tools);
 biome.createBiome(biomes);
+grid.createGrid(gridHolder);
 
 tool.setActive(tools[0], tools);

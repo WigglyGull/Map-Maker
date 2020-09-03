@@ -1,5 +1,6 @@
 const activeClass = "activeTool";
 exports.activeTool;
+exports.tools;
 
 exports.createToolbar = tools => {
     if(tools === null){
@@ -7,6 +8,7 @@ exports.createToolbar = tools => {
         return;
     }
 
+    this.tools = tools;
     tools.forEach(tool => {
         tool.addEventListener("click", ()=>{
             if(tool.classList.contains(activeClass)) tool.classList.remove(activeClass);
