@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu } = require("electron");
 const windowStateKeeper = require("electron-window-state");
+const path = require("path");
 
 function createWindow(){
     //Todo: Make desgin responsive
@@ -14,17 +15,15 @@ function createWindow(){
         width: _width, height: _height,
         minWidth: _width, minHeight: _height, maxWidth:_width, maxHeight: _height,
         x: winState.x, y: winState.y,
+        frame: false,
         webPreferences: {
             nodeIntegration: true,
+            preload: path.join(__dirname, "preload.js")
         }
     });
 
     mainWindow.loadFile('renderer/main.html');
     mainWindow.webContents.openDevTools();
-
-    // const template = [];
-    // const menu = Menu.buildFromTemplate(template);
-    // Menu.setApplicationMenu(menu);
 
     winState.manage(mainWindow);
 }
