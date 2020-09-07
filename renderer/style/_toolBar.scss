@@ -22,12 +22,15 @@
     display: flex;
     justify-content: center; 
     align-items: center;
+
+    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+.tool:hover{
+    height: 6.3rem;
+    width: 6.3rem;
+    box-shadow: $boxShadowActive;
 }
 
 .activeTool{
-    width: 7rem;
-    height: 7rem;
-    box-shadow: $boxShadowActive;
-    border: 3px solid white;
-    background: $uiHighlight;
+    animation: activateTool 0.3s ease-in-out forwards;
 }

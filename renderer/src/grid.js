@@ -7,7 +7,6 @@ exports.gridList = [];
 
 exports.createGrid = gridHolder => {
     if(gridHolder === null) throw "Gridholder not found";
-
     //Spawns the grid
     const amountofSqaures = this.mapRows * this.mapColumns;
     for (let index = 0; index < amountofSqaures; index++) {
@@ -54,43 +53,6 @@ const checkSpawnable = (grid)=>{
     if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
 }
 
-//Goes through all the grids changing the class if it makes a sqaure
-exports.fillSqaures=()=>{
-    const gridList = this.gridList;
-    gridList.forEach(grid =>{
-        const index = Number(grid.classList.item(1));
-        const rightGrid = this.checkRightSide(grid) ? undefined : gridList[index+1];
-        const bottomGrid = gridList[index + this.mapRows];
-        const bottomRightGrid = gridList[index + (this.mapRows+1)];
-
-        if(rightGrid !== undefined && bottomGrid !== undefined && bottomRightGrid !== undefined){
-            if(grid.firstChild !== null && rightGrid.firstChild !== null && bottomGrid.firstChild !== null && bottomRightGrid.firstChild !== null){
-                const currentRoom = grid.firstChild.classList.item(1);
-                if(rightGrid.firstChild.classList.item(1) === currentRoom && bottomGrid.firstChild.classList.item(1) === currentRoom && bottomRightGrid.firstChild.classList.item(1) === currentRoom){
-                    const roomString = grid.firstChild.classList.item(0);
-                    switch(roomString){
-                        case "room-right-down": resetStyle(grid, "room-right-down-fill"); break;
-                        case "room-left-right-down": resetStyle(grid, "room-left-right-down-fill"); break;
-                        case "room-right-up-down": resetStyle(grid, "room-right-up-down-fill"); break;    
-                        case "room-left-right-up-down": resetStyle(grid, "room-left-right-up-down-fill"); break;    
-                    }
-                }
-            }
-        }else return;
-    });
-}
-const resetStyle = (grid, newString)=>{
-    const room = grid.firstChild;
-    const roomNum = room.classList.item(1);
-
-    const style = room.style.getPropertyValue("--room");
-    grid.style.background = style;
-
-    room.className = "";
-    room.classList.add(newString);
-    room.classList.add(roomNum);
-}
-
 exports.setDefault = (room, style, roomNum) =>{
     room.style = "";
     room.className = "";
@@ -100,6 +62,8 @@ exports.setDefault = (room, style, roomNum) =>{
     room.style.zIndex = "2";
     room.style.border = "0.3rem solid #383838";
     room.style.borderRadius = "0.6rem";
+    room.style.position = "absolute"
+    room.classList.add("single");
     room.classList.add(roomNum);
 }
 
@@ -128,4 +92,12 @@ exports.checkRightSide = grid => {
 }
 exports.gridIndex = grid => {
     return Number(grid.classList.item(1));
+}
+exports.getRoom = room => {
+    let fullRoom = [];
+    roomItem.roomList.forEach((listRoom)=>{
+        const roomNum = listRoom.classList.item(1);
+        if(room === roomNum) fullRoom.push(listRoom);
+    });
+    return fullRoom;
 }

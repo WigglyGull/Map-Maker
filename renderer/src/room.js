@@ -9,26 +9,26 @@ exports.currentRoom = this.numOfRooms;
 exports.currentRoomColor = biome.roomGrey;
 exports.currentBorderColor = biome.roomDarkGrey;
 
-//Todo: clean everything up so its easier to expand on
 //Todo: a cojoin room button
 //Todo: click the room you want to add to
 
 exports.createRoom = grid =>{
+    console.log("ran")
     createdNew = false;
     const neighbours = gridItem.getNeighbours(grid);
     const roomString = getClass(this.findPos(grid, null));
-    const _room = document.createElement("div");
-    _room.classList.add(roomString);
-    _room.classList.add(`${this.currentRoom}`);
-    this.setStyle(_room);
-    grid.appendChild(_room);
+    const room = document.createElement("div");
+    room.classList.add(roomString);
+    room.classList.add(`${this.currentRoom}`);
+    this.setStyle(room);
+    grid.appendChild(room);
+    this.roomList.push(room);
 
     let oneRoom = false;
     let diffrentStyle = false;
     let neighbourRooms = [];
     let neighbourStyles = [];
 
-    const room = grid.firstChild;
     const roomStyle = room.style.getPropertyValue("--room");
     neighbours.forEach((neighbour) =>{
         if(neighbour === undefined || neighbour.firstChild === null) return;
@@ -50,7 +50,7 @@ exports.createRoom = grid =>{
         neighbours.forEach(neighbour =>{
             if(neighbour === undefined || neighbour.firstChild === null) return;
             const neighbourRoom = neighbour.firstChild;
-            const neighbourRoomNum = neighbourRoom.classList.item(1) === null ? neighbourRoom.classList.item(0) : neighbourRoom.classList.item(1)
+            const neighbourRoomNum = neighbourRoom.classList.item(1);
             room.classList.add(roomString);
             room.classList.add(neighbourRoomNum);
             changeNeighbour(neighbour);
@@ -71,7 +71,7 @@ exports.createRoom = grid =>{
             room.className = "";
             room.classList.add(roomString);
 
-            this.setStyle(_room);
+            this.setStyle(room);
             neighbours.forEach(neighbour => {
                 if(neighbour === undefined || neighbour.firstChild === null) return;
                 changeNeighbour(neighbour, true);
@@ -80,8 +80,10 @@ exports.createRoom = grid =>{
         }else createNewRoom(neighbours, grid);
     }
  
-    gridItem.fillSqaures();
-    if(!createdNew)this.currentRoom = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
+    fillSqaures();
+    if(!createdNew)this.currentRoom = room.classList.item(1);
+
+    addJuice(room);
 }
 
 exports.findPos = (grid, isNeighbour) => {
@@ -92,12 +94,12 @@ exports.findPos = (grid, isNeighbour) => {
     for (let i = 0; i < directions.length; i++) {
         if(neighbours[i] !== undefined && neighbours[i].firstChild !== null){
             const neighbour = neighbours[i].firstChild;
-            const neighbourRoom = neighbour.classList.item(1) === null ? neighbour.classList.item(0) : neighbour.classList.item(1);
+            const neighbourRoom = neighbour.classList.item(1);
             let mainRoom = undefined;
             
             if(isNeighbour === undefined && neighbour !== null) directions[i] = true; 
             else if(isNeighbour === null) mainRoom = this.currentRoom;
-            else mainRoom = grid.firstChild.classList.item(1) === null ? grid.firstChild.classList.item(0) : grid.firstChild.classList.item(1);
+            else mainRoom = grid.firstChild.classList.item(1);
             
             if(mainRoom !== undefined && mainRoom === neighbourRoom) directions[i] = true;
         }
@@ -118,34 +120,6 @@ exports.findPosByStyle = (grid) => {
         }
     }
     return directions;
-}
-
-const getOccurrence = (array, value) =>{
-    var count = 0;
-    array.forEach((v) => {
-        if(v === value) count+=1;
-    });
-    return count;
-}
-
-const changeNeighbour = (grid, byStyle) =>{
-    const room = grid.firstChild;
-    const roomNum = room.classList.item(1) === null ? room.classList.item(0) : room.classList.item(1);
-    const directions = byStyle === undefined ? this.findPos(grid, true) : this.findPosByStyle(grid);
-    const roomString = getClass(directions);
-    const style = room.style.getPropertyValue("--room");
-    const borderStyle = room.style.getPropertyValue("--roomBorder");
-
-    if(this.singleRoom(directions)){
-        gridItem.setDefault(room, style, roomNum);
-        this.setStyle(room, style, borderStyle);
-    }else{
-        room.style = "";
-        room.className = "";
-        room.classList.add(roomString);
-        room.classList.add(roomNum);
-        this.setStyle(room, style, borderStyle);
-    }
 }
 
 exports.setStyle = (room, backColour, borderColor)=>{
@@ -170,6 +144,51 @@ exports.singleRoom = (directions) => {
     return single;
 }
 
+const addJuice = (room) => {
+    const fullRoom = gridItem.getRoom(room.classList.item(1));
+
+    fullRoom.forEach(listRoom => {
+        // const roomAnim = listRoom.classList.item(1);
+        // listRoom.classList.remove(roomAnim);
+        // void listRoom.offsetWidth;
+        // listRoom.classList.add(roomAnim);
+
+        listRoom.style.animation = 'none';
+        listRoom.offsetHeight;
+        listRoom.style.animation = null;
+    });
+    
+}
+
+
+const getOccurrence = (array, value) =>{
+    var count = 0;
+    array.forEach((v) => {
+        if(v === value) count+=1;
+    });
+    return count;
+}
+
+const changeNeighbour = (grid, byStyle) =>{
+    const room = grid.firstChild;
+    const roomNum = room.classList.item(1);
+    const directions = byStyle === undefined ? this.findPos(grid, true) : this.findPosByStyle(grid);
+    const roomString = getClass(directions);
+    const style = room.style.getPropertyValue("--room");
+    const borderStyle = room.style.getPropertyValue("--roomBorder");
+
+    if(this.singleRoom(directions)){
+        gridItem.setDefault(room, style, roomNum);
+        this.setStyle(room, style, borderStyle);
+    }else{
+        room.style = "";
+        room.className = "";
+        room.classList.add(roomString);
+        room.classList.add(roomNum);
+        this.setStyle(room, style, borderStyle);
+    }
+}
+
 const createNewRoom = (neighbours, grid)=>{
     grid.firstChild.remove();
     gridItem.createNewRoom(grid);
@@ -179,6 +198,43 @@ const createNewRoom = (neighbours, grid)=>{
         if(neighbour === undefined || neighbour.firstChild === null) return;
         changeNeighbour(neighbour);
     });
+}
+
+//Goes through all the grids changing the class if it makes a sqaure
+const fillSqaures=()=>{
+    const gridList = gridItem.gridList;
+    gridList.forEach(grid =>{
+        const index = Number(grid.classList.item(1));
+        const rightGrid = gridItem.checkRightSide(grid) ? undefined : gridList[index+1];
+        const bottomGrid = gridList[index + gridItem.mapRows];
+        const bottomRightGrid = gridList[index + (gridItem.mapRows+1)];
+
+        if(rightGrid !== undefined && bottomGrid !== undefined && bottomRightGrid !== undefined){
+            if(grid.firstChild !== null && rightGrid.firstChild !== null && bottomGrid.firstChild !== null && bottomRightGrid.firstChild !== null){
+                const currentRoom = grid.firstChild.classList.item(1);
+                if(rightGrid.firstChild.classList.item(1) === currentRoom && bottomGrid.firstChild.classList.item(1) === currentRoom && bottomRightGrid.firstChild.classList.item(1) === currentRoom){
+                    const roomString = grid.firstChild.classList.item(0);
+                    switch(roomString){
+                        case "room-right-down": resetStyle(grid, "room-right-down-fill"); break;
+                        case "room-left-right-down": resetStyle(grid, "room-left-right-down-fill"); break;
+                        case "room-right-up-down": resetStyle(grid, "room-right-up-down-fill"); break;    
+                        case "room-left-right-up-down": resetStyle(grid, "room-left-right-up-down-fill"); break;    
+                    }
+                }
+            }
+        }else return;
+    });
+}
+const resetStyle = (grid, newString)=>{
+    const room = grid.firstChild;
+    const roomNum = room.classList.item(1);
+
+    const style = room.style.getPropertyValue("--room");
+    grid.style.background = style;
+
+    room.className = "";
+    room.classList.add(newString);
+    room.classList.add(roomNum);
 }
 
 const getClass = directions=>{

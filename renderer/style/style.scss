@@ -20,15 +20,20 @@ $borderRadius: 0.6rem;
 
 //Mixins
 @mixin baseRoom($width, $height, $index, $left-right: false, $up-down: false) {
+    // animation: spawnRoom 0.3s ease-in-out;
     width: $width; height: $height;
     background: var(--room);
     position: absolute;
     z-index: $index;
+    transform-origin: center;
 
     @if $left-right {
         border-right: 0.3rem solid var(--roomBorder); 
         border-left: 0.3rem solid var(--roomBorder);
     }
+}
+.single{
+    animation: spawnRoom 0.3s ease-in-out;
 }
 
 //Imports
@@ -39,3 +44,4 @@ $borderRadius: 0.6rem;
 @import "room";
 @import "roomFill";
 @import "door";
+@import "_animations";

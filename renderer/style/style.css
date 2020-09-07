@@ -1,3 +1,8 @@
+.single {
+  -webkit-animation: spawnRoom 0.3s ease-in-out;
+          animation: spawnRoom 0.3s ease-in-out;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -60,15 +65,20 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+
+.tool:hover {
+  height: 6.3rem;
+  width: 6.3rem;
+  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
 }
 
 .activeTool {
-  width: 7rem;
-  height: 7rem;
-  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-  border: 3px solid white;
-  background: #2B2C31;
+  -webkit-animation: activateTool 0.3s ease-in-out forwards;
+          animation: activateTool 0.3s ease-in-out forwards;
 }
 
 .mapCenterer {
@@ -103,7 +113,6 @@ body {
 }
 
 .grid {
-  position: relative;
   border: 0.4rem solid #DADEEB;
   width: 7.5rem;
   height: 7.5rem;
@@ -157,17 +166,21 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+
+.biome:hover {
+  height: 6.3rem;
+  width: 6.3rem;
+  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
 }
 
 .activeBiome {
-  width: 7rem;
-  height: 7rem;
-  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-  border: 3px solid #383838;
+  -webkit-animation: activateBiome 0.3s ease-in-out forwards;
+          animation: activateBiome 0.3s ease-in-out forwards;
   background: #2B2C31;
-  border-radius: 50%;
-  margin-top: 0;
 }
 
 .normalBiome {
@@ -184,6 +197,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
@@ -199,6 +214,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-left: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
@@ -212,6 +229,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-left: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
   border-right: 0.3rem solid var(--roomBorder);
@@ -227,6 +246,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-left: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   border-right: 0.3rem solid var(--roomBorder);
@@ -240,6 +261,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-bottom: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   -webkit-transform: translateX(-0.5rem);
@@ -252,6 +275,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   -webkit-transform: translateX(-0.5rem);
           transform: translateX(-0.5rem);
   border-bottom: 0.3rem solid var(--roomBorder);
@@ -267,6 +292,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, -0.7rem);
@@ -279,6 +306,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   -webkit-transform: translateX(-0.5rem);
           transform: translateX(-0.5rem);
   border-top: 0.3rem solid var(--roomBorder);
@@ -294,6 +323,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, 6.1rem);
@@ -306,6 +337,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-bottom: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   border-bottom-left-radius: 0.6rem;
@@ -319,6 +352,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.3rem, -0.7rem);
@@ -331,6 +366,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-top: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   border-top-left-radius: 0.6rem;
@@ -344,6 +381,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.3rem, 6.1rem);
@@ -356,6 +395,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translateY(-0.5rem);
@@ -368,6 +409,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-bottom: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
@@ -381,6 +424,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, -0.7rem);
@@ -393,6 +438,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0rem, -0.5rem);
@@ -406,6 +453,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   -webkit-transform: translate(6.1rem, 0.5rem);
           transform: translate(6.1rem, 0.5rem);
   border-top: 0.3rem solid var(--roomBorder);
@@ -418,6 +467,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
@@ -431,6 +482,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, 6.1rem);
@@ -443,6 +496,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0rem, -0.5rem);
@@ -456,6 +511,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.7rem, 0.5rem);
@@ -468,6 +525,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
@@ -481,6 +540,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, -0.7rem);
@@ -494,6 +555,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 1;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, 6.1rem);
@@ -506,6 +569,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-top: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   border-top-left-radius: 0.6rem;
@@ -517,6 +582,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-top: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
           transform: translate(-0.5rem, 0rem);
@@ -529,6 +596,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   -webkit-transform: translate(0.8rem, 2.5rem);
           transform: translate(0.8rem, 2.5rem);
 }
@@ -539,6 +608,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0rem, -0.5rem);
           transform: translate(0rem, -0.5rem);
@@ -551,6 +622,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   -webkit-transform: translate(2.2rem, 0.8rem);
           transform: translate(2.2rem, 0.8rem);
 }
@@ -561,6 +634,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   -webkit-transform: translate(-0.5rem, 0.5rem);
           transform: translate(-0.5rem, 0.5rem);
 }
@@ -572,6 +647,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   -webkit-transform: translate(1.5rem, 0.5rem);
           transform: translate(1.5rem, 0.5rem);
 }
@@ -583,6 +660,8 @@ body {
   background: var(--room);
   position: absolute;
   z-index: 2;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   -webkit-transform: translate(0.9rem, -1rem);
           transform: translate(0.9rem, -1rem);
 }
@@ -625,5 +704,107 @@ body {
   left: 1.8rem;
   bottom: 6.5rem;
   z-index: 100;
+}
+
+@-webkit-keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes activateTool {
+  70% {
+    width: 7.3rem;
+    height: 7.3rem;
+  }
+  to {
+    width: 7rem;
+    height: 7rem;
+    border: 3px solid white;
+    -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+    background: #2B2C31;
+  }
+}
+
+@keyframes activateTool {
+  70% {
+    width: 7.3rem;
+    height: 7.3rem;
+  }
+  to {
+    width: 7rem;
+    height: 7rem;
+    border: 3px solid white;
+    -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+    background: #2B2C31;
+  }
+}
+
+@-webkit-keyframes activateBiome {
+  70% {
+    width: 7.3rem;
+    height: 7.3rem;
+  }
+  to {
+    width: 7rem;
+    height: 7rem;
+    -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+    border: 3px solid #383838;
+    border-radius: 50%;
+    margin-top: 0;
+  }
+}
+
+@keyframes activateBiome {
+  70% {
+    width: 7.3rem;
+    height: 7.3rem;
+  }
+  to {
+    width: 7rem;
+    height: 7rem;
+    -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+    border: 3px solid #383838;
+    border-radius: 50%;
+    margin-top: 0;
+  }
+}
+
+@-webkit-keyframes spawnRoom {
+  60% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes spawnRoom {
+  60% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,37 @@
+@keyframes opening {
+    from{opacity: 0}
+    to{opacity: 1;}
+}
+@keyframes activateTool {
+    70%{
+        width: 7.3rem;
+        height: 7.3rem; 
+    }
+    to{
+        width: 7rem;
+        height: 7rem; 
+        border: 3px solid white;
+        box-shadow: $boxShadowActive;
+        background: $uiHighlight;
+    }
+}
+@keyframes activateBiome {
+    70%{
+        width: 7.3rem;
+        height: 7.3rem; 
+    }
+    to{
+        width: 7rem;
+        height: 7rem;
+        box-shadow: $boxShadowActive;
+        border: 3px solid $roomDarkGrey;
+        border-radius: 50%;
+        margin-top: 0;
+    }
+}
+@keyframes spawnRoom {
+    60%{transform: scale(1.1);}
+    to{
+        transform: scale(1);
+    }
+}

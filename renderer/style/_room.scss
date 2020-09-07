@@ -25,7 +25,6 @@
     border-bottom: 0.3rem solid var(--roomBorder); border-top: 0.3rem solid var(--roomBorder);
     transform: translateX(-0.5rem);
 }
-
 .room-left-up{
     @include baseRoom($roomSizeFacing, $roomSize, 1);
     transform: translateX(-0.5rem);
@@ -36,7 +35,6 @@
     @include baseRoom(6.1rem, 0.7rem, 1, $left-right: true);
     transform: translate(0.5rem, -0.7rem);
 }
-
 .room-left-down{
     @include baseRoom($roomSizeFacing, $roomSize, 1);
     transform: translateX(-0.5rem);
@@ -48,7 +46,6 @@
     @include baseRoom(6.1rem, 0.7rem, 1, $left-right: true);
     transform: translate(0.5rem, 6.1rem);
 }
-
 .room-right-up{
     @include baseRoom($roomSizeFacing, $roomSize, 1);
     border-bottom: 0.3rem solid var(--roomBorder); border-left: 0.3rem solid var(--roomBorder); border-bottom-left-radius: $borderRadius;border-top: 0.3rem solid var(--roomBorder);
@@ -58,7 +55,6 @@
     @include baseRoom(6.1rem, 0.7rem, 1, $left-right: true);
     transform: translate(-0.3rem, -0.7rem);           
 }
-
 .room-right-down{
     @include baseRoom($roomSizeFacing, $roomSize, 1);
     border-top: 0.3rem solid var(--roomBorder); border-left: 0.3rem solid var(--roomBorder); border-top-left-radius: $borderRadius; border-bottom: 0.3rem solid var(--roomBorder);
@@ -68,12 +64,10 @@
     @include baseRoom(6.1rem, 0.7rem, 1, $left-right: true);
     transform: translate(-0.3rem, 6.1rem);
 }
-
 .room-up-down{
     @include baseRoom($roomSize, $roomSizeFacingDouble, 2, $left-right: true);
     transform: translateY(-0.5rem);
 }
-
 .room-left-right-up{
     @include baseRoom($roomSizeFacingDouble, $roomSize, 1);
     border-bottom: 0.3rem solid var(--roomBorder); border-top: 0.3rem solid var(--roomBorder);
@@ -84,7 +78,6 @@
     @include baseRoom(6.1rem, 0.7rem, 2, $left-right: true);
     transform: translate(0.5rem, -0.7rem);
 }
-
 .room-right-up-down{
     @include baseRoom($roomSize, $roomSizeFacingDouble, 1, $left-right: true);
     transform: translate(-0rem,-0.5rem);
@@ -95,7 +88,6 @@
     transform: translate(6.1rem, 0.5rem);
     border-top: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder);
 }
-
 .room-left-right-down{
     @include baseRoom($roomSizeFacingDouble, $roomSize, 1);
     border-top: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder);
@@ -106,7 +98,6 @@
     @include baseRoom(6.1rem, 0.7rem, 2, $left-right: true);
     transform: translate(0.5rem, 6.1rem);
 }
-
 .room-left-up-down{
     @include baseRoom($roomSize, $roomSizeFacingDouble, 1, $left-right: true);
     transform: translate(-0rem,-0.5rem);
@@ -117,7 +108,6 @@
     border-top: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder);
     transform: translate(-0.7rem, 0.5rem);
 }
-
 .room-left-right-up-down{
     @include baseRoom($roomSizeFacingDouble, $roomSize, 1);
     border-top: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder);

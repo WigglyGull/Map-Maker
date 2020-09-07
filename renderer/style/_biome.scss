@@ -22,15 +22,17 @@
     display: flex;
     justify-content: center; 
     align-items: center;
+
+    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+.biome:hover{
+    height: 6.3rem;
+    width: 6.3rem;
+    box-shadow: $boxShadowActive;
 }
 .activeBiome{
-    width: 7rem;
-    height: 7rem;
-    box-shadow: $boxShadowActive;
-    border: 3px solid $roomDarkGrey;
+    animation: activateBiome 0.3s ease-in-out forwards;
     background: $uiHighlight;
-    border-radius: 50%;
-    margin-top: 0;
 }
 
 .normalBiome{
