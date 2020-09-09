@@ -29,9 +29,23 @@
         margin-top: 0;
     }
 }
-@keyframes spawnRoom {
-    60%{transform: scale(1.1);}
-    to{
-        transform: scale(1);
-    }
+@keyframes spawn {
+    from {transform: scale(1);}
+    60%{transform: scale(1.07);}
+    to{transform: scale(1);}
+}
+@keyframes spawn-left {
+    from {transform: translate(-0.5rem,0rem) scale(1);}
+    60%{transform: translate(-0.5rem,0rem) scale(1.1);}
+    to{transform: translate(-0.5rem,0rem) scale(1);}
+}
+@keyframes spawn-door-up {
+    from {width: 0rem; height: 0rem;}
+    80% {width: 3.5rem; height: $gridBorderSize;}
+    to{width: 3rem; height: $gridBorderSize;}
+}
+@keyframes spawn-door-side {
+    from {width: 0rem; height: 0rem;}
+    80% {width: $gridBorderSize; height: 3.5rem;}
+    to{width: $gridBorderSize; height: 3rem;}
 }

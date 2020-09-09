@@ -13,7 +13,6 @@ exports.currentBorderColor = biome.roomDarkGrey;
 //Todo: click the room you want to add to
 
 exports.createRoom = grid =>{
-    console.log("ran")
     createdNew = false;
     const neighbours = gridItem.getNeighbours(grid);
     const roomString = getClass(this.findPos(grid, null));
@@ -83,7 +82,7 @@ exports.createRoom = grid =>{
     fillSqaures();
     if(!createdNew)this.currentRoom = room.classList.item(1);
 
-    addJuice(room);
+    // addJuice(room);
 }
 
 exports.findPos = (grid, isNeighbour) => {
@@ -157,9 +156,7 @@ const addJuice = (room) => {
         listRoom.offsetHeight;
         listRoom.style.animation = null;
     });
-    
 }
-
 
 const getOccurrence = (array, value) =>{
     var count = 0;
@@ -185,6 +182,7 @@ const changeNeighbour = (grid, byStyle) =>{
         room.className = "";
         room.classList.add(roomString);
         room.classList.add(roomNum);
+        room.style.animation = 'none';
         this.setStyle(room, style, borderStyle);
     }
 }

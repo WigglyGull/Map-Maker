@@ -41,7 +41,7 @@ exports.createNewRoom = (grid)=>{
     const room = document.createElement("div");
     roomItem.numOfRooms++;
     this.setDefault(room, roomItem.currentRoomColor, `${roomItem.numOfRooms}`);
-    roomItem.currentRoom = room.classList.item(0);
+    roomItem.currentRoom = room.classList.item(1);
     
     roomItem.setStyle(room);
     grid.appendChild(room);

@@ -1,8 +1,3 @@
-.single {
-  -webkit-animation: spawnRoom 0.3s ease-in-out;
-          animation: spawnRoom 0.3s ease-in-out;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -20,6 +15,7 @@ html {
 }
 
 body {
+  font-family: "Poppins", sans-serif;
   color: #F9F9F9;
   position: static;
   overflow: hidden;
@@ -113,6 +109,7 @@ body {
 }
 
 .grid {
+  position: relative;
   border: 0.4rem solid #DADEEB;
   width: 7.5rem;
   height: 7.5rem;
@@ -191,7 +188,16 @@ body {
   background: #14A653;
 }
 
+.single {
+  -webkit-transition: border-radius 1s ease-in-out;
+  transition: border-radius 1s ease-in-out;
+  -webkit-animation: spawn 0.2s ease-in-out;
+          animation: spawn 0.2s ease-in-out;
+}
+
 .room-left {
+  -webkit-animation: spawn-left 0.2s ease-in-out;
+          animation: spawn-left 0.2s ease-in-out;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -199,6 +205,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
@@ -209,6 +217,8 @@ body {
 }
 
 .room-right {
+  -webkit-animation: spawn 0.2s ease-in-out;
+          animation: spawn 0.2s ease-in-out;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -216,6 +226,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-left: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
@@ -224,6 +236,8 @@ body {
 }
 
 .room-up {
+  -webkit-animation: spawn 0.2s ease-in-out;
+          animation: spawn 0.2s ease-in-out;
   width: calc(7.5rem - 0.8rem);
   height: calc(8rem - 0.8rem);
   background: var(--room);
@@ -231,6 +245,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-left: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
   border-right: 0.3rem solid var(--roomBorder);
@@ -241,6 +257,8 @@ body {
 }
 
 .room-down {
+  -webkit-animation: spawn 0.2s ease-in-out;
+          animation: spawn 0.2s ease-in-out;
   width: calc(7.5rem - 0.8rem);
   height: calc(8rem - 0.8rem);
   background: var(--room);
@@ -248,6 +266,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-left: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   border-right: 0.3rem solid var(--roomBorder);
@@ -256,6 +276,8 @@ body {
 }
 
 .room-left-right {
+  -webkit-animation: spawn 0.2s ease-in-out;
+          animation: spawn 0.2s ease-in-out;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -263,6 +285,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-bottom: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   -webkit-transform: translateX(-0.5rem);
@@ -270,6 +294,8 @@ body {
 }
 
 .room-left-up {
+  -webkit-animation: spawn-left 0.2s ease-in-out;
+          animation: spawn-left 0.2s ease-in-out;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -277,6 +303,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   -webkit-transform: translateX(-0.5rem);
           transform: translateX(-0.5rem);
   border-bottom: 0.3rem solid var(--roomBorder);
@@ -294,13 +322,17 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
-  -webkit-transform: translate(0.5rem, -0.7rem);
-          transform: translate(0.5rem, -0.7rem);
+  -webkit-transform: translate(0.5rem, -0.67rem);
+          transform: translate(0.5rem, -0.67rem);
 }
 
 .room-left-down {
+  -webkit-animation: spawn-left 0.2s ease-in-out;
+          animation: spawn-left 0.2s ease-in-out;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -308,6 +340,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   -webkit-transform: translateX(-0.5rem);
           transform: translateX(-0.5rem);
   border-top: 0.3rem solid var(--roomBorder);
@@ -325,13 +359,17 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
-  -webkit-transform: translate(0.5rem, 6.1rem);
-          transform: translate(0.5rem, 6.1rem);
+  -webkit-transform: translate(0.5rem, 6.05rem);
+          transform: translate(0.5rem, 6.05rem);
 }
 
 .room-right-up {
+  -webkit-animation: spawn 0.2s ease-in-out;
+          animation: spawn 0.2s ease-in-out;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -339,6 +377,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-bottom: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   border-bottom-left-radius: 0.6rem;
@@ -354,6 +394,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.3rem, -0.7rem);
@@ -361,6 +403,8 @@ body {
 }
 
 .room-right-down {
+  -webkit-animation: spawn 0.2s ease-in-out;
+          animation: spawn 0.2s ease-in-out;
   width: calc(8rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -368,6 +412,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-top: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   border-top-left-radius: 0.6rem;
@@ -383,6 +429,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.3rem, 6.1rem);
@@ -390,6 +438,8 @@ body {
 }
 
 .room-up-down {
+  -webkit-animation: spawn 0.2s ease-in-out;
+          animation: spawn 0.2s ease-in-out;
   width: calc(7.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -397,6 +447,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translateY(-0.5rem);
@@ -404,6 +456,8 @@ body {
 }
 
 .room-left-right-up {
+  -webkit-animation: spawn-left 0.2s ease-in-out;
+          animation: spawn-left 0.2s ease-in-out;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -411,6 +465,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-bottom: 0.3rem solid var(--roomBorder);
   border-top: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
@@ -426,6 +482,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, -0.7rem);
@@ -433,6 +491,8 @@ body {
 }
 
 .room-right-up-down {
+  -webkit-animation: spawn 0.2s ease-in-out;
+          animation: spawn 0.2s ease-in-out;
   width: calc(7.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -440,6 +500,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0rem, -0.5rem);
@@ -455,6 +517,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   -webkit-transform: translate(6.1rem, 0.5rem);
           transform: translate(6.1rem, 0.5rem);
   border-top: 0.3rem solid var(--roomBorder);
@@ -462,6 +526,8 @@ body {
 }
 
 .room-left-right-down {
+  -webkit-animation: spawn-left 0.2s ease-in-out;
+          animation: spawn-left 0.2s ease-in-out;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -469,6 +535,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
@@ -484,6 +552,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, 6.1rem);
@@ -491,6 +561,8 @@ body {
 }
 
 .room-left-up-down {
+  -webkit-animation: spawn 0.2s ease-in-out;
+          animation: spawn 0.2s ease-in-out;
   width: calc(7.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -498,6 +570,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0rem, -0.5rem);
@@ -513,6 +587,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.7rem, 0.5rem);
@@ -520,6 +596,8 @@ body {
 }
 
 .room-left-right-up-down {
+  -webkit-animation: spawn-left 0.2s ease-in-out;
+          animation: spawn-left 0.2s ease-in-out;
   width: calc(8.5rem - 0.8rem);
   height: calc(7.5rem - 0.8rem);
   background: var(--room);
@@ -527,6 +605,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-top: 0.3rem solid var(--roomBorder);
   border-bottom: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
@@ -542,6 +622,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, -0.7rem);
@@ -557,6 +639,8 @@ body {
   z-index: 1;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-right: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0.5rem, 6.1rem);
@@ -564,6 +648,8 @@ body {
 }
 
 .room-right-down-fill {
+  -webkit-animation: spawn 0.3s ease-in-out;
+          animation: spawn 0.3s ease-in-out;
   width: calc(8.5rem - 0.8rem);
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -571,12 +657,16 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-top: 0.3rem solid var(--roomBorder);
   border-left: 0.3rem solid var(--roomBorder);
   border-top-left-radius: 0.6rem;
 }
 
 .room-left-right-down-fill {
+  -webkit-animation: spawn 0.3s ease-in-out;
+          animation: spawn 0.3s ease-in-out;
   width: calc(8.5rem - 0.8rem);
   height: 6.4rem;
   background: var(--room);
@@ -584,6 +674,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-top: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(-0.5rem, 0rem);
           transform: translate(-0.5rem, 0rem);
@@ -598,11 +690,15 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   -webkit-transform: translate(0.8rem, 2.5rem);
           transform: translate(0.8rem, 2.5rem);
 }
 
 .room-right-up-down-fill {
+  -webkit-animation: spawn 0.3s ease-in-out;
+          animation: spawn 0.3s ease-in-out;
   width: 6.4rem;
   height: calc(8.5rem - 0.8rem);
   background: var(--room);
@@ -610,6 +706,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   border-left: 0.3rem solid var(--roomBorder);
   -webkit-transform: translate(0rem, -0.5rem);
           transform: translate(0rem, -0.5rem);
@@ -624,11 +722,15 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   -webkit-transform: translate(2.2rem, 0.8rem);
           transform: translate(2.2rem, 0.8rem);
 }
 
 .room-left-right-up-down-fill {
+  -webkit-animation: spawn 0.3s ease-in-out;
+          animation: spawn 0.3s ease-in-out;
   width: calc(8.5rem - 0.8rem);
   height: 5.6rem;
   background: var(--room);
@@ -636,6 +738,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   -webkit-transform: translate(-0.5rem, 0.5rem);
           transform: translate(-0.5rem, 0.5rem);
 }
@@ -649,6 +753,8 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   -webkit-transform: translate(1.5rem, 0.5rem);
           transform: translate(1.5rem, 0.5rem);
 }
@@ -662,11 +768,15 @@ body {
   z-index: 2;
   -webkit-transform-origin: center;
           transform-origin: center;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
   -webkit-transform: translate(0.9rem, -1rem);
           transform: translate(0.9rem, -1rem);
 }
 
 .doorRight {
+  -webkit-animation: spawn-door-side 0.4s ease-in-out;
+          animation: spawn-door-side 0.4s ease-in-out;
   background: var(--background);
   width: 0.4rem;
   height: 3rem;
@@ -677,6 +787,8 @@ body {
 }
 
 .doorDown {
+  -webkit-animation: spawn-door-up 0.4s ease-in-out;
+          animation: spawn-door-up 0.4s ease-in-out;
   background: var(--background);
   width: 3rem;
   height: 0.4rem;
@@ -687,6 +799,8 @@ body {
 }
 
 .doorLeft {
+  -webkit-animation: spawn-door-side 0.4s ease-in-out;
+          animation: spawn-door-side 0.4s ease-in-out;
   background: var(--background);
   width: 0.4rem;
   height: 3rem;
@@ -697,6 +811,8 @@ body {
 }
 
 .doorUp {
+  -webkit-animation: spawn-door-up 0.4s ease-in-out;
+          animation: spawn-door-up 0.4s ease-in-out;
   background: var(--background);
   width: 3rem;
   height: 0.4rem;
@@ -786,10 +902,14 @@ body {
   }
 }
 
-@-webkit-keyframes spawnRoom {
+@-webkit-keyframes spawn {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
   60% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1.07);
+            transform: scale(1.07);
   }
   to {
     -webkit-transform: scale(1);
@@ -797,14 +917,108 @@ body {
   }
 }
 
-@keyframes spawnRoom {
+@keyframes spawn {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
   60% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    -webkit-transform: scale(1.07);
+            transform: scale(1.07);
   }
   to {
     -webkit-transform: scale(1);
             transform: scale(1);
+  }
+}
+
+@-webkit-keyframes spawn-left {
+  from {
+    -webkit-transform: translate(-0.5rem, 0rem) scale(1);
+            transform: translate(-0.5rem, 0rem) scale(1);
+  }
+  60% {
+    -webkit-transform: translate(-0.5rem, 0rem) scale(1.1);
+            transform: translate(-0.5rem, 0rem) scale(1.1);
+  }
+  to {
+    -webkit-transform: translate(-0.5rem, 0rem) scale(1);
+            transform: translate(-0.5rem, 0rem) scale(1);
+  }
+}
+
+@keyframes spawn-left {
+  from {
+    -webkit-transform: translate(-0.5rem, 0rem) scale(1);
+            transform: translate(-0.5rem, 0rem) scale(1);
+  }
+  60% {
+    -webkit-transform: translate(-0.5rem, 0rem) scale(1.1);
+            transform: translate(-0.5rem, 0rem) scale(1.1);
+  }
+  to {
+    -webkit-transform: translate(-0.5rem, 0rem) scale(1);
+            transform: translate(-0.5rem, 0rem) scale(1);
+  }
+}
+
+@-webkit-keyframes spawn-door-up {
+  from {
+    width: 0rem;
+    height: 0rem;
+  }
+  80% {
+    width: 3.5rem;
+    height: 0.4rem;
+  }
+  to {
+    width: 3rem;
+    height: 0.4rem;
+  }
+}
+
+@keyframes spawn-door-up {
+  from {
+    width: 0rem;
+    height: 0rem;
+  }
+  80% {
+    width: 3.5rem;
+    height: 0.4rem;
+  }
+  to {
+    width: 3rem;
+    height: 0.4rem;
+  }
+}
+
+@-webkit-keyframes spawn-door-side {
+  from {
+    width: 0rem;
+    height: 0rem;
+  }
+  80% {
+    width: 0.4rem;
+    height: 3.5rem;
+  }
+  to {
+    width: 0.4rem;
+    height: 3rem;
+  }
+}
+
+@keyframes spawn-door-side {
+  from {
+    width: 0rem;
+    height: 0rem;
+  }
+  80% {
+    width: 0.4rem;
+    height: 3.5rem;
+  }
+  to {
+    width: 0.4rem;
+    height: 3rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

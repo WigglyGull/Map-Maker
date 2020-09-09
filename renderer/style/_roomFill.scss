@@ -1,9 +1,11 @@
 .room-right-down-fill{
+    animation: spawn 0.3s ease-in-out;
     @include baseRoom($roomSizeFacingDouble, $roomSizeFacingDouble, 2);
     border-top: 0.3rem solid var(--roomBorder); border-left: 0.3rem solid var(--roomBorder); border-top-left-radius: $borderRadius;
 }
 
 .room-left-right-down-fill{
+    animation: spawn 0.3s ease-in-out;
     @include baseRoom($roomSizeFacingDouble, 6.4rem, 2);
     border-top: 0.3rem solid var(--roomBorder);
     transform: translate(-0.5rem,0rem);
@@ -15,6 +17,7 @@
 }
 
 .room-right-up-down-fill{
+    animation: spawn 0.3s ease-in-out;
     @include baseRoom(6.4rem, $roomSizeFacingDouble, 2);
     border-left: 0.3rem solid var(--roomBorder);
     transform: translate(-0rem,-0.5rem);
@@ -26,6 +29,7 @@
 }
 
 .room-left-right-up-down-fill{
+    animation: spawn 0.3s ease-in-out;
     @include baseRoom($roomSizeFacingDouble, 5.6rem, 2);
     transform: translate(-0.5rem,0.5rem);
 }

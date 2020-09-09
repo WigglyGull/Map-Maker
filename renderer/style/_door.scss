@@ -1,4 +1,5 @@
 .doorRight {
+    animation: spawn-door-side 0.4s ease-in-out;
     background: var(--background);
     width: $gridBorderSize;
     height: 3rem;
@@ -9,6 +10,7 @@
 }
 
 .doorDown {
+    animation: spawn-door-up 0.4s ease-in-out;
     background: var(--background);
     width: 3rem;
     height: $gridBorderSize;
@@ -19,6 +21,7 @@
 }
 
 .doorLeft {
+    animation: spawn-door-side 0.4s ease-in-out;
     background: var(--background);
     width: $gridBorderSize;
     height: 3rem;
@@ -29,6 +32,7 @@
 }
 
 .doorUp {
+    animation: spawn-door-up 0.4s ease-in-out;
     background: var(--background);
     width: 3rem;
     height: $gridBorderSize;
