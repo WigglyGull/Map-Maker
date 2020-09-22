@@ -81,8 +81,6 @@ exports.createRoom = grid =>{
  
     fillSqaures();
     if(!createdNew)this.currentRoom = room.classList.item(1);
-
-    // addJuice(room);
 }
 
 exports.findPos = (grid, isNeighbour) => {
@@ -141,21 +139,6 @@ exports.singleRoom = (directions) => {
         }
     }
     return single;
-}
-
-const addJuice = (room) => {
-    const fullRoom = gridItem.getRoom(room.classList.item(1));
-
-    fullRoom.forEach(listRoom => {
-        // const roomAnim = listRoom.classList.item(1);
-        // listRoom.classList.remove(roomAnim);
-        // void listRoom.offsetWidth;
-        // listRoom.classList.add(roomAnim);
-
-        listRoom.style.animation = 'none';
-        listRoom.offsetHeight;
-        listRoom.style.animation = null;
-    });
 }
 
 const getOccurrence = (array, value) =>{
