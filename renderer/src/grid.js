@@ -1,6 +1,8 @@
 const roomItem = require("./room");
 const toolItem = require("./tool");
 const doors = require("./door");
+const icon = require("./icon");
+
 exports.mapRows = 16;
 exports.mapColumns = 10;
 exports.gridList = [];
@@ -16,14 +18,15 @@ exports.createGrid = gridHolder => {
         gridHolder.appendChild(grid);
         
         grid.addEventListener("click", () => this.spawnRoom(grid));
-        
         grid.addEventListener("contextmenu", ()=>{
             if(checkSpawnable(grid)) return;
-            if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
+            // if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
+            if(toolItem.activeTool !== "roomTool") return;
             this.createNewRoom(grid);
         });
 
         doors.createDoor(grid);
+        icon.createIcon(grid);
     }
     this.gridList = document.querySelectorAll(".grid");
 }
@@ -97,7 +100,8 @@ exports.getRoom = room => {
     let fullRoom = [];
     roomItem.roomList.forEach((listRoom)=>{
         const roomNum = listRoom.classList.item(1);
-        if(room === roomNum) fullRoom.push(listRoom);
+        const currentRoomNum = room.classList.item(1);
+        if(currentRoomNum === roomNum) fullRoom.push(listRoom);
     });
     return fullRoom;
 }

@@ -11,10 +11,8 @@ exports.createToolbar = tools => {
     this.tools = tools;
     tools.forEach(tool => {
         tool.addEventListener("click", ()=>{
-            if(tool.classList.contains(activeClass)) tool.classList.remove(activeClass);
-            else{
-                this.setActive(tool, tools);
-            }
+            if(tool.classList.contains(activeClass)) return;
+            else this.setActive(tool, tools);   
         });
     });
 }

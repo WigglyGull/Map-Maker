@@ -1,0 +1,40 @@
+.iconHolder{
+    position: absolute;
+    transform: translateX(18.5rem);
+}
+.iconSelect{
+    width: 25rem;
+    height: 22rem;
+
+    box-shadow: $boxShadowActive;
+    background: #FFFFFF;
+    border: 3px solid #383838;
+    box-sizing: border-box;
+    border-radius: 0.5rem; 
+
+    display: grid;
+    grid-template-columns: 8.3rem 8.3rem 8.3rem;
+    grid-template-rows: 7.3rem 7.3rem 7.3rem;
+    padding-left: 0.8rem; padding-top: 0.2rem;
+}
+.arrow{
+    position: absolute;
+    left: -1.5rem;
+    transform: translateY(-15rem);
+}
+.pickDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $uiColor;
+    border-radius: 50%;
+    box-shadow: $boxShadow;
+
+    width: 6rem;
+    height: 6rem;
+}
+.activePickDiv{
+    background: $uiHighlight;
+    width: 6.2rem;
+    height: 6.2rem;
+}
