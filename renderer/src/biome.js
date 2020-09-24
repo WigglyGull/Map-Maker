@@ -30,7 +30,6 @@ const setActive = (currentBiome, biomes)=>{
         if(biome === currentBiome) return;
         biome.classList.remove(activeClass);
     });
-    
 }
 
 const setRoomBiome = () =>{

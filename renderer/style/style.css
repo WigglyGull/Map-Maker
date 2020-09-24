@@ -1078,4 +1078,15 @@ body {
   width: 6.2rem;
   height: 6.2rem;
 }
+
+.gridIconSingle {
+  position: relative;
+  z-index: 10;
+  left: 13%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
 /*# sourceMappingURL=style.css.map */

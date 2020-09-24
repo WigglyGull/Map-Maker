@@ -38,3 +38,11 @@
     width: 6.2rem;
     height: 6.2rem;
 }
+.gridIconSingle{
+    position: relative;
+    z-index: 10;
+    left:13%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+}

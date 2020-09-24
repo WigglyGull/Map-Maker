@@ -5,7 +5,8 @@ const iconTool = document.querySelector(".iconTool");
 const iconImage = document.querySelector(".keyIcon");
 const iconSelector = document.querySelector(".iconHolder");
 let pickDivs = document.querySelectorAll(".pickDiv");
-let currentImgSrc = "";
+let currentImgSrc = "../assets/icons/key.svg";
+let hover = false;
 
 const activeClass = "activePickDiv";
 exports.activePickDiv;
@@ -14,11 +15,17 @@ exports.createIconSelector = () =>{
     iconSelector.remove();
     
     iconTool.addEventListener("click", ()=>{
-        iconTool.appendChild(iconSelector);
+        if(!iconTool.contains(iconSelector))iconTool.appendChild(iconSelector);
+        else if(!hover) iconSelector.remove();
+
         pickDivs = document.querySelectorAll(".pickDiv");
+    });
+    iconSelector.addEventListener("mouseenter", ()=>{
+        hover = true;
     });
     iconSelector.addEventListener("mouseleave", ()=>{
         iconSelector.remove();
+        hover = false;
     });
     pickDivs.forEach(div=>{
         div.addEventListener("click", ()=>{
@@ -30,11 +37,23 @@ exports.createIconSelector = () =>{
 
 exports.createIcon = (grid) => {
     grid.addEventListener("click", (e)=>{
-        if(grid.firstChild === null && tools.activeTool !== "iconTool") return;
-        const room = grid.firstChild;
-        const roomNum = gridItem.getRoom(room);
+        if(grid.firstChild === null || tools.activeTool !== "iconTool") return;
+        if(grid.querySelector(".gridIconSingle") !== null) return;
+
+        const icon = document.createElement("img");
+        icon.classList.add("gridIconSingle");
+        
+        icon.src = setNewSrc();
+        grid.appendChild(icon);
     });
 };
+
+const setNewSrc = () => {
+    const point = currentImgSrc.length - 4;
+    const newString = currentImgSrc.substr(0, point) + "1.svg";
+    console.log(newString);
+    return newString; 
+}
 
 const setActive = (currentDiv, divs)=>{
     divs.forEach(div => {
