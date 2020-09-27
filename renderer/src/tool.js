@@ -1,4 +1,6 @@
 const activeClass = "activeTool";
+const icon = require("./icon");
+
 exports.activeTool;
 exports.tools;
 
@@ -12,7 +14,8 @@ exports.createToolbar = tools => {
     tools.forEach(tool => {
         tool.addEventListener("click", ()=>{
             if(tool.classList.contains(activeClass)) return;
-            else this.setActive(tool, tools);   
+            else this.setActive(tool, tools); 
+            icon.closeSelector();  
         });
     });
 }

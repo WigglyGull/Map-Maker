@@ -48,6 +48,10 @@ exports.createIcon = (grid) => {
     });
 };
 
+exports.closeSelector = () => {
+    iconSelector.remove();
+}
+
 const setNewSrc = () => {
     const point = currentImgSrc.length - 4;
     const newString = currentImgSrc.substr(0, point) + "1.svg";
