@@ -1,9 +1,16 @@
 const tools = require("./tool");
 const gridItem = require("./grid.js");
 
+exports.editingText = false;
+
 exports.createDoor = (grid) => {
     grid.addEventListener("click", (e)=>{
         if(grid.firstChild === null || tools.activeTool !== "doorTool") return;
+
+        if(this.editingText === true){
+            this.editingText = false;
+            return;
+        }
 
         let width = grid.offsetWidth;
         let height = grid.offsetHeight;

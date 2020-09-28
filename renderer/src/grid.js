@@ -2,6 +2,7 @@ const roomItem = require("./room");
 const toolItem = require("./tool");
 const doors = require("./door");
 const icon = require("./icon");
+const text = require("./text");
 
 exports.mapRows = 16;
 exports.mapColumns = 10;
@@ -19,14 +20,13 @@ exports.createGrid = gridHolder => {
         
         grid.addEventListener("click", () => this.spawnRoom(grid));
         grid.addEventListener("contextmenu", ()=>{
-            if(checkSpawnable(grid)) return;
-            // if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
-            if(toolItem.activeTool !== "roomTool") return;
+            if(checkSpawnable(grid) || toolItem.activeTool !== "roomTool") return;
             this.createNewRoom(grid);
         });
 
         doors.createDoor(grid);
         icon.createIcon(grid);
+        text.createText(grid);
     }
     this.gridList = document.querySelectorAll(".grid");
 }
@@ -98,10 +98,11 @@ exports.gridIndex = grid => {
 }
 exports.getRoom = room => {
     let fullRoom = [];
-    roomItem.roomList.forEach((listRoom)=>{
-        const roomNum = listRoom.classList.item(1);
+    this.gridList.forEach((listRoom)=>{
+        if(listRoom.firstChild === null) return;
+        const roomNum = listRoom.firstChild.classList.item(1);
         const currentRoomNum = room.classList.item(1);
-        if(currentRoomNum === roomNum) fullRoom.push(listRoom);
+        if(currentRoomNum === roomNum) fullRoom.push(listRoom.firstChild);
     });
     return fullRoom;
 }

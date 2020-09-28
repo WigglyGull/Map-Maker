@@ -783,7 +783,7 @@ body {
   position: absolute;
   left: 6.5rem;
   bottom: 2rem;
-  z-index: 100;
+  z-index: 50;
 }
 
 .doorDown {
@@ -795,7 +795,7 @@ body {
   position: absolute;
   left: 1.8rem;
   bottom: -0.3rem;
-  z-index: 100;
+  z-index: 50;
 }
 
 .doorLeft {
@@ -807,7 +807,7 @@ body {
   position: absolute;
   left: -0.2rem;
   bottom: 2rem;
-  z-index: 100;
+  z-index: 50;
 }
 
 .doorUp {
@@ -819,7 +819,7 @@ body {
   position: absolute;
   left: 1.8rem;
   bottom: 6.5rem;
-  z-index: 100;
+  z-index: 50;
 }
 
 @-webkit-keyframes opening {
@@ -1046,6 +1046,7 @@ body {
       grid-template-rows: 7.3rem 7.3rem 7.3rem;
   padding-left: 0.8rem;
   padding-top: 0.2rem;
+  z-index: 100;
 }
 
 .arrow {
@@ -1080,7 +1081,7 @@ body {
 }
 
 .gridIconSingle {
-  position: relative;
+  position: absolute;
   z-index: 10;
   left: 13%;
   -webkit-transform: translateX(-50%);
@@ -1088,5 +1089,30 @@ body {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+.textBox {
+  position: relative;
+  z-index: 20;
+  -webkit-transform: translate(0.6rem, 0.3rem);
+          transform: translate(0.6rem, 0.3rem);
+}
+
+.text {
+  background: transparent;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  border: none;
+  width: 10rem;
+  color: white;
+}
+
+.text::-webkit-input-placeholder {
+  color: #DADEEB;
+  text-shadow: none;
+}
+
+.text:focus {
+  background: transparent;
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */

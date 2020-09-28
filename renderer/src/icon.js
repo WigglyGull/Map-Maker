@@ -1,4 +1,3 @@
-const gridItem = require("./grid");
 const tools = require("./tool");
 
 const iconTool = document.querySelector(".iconTool");
@@ -10,6 +9,7 @@ let hover = false;
 
 const activeClass = "activePickDiv";
 exports.activePickDiv;
+exports.editingText = false;
 
 exports.createIconSelector = () =>{
     iconSelector.remove();
@@ -39,6 +39,10 @@ exports.createIcon = (grid) => {
     grid.addEventListener("click", (e)=>{
         if(grid.firstChild === null || tools.activeTool !== "iconTool") return;
         if(grid.querySelector(".gridIconSingle") !== null) return;
+        if(this.editingText === true){
+            this.editingText = false;
+            return;
+        }
 
         const icon = document.createElement("img");
         icon.classList.add("gridIconSingle");
@@ -55,7 +59,6 @@ exports.closeSelector = () => {
 const setNewSrc = () => {
     const point = currentImgSrc.length - 4;
     const newString = currentImgSrc.substr(0, point) + "1.svg";
-    console.log(newString);
     return newString; 
 }
 

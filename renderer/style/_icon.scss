@@ -16,6 +16,7 @@
     grid-template-columns: 8.3rem 8.3rem 8.3rem;
     grid-template-rows: 7.3rem 7.3rem 7.3rem;
     padding-left: 0.8rem; padding-top: 0.2rem;
+    z-index: 100;
 }
 .arrow{
     position: absolute;
@@ -39,7 +40,7 @@
     height: 6.2rem;
 }
 .gridIconSingle{
-    position: relative;
+    position: absolute;
     z-index: 10;
     left:13%;
     transform: translateX(-50%);
