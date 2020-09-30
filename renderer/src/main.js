@@ -6,11 +6,10 @@ const icon = require("./src/icon.js");
 
 const gridHolder = document.querySelector(".gridHolder");
 let tools = document.querySelectorAll(".tool");
-let biomes = document.querySelectorAll(".biome");
 
 keyInput.getKeyEvents();
 tool.createToolbar(tools);
-biome.createBiome(biomes);
+biome.createBiome();
 grid.createGrid(gridHolder);
 icon.createIconSelector();
 

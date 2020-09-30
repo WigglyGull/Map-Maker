@@ -1,3 +1,23 @@
+.biomeHolder{
+    position: absolute;
+    transform: translateY(-13rem);
+}
+.biomeSelect{
+    width: 24.5rem;
+    height: 16rem;
+
+    box-shadow: $boxShadowActive;
+    background: #FFFFFF;
+    border: 3px solid #383838;
+    box-sizing: border-box;
+    border-radius: 0.5rem; 
+
+    display: grid;
+    grid-template-columns: 7rem 7rem 7rem;
+    grid-template-rows: 7rem 7rem;
+    padding-top: 1rem;
+    z-index: 100;
+}
 .biomeBar{
     display: flex;
     justify-content: center;
@@ -34,10 +54,37 @@
     animation: activateBiome 0.3s ease-in-out forwards;
     background: $uiHighlight;
 }
-
 .normalBiome{
     background: $roomGrey;
 }
 .grassBiome{
     background: $roomGreen;
+}
+.redBiome{
+    background: $roomRed;
+}
+.blueBiome{
+    background: $roomBlue;
+}
+.yellowBiome{
+    background: $roomYellow;
+}
+.purpleBiome{
+    background: $roomPurple;
+}
+.secretBiome{
+    background: $secretRoom;
+}
+.activated{
+    border: 3px solid $roomDarkGrey;
+    height: 6rem;
+    width: 6rem;
+    margin: 0rem 2rem;
+    border-radius: 50%;
+    box-shadow: $boxShadow;
+}
+.arrowDown{
+    position: absolute;
+    transform: translateX(8.9rem);
+    top: 13.89rem;
 }

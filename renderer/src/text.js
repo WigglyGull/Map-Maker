@@ -20,7 +20,7 @@ exports.createText = (grid) => {
 
         text.addEventListener("click", ()=>{
             if(tools.activeTool === "iconTool") icon.editingText = true;
-            
+            if(tools.activeTool === "doorTool") door.editingText = true;
         });
 
         textBox.classList.add("textBox");

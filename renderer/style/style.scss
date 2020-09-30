@@ -1,16 +1,25 @@
 //Colours
 $uiColor: #53555F; 
 $uiHighlight: #2B2C31;
+
 $roomGrey: #9F9F9F;
 $roomDarkGrey: #383838;
 $roomGreen: #14A653;
 $roomDarkGreen: #073F1F;
+$roomBlue: #3D92E1;
+$roomDarkBlue: #0D2562;
+$roomRed: #D42645;
+$roomDarkRed: #560029;
+$roomYellow: #EBC02A;
+$roomDarkYellow: #563708;
+$roomPurple: #AE41C9;
+$roomDarkPurple: #35054B;
+$secretRoom: #E5E5E5;
+
 $boxShadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
 $boxShadowActive: 0px 7px 5px rgba(0, 0, 0, 0.25);
 
-//Sizes
 $gridSize: 7.5rem;
-//roomsize is gird - gird+0.5
 $roomSize: calc(7.5rem - 0.8rem);
 $roomSizeFacing: calc(8rem - 0.8rem);
 $roomSizeFacingDouble: calc(8.5rem - 0.8rem);
