@@ -158,7 +158,7 @@ const changeNeighbour = (grid, byStyle) =>{
     const borderStyle = room.style.getPropertyValue("--roomBorder");
 
     if(this.singleRoom(directions)){
-        gridItem.setDefault(room, style, roomNum);
+        gridItem.setDefault(room, style, borderStyle, roomNum);
         this.setStyle(room, style, borderStyle);
     }else{
         room.style = "";

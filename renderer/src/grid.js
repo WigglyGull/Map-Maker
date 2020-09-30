@@ -43,7 +43,7 @@ exports.spawnRoom = (grid) => {
 exports.createNewRoom = (grid)=>{
     const room = document.createElement("div");
     roomItem.numOfRooms++;
-    this.setDefault(room, roomItem.currentRoomColor, `${roomItem.numOfRooms}`);
+    this.setDefault(room, roomItem.currentRoomColor, roomItem.currentBorderColor, `${roomItem.numOfRooms}`);
     roomItem.currentRoom = room.classList.item(1);
     
     roomItem.setStyle(room);
@@ -56,14 +56,14 @@ const checkSpawnable = (grid)=>{
     if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
 }
 
-exports.setDefault = (room, style, roomNum) =>{
+exports.setDefault = (room, style, outlineStyle, roomNum) =>{
     room.style = "";
     room.className = "";
     room.style.width = "6.7rem";
     room.style.height = "6.7rem";
     room.style.background = style;
     room.style.zIndex = "2";
-    room.style.border = "0.3rem solid #383838";
+    room.style.border = `0.3rem solid ${outlineStyle}`;
     room.style.borderRadius = "0.6rem";
     room.style.position = "absolute"
     room.classList.add("single");

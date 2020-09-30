@@ -22,8 +22,6 @@ const roomPurple = "#AE41C9";
 const roomDarkPurple = "#35054B";
 const secretRoom = "#E5E5E5";
 
-//ToDo: Make the expand button actually add more biomes
-
 exports.createBiome = () => {
     biomes = document.querySelectorAll(".biome");
     if(biomes === null) throw "Biomes element not found";
@@ -63,6 +61,7 @@ exports.createBiome = () => {
 const setBiomeActive = biome => {
     if(biome.classList.contains(activeClass)) return;
     else{
+        if(biome.classList.item(1) === "small") return;
         biome.classList.add(activeClass);
         activeBiome = biome.classList.item(0);
         setActive(biome, biomes);

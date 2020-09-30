@@ -38,7 +38,20 @@
     border-radius: 50%;
     box-shadow: $boxShadow;
 
-    //Centers icons
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+.addBiome{
+    background: $uiColor;
+    height: 6rem;
+    width: 6rem;
+    margin: 0rem 2rem;
+    border-radius: 50%;
+    box-shadow: $boxShadow;
+
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -46,6 +59,11 @@
     transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
 }
 .biome:hover{
+    height: 6.3rem;
+    width: 6.3rem;
+    box-shadow: $boxShadowActive;
+}
+.addBiome:hover{
     height: 6.3rem;
     width: 6.3rem;
     box-shadow: $boxShadowActive;
