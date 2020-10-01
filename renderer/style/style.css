@@ -22,6 +22,10 @@ body {
   height: 100%;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .toolBar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -189,8 +193,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .addBiome {
@@ -210,8 +214,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .biome:hover {
@@ -243,7 +247,7 @@ body {
 }
 
 .redBiome {
-  background: #D42645;
+  background: #CF3652;
 }
 
 .blueBiome {
@@ -251,11 +255,11 @@ body {
 }
 
 .yellowBiome {
-  background: #EBC02A;
+  background: #E0BC3D;
 }
 
 .purpleBiome {
-  background: #AE41C9;
+  background: #904fa0;
 }
 
 .secretBiome {
@@ -961,6 +965,34 @@ body {
   }
 }
 
+@-webkit-keyframes activatePick {
+  70% {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  to {
+    width: 6rem;
+    height: 6rem;
+    -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+    background: #2B2C31;
+  }
+}
+
+@keyframes activatePick {
+  70% {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  to {
+    width: 6rem;
+    height: 6rem;
+    -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+    background: #2B2C31;
+  }
+}
+
 @-webkit-keyframes activateBiome {
   70% {
     width: 7.3rem;
@@ -990,6 +1022,60 @@ body {
     border: 3px solid #383838;
     border-radius: 50%;
     margin-top: 0;
+  }
+}
+
+@-webkit-keyframes spawnText {
+  from {
+    font-size: 1.3rem;
+  }
+  80% {
+    font-size: 1.7rem;
+  }
+  to {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes spawnText {
+  from {
+    font-size: 1.3rem;
+  }
+  80% {
+    font-size: 1.7rem;
+  }
+  to {
+    font-size: 1.5rem;
+  }
+}
+
+@-webkit-keyframes spawnIcon {
+  from {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  80% {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  to {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@keyframes spawnIcon {
+  from {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  80% {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  to {
+    width: 5rem;
+    height: 5rem;
   }
 }
 
@@ -1121,7 +1207,7 @@ body {
 
 .iconSelect {
   width: 25rem;
-  height: 22rem;
+  height: 22.5rem;
   -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
   background: #FFFFFF;
@@ -1135,8 +1221,12 @@ body {
       grid-template-columns: 8.3rem 8.3rem 8.3rem;
   -ms-grid-rows: 7.3rem 7.3rem 7.3rem;
       grid-template-rows: 7.3rem 7.3rem 7.3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-row-align: center;
+      align-self: center;
   padding-left: 0.8rem;
-  padding-top: 0.2rem;
   z-index: 100;
 }
 
@@ -1148,27 +1238,36 @@ body {
 }
 
 .pickDiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   background: #53555F;
+  height: 6rem;
+  width: 6rem;
+  margin: 1rem 0rem;
   border-radius: 50%;
   -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-  width: 6rem;
-  height: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+
+.pickDiv:hover {
+  height: 6.3rem;
+  width: 6.3rem;
+  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
 }
 
 .activePickDiv {
-  background: #2B2C31;
-  width: 6.2rem;
-  height: 6.2rem;
+  -webkit-animation: activatePick 0.3s ease-in-out forwards;
+          animation: activatePick 0.3s ease-in-out forwards;
 }
 
 .gridIconSingle {
@@ -1180,6 +1279,8 @@ body {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  -webkit-animation: spawnIcon 0.3s ease-in-out forwards;
+          animation: spawnIcon 0.3s ease-in-out forwards;
 }
 
 .textBox {
@@ -1191,6 +1292,8 @@ body {
 
 .text {
   background: transparent;
+  -webkit-animation: spawnText 0.2s ease-in-out forwards;
+          animation: spawnText 0.2s ease-in-out forwards;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   border: none;
   width: 10rem;

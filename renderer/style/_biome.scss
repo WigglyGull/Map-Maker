@@ -42,7 +42,7 @@
     justify-content: center; 
     align-items: center;
 
-    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
 }
 .addBiome{
     background: $uiColor;
@@ -56,7 +56,7 @@
     justify-content: center; 
     align-items: center;
 
-    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
 }
 .biome:hover{
     height: 6.3rem;

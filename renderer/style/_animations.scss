@@ -15,6 +15,18 @@
         background: $uiHighlight;
     }
 }
+@keyframes activatePick {
+    70%{
+        width: 6.5rem;
+        height: 6.5rem; 
+    }
+    to{
+        width: 6rem;
+        height: 6rem; 
+        box-shadow: $boxShadowActive;
+        background: $uiHighlight;
+    }
+}
 @keyframes activateBiome {
     70%{
         width: 7.3rem;
@@ -28,6 +40,16 @@
         border-radius: 50%;
         margin-top: 0;
     }
+}
+@keyframes spawnText{
+    from{font-size: 1.3rem;}
+    80%{font-size: 1.7rem;}
+    to{font-size: 1.5rem;}
+}
+@keyframes spawnIcon{
+    from{width: 4.5rem; height: 4.5rem;}
+    80%{width: 5.5rem; height: 5.5rem;}
+    to{width: 5rem; height: 5rem;}
 }
 @keyframes spawn {
     from {transform: scale(1);}

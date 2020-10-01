@@ -4,7 +4,7 @@
 }
 .iconSelect{
     width: 25rem;
-    height: 22rem;
+    height: 22.5rem;
 
     box-shadow: $boxShadowActive;
     background: #FFFFFF;
@@ -15,7 +15,9 @@
     display: grid;
     grid-template-columns: 8.3rem 8.3rem 8.3rem;
     grid-template-rows: 7.3rem 7.3rem 7.3rem;
-    padding-left: 0.8rem; padding-top: 0.2rem;
+    align-items: center;
+    align-self: center;
+    padding-left: 0.8rem;
     z-index: 100;
 }
 .arrow{
@@ -24,20 +26,26 @@
     transform: translateY(-15rem);
 }
 .pickDiv{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: $uiColor;
+    height: 6rem;
+    width: 6rem;
+    margin: 1rem 0rem;
     border-radius: 50%;
     box-shadow: $boxShadow;
 
-    width: 6rem;
-    height: 6rem;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+.pickDiv:hover{
+    height: 6.3rem;
+    width: 6.3rem;
+    box-shadow: $boxShadowActive;
 }
 .activePickDiv{
-    background: $uiHighlight;
-    width: 6.2rem;
-    height: 6.2rem;
+    animation: activatePick 0.3s ease-in-out forwards;
 }
 .gridIconSingle{
     position: absolute;
@@ -46,4 +54,5 @@
     transform: translateX(-50%);
     top: 50%;
     transform: translateY(-50%);
+    animation: spawnIcon 0.3s ease-in-out forwards;
 }

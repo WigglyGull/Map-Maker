@@ -2,10 +2,10 @@
     position: relative;
     z-index: 20;
     transform: translate(0.6rem, 0.3rem);
-    
 }
 .text{
     background: transparent;
+    animation: spawnText 0.2s ease-in-out forwards;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     border: none;
     width: 10rem;
