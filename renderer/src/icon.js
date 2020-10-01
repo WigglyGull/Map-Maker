@@ -6,6 +6,7 @@ const iconSelector = document.querySelector(".iconHolder");
 let pickDivs = document.querySelectorAll(".pickDiv");
 let currentImgSrc = "../assets/icons/key.svg";
 let hover = false;
+let slectorOpactiy = 1;
 
 const activeClass = "activePickDiv";
 exports.activePickDiv;
@@ -13,19 +14,24 @@ exports.editingText = false;
 
 exports.createIconSelector = () =>{
     iconSelector.remove();
+    let fade = setInterval(fadeOut, 50);
     
     iconTool.addEventListener("click", ()=>{
         if(!iconTool.contains(iconSelector))iconTool.appendChild(iconSelector);
         else if(!hover) iconSelector.remove();
+        clearInterval(fade);
+        resetOpacity();
 
         pickDivs = document.querySelectorAll(".pickDiv");
     });
     iconSelector.addEventListener("mouseenter", ()=>{
         hover = true;
+        clearInterval(fade);
+        resetOpacity();
     });
     iconSelector.addEventListener("mouseleave", ()=>{
-        iconSelector.remove();
         hover = false;
+        fade = setInterval(fadeOut, 50);
     });
     pickDivs.forEach(div=>{
         div.addEventListener("click", ()=>{
@@ -73,4 +79,22 @@ const setActive = (currentDiv, divs)=>{
         } 
         div.classList.remove(activeClass);
     });
+}
+
+const resetOpacity = () => {
+    slectorOpactiy = 1;
+    iconSelector.style.opacity = slectorOpactiy;
+}
+const fadeOut = () => {
+    if(hover){
+        slectorOpactiy = 1;
+        return;
+    } 
+    slectorOpactiy -= 0.1;
+    iconSelector.style.opacity = slectorOpactiy;
+
+    if(slectorOpactiy <= 0.05){
+        iconSelector.remove();
+        resetOpacity();
+    }
 }

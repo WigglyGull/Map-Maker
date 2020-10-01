@@ -3,6 +3,7 @@ const activeClass = "activeBiome";
 let activeBiome = undefined;
 let hover = false;
 let biomes;
+let slectorOpactiy = 1;
 
 const biomeSelector = document.querySelector(".biomeHolder");
 const addBiome = document.querySelector(".addBiome");
@@ -12,21 +13,23 @@ exports.roomGrey = "#9F9F9F";
 exports.roomDarkGrey = "#383838";
 const roomGreen = "#14A653";
 const roomDarkGreen = "#073F1F";
-const roomRed = "#D42645";
+const roomRed = "#CF3652";
 const roomDarkRed = "#560029";
 const roomBlue = "#3D92E1";
 const roomDarkBlue = "#0D2562";
-const roomYellow = "#EBC02A";
+const roomYellow = "#E0BC3D";
 const roomDarkYellow = "#563708";
-const roomPurple = "#AE41C9";
+const roomPurple = "#904fa0";
 const roomDarkPurple = "#35054B";
 const secretRoom = "#E5E5E5";
 
 exports.createBiome = () => {
+    let fade = setInterval(fadeOut, 50);
     biomes = document.querySelectorAll(".biome");
-    if(biomes === null) throw "Biomes element not found";
-    biomeSelector.remove();
 
+    if(biomes === null) throw "Biomes element not found";
+    biomeSelector.classList.remove("hidden");
+    biomeSelector.remove();
     setBiomes();
 
     const biomeButtons = biomeSelector.querySelectorAll(".biome");
@@ -39,6 +42,7 @@ exports.createBiome = () => {
             newBiome.classList.add(biome.classList.item(1));
             biomeBar.insertBefore(newBiome, biomeBar.children[biomeBar.children.length - 1]);
             setBiomes();
+            setBiomeActive(newBiome);
 
             biome.classList.remove("biome");
             biome.classList.add("activated");
@@ -48,13 +52,18 @@ exports.createBiome = () => {
     addBiome.addEventListener("click", ()=>{
         if(!addBiome.contains(biomeSelector)) addBiome.appendChild(biomeSelector);
         else if(!hover) biomeSelector.remove();
+
+        clearInterval(fade);
+        resetOpacity();
     });
     biomeSelector.addEventListener("mouseenter", ()=>{
         hover = true;
+        clearInterval(fade);
+        resetOpacity();
     });
     biomeSelector.addEventListener("mouseleave", ()=>{
         hover = false;
-        biomeSelector.remove();
+        fade = setInterval(fadeOut, 50);
     });
 }
 
@@ -113,5 +122,23 @@ const setRoomBiome = () =>{
             roomItem.currentRoomColor = secretRoom;
             roomItem.currentBorderColor = this.roomGrey;
         break;
+    }
+}
+
+const resetOpacity = () => {
+    slectorOpactiy = 1;
+    biomeSelector.style.opacity = slectorOpactiy;
+}
+const fadeOut = () => {
+    if(hover){
+        slectorOpactiy = 1;
+        return;
+    } 
+    slectorOpactiy -= 0.1;
+    biomeSelector.style.opacity = slectorOpactiy;
+
+    if(slectorOpactiy <= 0.05){
+        biomeSelector.remove();
+        resetOpacity();
     }
 }
