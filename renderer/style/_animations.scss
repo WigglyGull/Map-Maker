@@ -16,13 +16,9 @@
     }
 }
 @keyframes activatePick {
-    70%{
-        width: 6.5rem;
-        height: 6.5rem; 
-    }
+    70%{transform: scale(1.15);}
     to{
-        width: 6rem;
-        height: 6rem; 
+        transform: scale(1);
         box-shadow: $boxShadowActive;
         background: $uiHighlight;
     }
@@ -47,9 +43,9 @@
     to{font-size: 1.5rem;}
 }
 @keyframes spawnIcon{
-    from{width: 4.5rem; height: 4.5rem;}
-    80%{width: 5.5rem; height: 5.5rem;}
-    to{width: 5rem; height: 5rem;}
+    from{transform:scale(0.9);}
+    70%{transform:scale(1.1);}
+    to{transform:scale(1);}
 }
 @keyframes spawn {
     from {transform: scale(1);}

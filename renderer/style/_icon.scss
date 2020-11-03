@@ -29,6 +29,7 @@
     background: $uiColor;
     height: 6rem;
     width: 6rem;
+    transform: scale(1);
     margin: 1rem 0rem;
     border-radius: 50%;
     box-shadow: $boxShadow;
@@ -37,11 +38,10 @@
     justify-content: center; 
     align-items: center;
 
-    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out;
 }
 .pickDiv:hover{
-    height: 6.3rem;
-    width: 6.3rem;
+    transform: scale(1.05);
     box-shadow: $boxShadowActive;
 }
 .activePickDiv{
@@ -51,8 +51,6 @@
     position: absolute;
     z-index: 10;
     left:13%;
-    transform: translateX(-50%);
-    top: 50%;
-    transform: translateY(-50%);
+    top:10%;
     animation: spawnIcon 0.3s ease-in-out forwards;
 }

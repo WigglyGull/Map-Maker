@@ -967,12 +967,12 @@ body {
 
 @-webkit-keyframes activatePick {
   70% {
-    width: 6.5rem;
-    height: 6.5rem;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
   }
   to {
-    width: 6rem;
-    height: 6rem;
+    -webkit-transform: scale(1);
+            transform: scale(1);
     -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
             box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
     background: #2B2C31;
@@ -981,12 +981,12 @@ body {
 
 @keyframes activatePick {
   70% {
-    width: 6.5rem;
-    height: 6.5rem;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
   }
   to {
-    width: 6rem;
-    height: 6rem;
+    -webkit-transform: scale(1);
+            transform: scale(1);
     -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
             box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
     background: #2B2C31;
@@ -1051,31 +1051,31 @@ body {
 
 @-webkit-keyframes spawnIcon {
   from {
-    width: 4.5rem;
-    height: 4.5rem;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
-  80% {
-    width: 5.5rem;
-    height: 5.5rem;
+  70% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   to {
-    width: 5rem;
-    height: 5rem;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
 @keyframes spawnIcon {
   from {
-    width: 4.5rem;
-    height: 4.5rem;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
-  80% {
-    width: 5.5rem;
-    height: 5.5rem;
+  70% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   to {
-    width: 5rem;
-    height: 5rem;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
@@ -1241,6 +1241,8 @@ body {
   background: #53555F;
   height: 6rem;
   width: 6rem;
+  -webkit-transform: scale(1);
+          transform: scale(1);
   margin: 1rem 0rem;
   border-radius: 50%;
   -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
@@ -1254,13 +1256,15 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
 }
 
 .pickDiv:hover {
-  height: 6.3rem;
-  width: 6.3rem;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
   -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
 }
@@ -1274,11 +1278,7 @@ body {
   position: absolute;
   z-index: 10;
   left: 13%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  top: 10%;
   -webkit-animation: spawnIcon 0.3s ease-in-out forwards;
           animation: spawnIcon 0.3s ease-in-out forwards;
 }
