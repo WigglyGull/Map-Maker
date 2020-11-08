@@ -1,8 +1,10 @@
 const roomItem = require("./room");
-const toolItem = require("./tool");
-const doors = require("./door");
-const icon = require("./icon");
-const text = require("./text");
+const toolItem = require("../tools/tool");
+const doors = require("../tools/door");
+const icon = require("../tools/icon");
+const text = require("../tools/text");
+const eraser = require("../tools/eraser");
+const keyInputs = require("../meta/keyInputs");
 
 exports.mapRows = 16;
 exports.mapColumns = 10;
@@ -18,22 +20,22 @@ exports.createGrid = gridHolder => {
         grid.classList.add(`${index}`);
         gridHolder.appendChild(grid);
         
-        grid.addEventListener("click", () => this.spawnRoom(grid));
-        grid.addEventListener("contextmenu", ()=>{
-            if(checkSpawnable(grid) || toolItem.activeTool !== "roomTool") return;
-            this.createNewRoom(grid);
+        grid.addEventListener("click", () => {
+            if(!checkSpawnable(grid) && !keyInputs.holdingShift) this.spawnRoom(grid);
         });
-
+        grid.addEventListener("contextmenu", ()=>{
+            if(!checkSpawnable(grid) && !keyInputs.holdingShift);
+        });
+        
         doors.createDoor(grid);
         icon.createIcon(grid);
         text.createText(grid);
+        eraser.erase(grid);
     }
     this.gridList = document.querySelectorAll(".grid");
 }
 
 exports.spawnRoom = (grid) => {
-    if(checkSpawnable(grid)) return;
-
     const direction = roomItem.findPos(grid);
     if(roomItem.singleRoom(direction)) this.createNewRoom(grid);
     else roomItem.createRoom(grid);

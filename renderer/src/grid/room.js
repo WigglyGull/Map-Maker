@@ -1,6 +1,6 @@
 const gridItem = require("./grid.js");
-const biome = require("./biome");
-const keyInputs = require("./keyInputs"); 
+const biome = require("../tools/biome");
+const keyInputs = require("../meta/keyInputs"); 
 let createdNew = false;
 
 exports.roomList = [];

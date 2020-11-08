@@ -1,4 +1,4 @@
-const roomItem = require("./room");
+const roomItem = require("../grid/room");
 const activeClass = "activeBiome";
 let activeBiome = undefined;
 let hover = false;

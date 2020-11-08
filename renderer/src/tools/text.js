@@ -1,4 +1,4 @@
-const gridItem = require("./grid");
+const gridItem = require("../grid/grid");
 const tools = require("./tool");
 const icon = require("./icon");
 const door = require("./door");

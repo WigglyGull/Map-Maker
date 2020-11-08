@@ -1,5 +1,5 @@
 const tools = require("./tool");
-const gridItem = require("./grid.js");
+const gridItem = require("../grid/grid.js");
 
 exports.editingText = false;
 
