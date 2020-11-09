@@ -1,6 +1,7 @@
+//This whole thing is a mess resiting the urge to rewrite everything
+
 const gridItem = require("./grid.js");
 const biome = require("../tools/biome");
-const keyInputs = require("../meta/keyInputs"); 
 let createdNew = false;
 
 exports.roomList = [];
@@ -11,6 +12,7 @@ exports.currentBorderColor = biome.roomDarkGrey;
 
 //Todo: a cojoin room button
 //Todo: click the room you want to add to
+//Todo: make sure find neighbour only picks up filled rooms
 
 exports.createRoom = grid =>{
     createdNew = false;
@@ -250,4 +252,15 @@ const getClass = directions=>{
         else roomString = "room-right";
     else roomString = "room-left";
     return roomString;
+}
+
+exports.changeNeighboursGlobal = (grid) =>{
+    const neighbours = gridItem.getRoom(grid);
+
+    neighbours.forEach((_neighbour) =>{
+        const neighbour = _neighbour.parentElement;
+        if(neighbour === undefined || neighbour.firstChild === null) return;
+        changeNeighbour(neighbour);
+        fillSqaures();
+    });
 }

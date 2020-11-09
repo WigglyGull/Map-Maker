@@ -21,20 +21,27 @@ exports.createGrid = gridHolder => {
         gridHolder.appendChild(grid);
         
         grid.addEventListener("click", () => {
-            if(!checkSpawnable(grid) && !keyInputs.holdingShift) this.spawnRoom(grid);
+            const gridHasChild = grid.firstChild !== null;
+            if(!gridHasChild && !keyInputs.holdingShift){
+                this.spawnRoom(grid);
+                if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
+            }
+            if(gridHasChild && keyInputs.holdingShift) eraser.removeRoom(grid);
+            console.log(roomItem.roomList);
         });
         grid.addEventListener("contextmenu", ()=>{
-            if(!checkSpawnable(grid) && !keyInputs.holdingShift);
+            if(grid.firstChild === null && !keyInputs.holdingShift) this.createNewRoom(grid);
+            if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
         });
         
         doors.createDoor(grid);
         icon.createIcon(grid);
         text.createText(grid);
-        eraser.erase(grid);
     }
     this.gridList = document.querySelectorAll(".grid");
 }
 
+//Spawns a connected room
 exports.spawnRoom = (grid) => {
     const direction = roomItem.findPos(grid);
     if(roomItem.singleRoom(direction)) this.createNewRoom(grid);
@@ -51,11 +58,6 @@ exports.createNewRoom = (grid)=>{
     roomItem.setStyle(room);
     grid.appendChild(room);
     roomItem.roomList.push(room);
-}
-
-const checkSpawnable = (grid)=>{
-    if(grid.firstChild !== null) return true;
-    if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
 }
 
 exports.setDefault = (room, style, outlineStyle, roomNum) =>{
