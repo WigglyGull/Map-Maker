@@ -27,7 +27,6 @@ exports.createGrid = gridHolder => {
                 if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
             }
             if(gridHasChild && keyInputs.holdingShift) eraser.removeRoom(grid);
-            console.log(roomItem.roomList);
         });
         grid.addEventListener("contextmenu", ()=>{
             if(grid.firstChild === null && !keyInputs.holdingShift) this.createNewRoom(grid);
