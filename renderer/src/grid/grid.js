@@ -27,7 +27,7 @@ exports.createGrid = (gridHolder) => {
         
         this.addEvents(grid);
     }
-    this.gridList = document.querySelectorAll(".grid");
+    this.undoRedoSystem.setHistory(gridHolder.cloneNode(true));
 }
 
 exports.addEvents = grid =>{
@@ -49,6 +49,8 @@ exports.addEvents = grid =>{
     doors.createDoor(grid, this.undoRedoSystem);
     icon.createIcon(grid, this.undoRedoSystem);
     text.createText(grid, this.undoRedoSystem);
+
+    this.gridList = document.querySelectorAll(".grid");
 }
 
 //Spawns a connected room
