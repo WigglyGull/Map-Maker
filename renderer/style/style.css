@@ -1025,30 +1025,6 @@ body {
   }
 }
 
-@-webkit-keyframes spawnText {
-  from {
-    font-size: 1.3rem;
-  }
-  80% {
-    font-size: 1.7rem;
-  }
-  to {
-    font-size: 1.5rem;
-  }
-}
-
-@keyframes spawnText {
-  from {
-    font-size: 1.3rem;
-  }
-  80% {
-    font-size: 1.7rem;
-  }
-  to {
-    font-size: 1.5rem;
-  }
-}
-
 @-webkit-keyframes spawnIcon {
   from {
     -webkit-transform: scale(0.9);
@@ -1141,61 +1117,61 @@ body {
 
 @-webkit-keyframes spawn-door-up {
   from {
-    width: 0rem;
-    height: 0rem;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
   }
   80% {
-    width: 3.5rem;
-    height: 0.4rem;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   to {
-    width: 3rem;
-    height: 0.4rem;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
 @keyframes spawn-door-up {
   from {
-    width: 0rem;
-    height: 0rem;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
   }
   80% {
-    width: 3.5rem;
-    height: 0.4rem;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   to {
-    width: 3rem;
-    height: 0.4rem;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
 @-webkit-keyframes spawn-door-side {
   from {
-    width: 0rem;
-    height: 0rem;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
   }
   80% {
-    width: 0.4rem;
-    height: 3.5rem;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   to {
-    width: 0.4rem;
-    height: 3rem;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
 @keyframes spawn-door-side {
   from {
-    width: 0rem;
-    height: 0rem;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
   }
   80% {
-    width: 0.4rem;
-    height: 3.5rem;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   to {
-    width: 0.4rem;
-    height: 3rem;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
@@ -1292,8 +1268,7 @@ body {
 
 .text {
   background: transparent;
-  -webkit-animation: spawnText 0.2s ease-in-out forwards;
-          animation: spawnText 0.2s ease-in-out forwards;
+  font-size: 1.5rem;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   border: none;
   width: 10rem;

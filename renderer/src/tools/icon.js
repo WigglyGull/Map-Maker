@@ -55,6 +55,7 @@ exports.createIcon = (grid, undoRedoSystem) => {
         
         icon.src = setNewSrc();
         grid.appendChild(icon);
+        undoRedoSystem.saveMap();
     });
 };
 

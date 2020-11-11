@@ -1,9 +1,11 @@
 const tools = require("./tool");
 const gridItem = require("../grid/grid.js");
+let undoRedoSystem = undefined;
 
 exports.editingText = false;
 
-exports.createDoor = (grid, undoRedoSystem) => {
+exports.createDoor = (grid, _undoRedoSystem) => {
+    undoRedoSystem = _undoRedoSystem;
     grid.addEventListener("click", (e)=>{
         if(grid.firstChild === null || tools.activeTool !== "doorTool") return;
 
@@ -20,20 +22,17 @@ exports.createDoor = (grid, undoRedoSystem) => {
         if(width/2 > x && height/2 > y){
             if(y > x) spawnDoor(grid, "left");
             else spawnDoor(grid, "top");
-            return; 
         }else if(width/2 < x && height/2 > y){
             if(checkDistance(y, 0) > checkDistance(x, 70)) spawnDoor(grid, "right");
             else spawnDoor(grid, "top");
-            return;
         }else if(width/2 > x && height/2 < y){
             if(checkDistance(x, 0) < checkDistance(y, 70)) spawnDoor(grid, "left");
             else spawnDoor(grid, "bottom");
-            return;
         }else if(width/2 < x && height/2 < y){
             if(y < x) spawnDoor(grid, "right");
             else spawnDoor(grid, "bottom");
-            return;
         }
+        undoRedoSystem.saveMap();
     });
     
 }

@@ -9,6 +9,7 @@ exports.getKeyEvents = undoRedoSystem =>{
 
         if(e.key === "Control") this.holdingControl = true;
         if(this.holdingControl && e.key === "z") undoRedoSystem.undo();
+        if(this.holdingControl && e.key === "y") undoRedoSystem.redo();
     });
 
     window.addEventListener("keyup", (e)=>{

@@ -28,5 +28,6 @@ exports.createText = (grid, undoRedoSystem) => {
         textBox.appendChild(text);
 
         mainRoom.appendChild(textBox);
+        undoRedoSystem.saveMap();
     });
 }

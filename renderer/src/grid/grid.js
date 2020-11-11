@@ -35,15 +35,20 @@ exports.addEvents = grid =>{
         const gridHasChild = grid.firstChild !== null;
         if(!gridHasChild && !keyInputs.holdingShift){
             this.spawnRoom(grid);
+            this.undoRedoSystem.saveMap();
             if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
         }
-        if(gridHasChild && keyInputs.holdingShift) eraser.removeRoom(grid);
-        this.undoRedoSystem.saveMap();
+        if(gridHasChild && keyInputs.holdingShift){
+            eraser.removeRoom(grid);
+            this.undoRedoSystem.saveMap();
+        }
     });
     grid.addEventListener("contextmenu", ()=>{
-        if(grid.firstChild === null && !keyInputs.holdingShift) this.createNewRoom(grid);
-        if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
-        this.undoRedoSystem.saveMap();
+        if(grid.firstChild === null && !keyInputs.holdingShift){
+            this.createNewRoom(grid);
+            this.undoRedoSystem.saveMap();
+            if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
+        }
     });
     
     doors.createDoor(grid, this.undoRedoSystem);

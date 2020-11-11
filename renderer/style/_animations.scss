@@ -37,11 +37,6 @@
         margin-top: 0;
     }
 }
-@keyframes spawnText{
-    from{font-size: 1.3rem;}
-    80%{font-size: 1.7rem;}
-    to{font-size: 1.5rem;}
-}
 @keyframes spawnIcon{
     from{transform:scale(0.9);}
     70%{transform:scale(1.1);}
@@ -58,12 +53,12 @@
     to{transform: translate(-0.5rem,0rem) scale(1);}
 }
 @keyframes spawn-door-up {
-    from {width: 0rem; height: 0rem;}
-    80% {width: 3.5rem; height: $gridBorderSize;}
-    to{width: 3rem; height: $gridBorderSize;}
+    from {transform:scale(0.5);}
+    80% {transform:scale(1.1);}
+    to{transform:scale(1);}
 }
 @keyframes spawn-door-side {
-    from {width: 0rem; height: 0rem;}
-    80% {width: $gridBorderSize; height: 3.5rem;}
-    to{width: $gridBorderSize; height: 3rem;}
+    from {transform:scale(0.5);}
+    80% {transform:scale(1.1);}
+    to{transform:scale(1);}
 }

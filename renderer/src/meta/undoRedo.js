@@ -18,12 +18,9 @@ exports.createUndoRedoSystem = ()=>{
             const map = document.querySelector(".gridHolder");
             const element = map.cloneNode(true);
             
-            if (position < history.length - 1) {
-                history = history.slice(0, position + 1);
-            }
+            if (position < history.length - 1) history = history.slice(0, position + 1);
             history.push(element);
             position++;
-            console.log(position, history.length-1, history)
         },
 
         draw(){
@@ -34,6 +31,14 @@ exports.createUndoRedoSystem = ()=>{
                 
             newMap.childNodes.forEach(element => {
                 grid.addEvents(element)
+                if(element.firstChild !== null){
+                    const elementChildren = element.childNodes;
+                    for (let index = 0; index < elementChildren.length; index++) {
+                        //removes entier animation
+                        elementChildren[index].style.animationPlayState = "paused";
+                        elementChildren[index].style.animationDelay = "-60s"
+                    }
+                }
             });
         },
 
@@ -41,5 +46,10 @@ exports.createUndoRedoSystem = ()=>{
             if(position > 0) position -= 1;
             this.draw();
         },
+
+        redo(){
+            if (position < history.length - 1) position += 1;
+            this.draw();
+        }
     }
 }
