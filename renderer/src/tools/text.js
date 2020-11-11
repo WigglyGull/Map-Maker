@@ -3,7 +3,7 @@ const tools = require("./tool");
 const icon = require("./icon");
 const door = require("./door");
 
-exports.createText = (grid) => {
+exports.createText = (grid, undoRedoSystem) => {
     grid.addEventListener("click", ()=>{
         if(grid.firstChild === null || tools.activeTool !== "textTool") return;
 

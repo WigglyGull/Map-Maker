@@ -3,7 +3,7 @@ const gridItem = require("../grid/grid.js");
 
 exports.editingText = false;
 
-exports.createDoor = (grid) => {
+exports.createDoor = (grid, undoRedoSystem) => {
     grid.addEventListener("click", (e)=>{
         if(grid.firstChild === null || tools.activeTool !== "doorTool") return;
 
@@ -35,6 +35,7 @@ exports.createDoor = (grid) => {
             return;
         }
     });
+    
 }
 
 const spawnDoor = (grid, direction) =>{

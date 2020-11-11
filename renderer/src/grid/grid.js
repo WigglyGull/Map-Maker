@@ -9,35 +9,46 @@ const keyInputs = require("../meta/keyInputs");
 exports.mapRows = 16;
 exports.mapColumns = 10;
 exports.gridList = [];
+exports.undoRedoSystem = undefined;
 
-exports.createGrid = gridHolder => {
+exports.getUndoRedoSystem = (_undoRedoSystem)=>{
+    this.undoRedoSystem = _undoRedoSystem;
+}
+
+exports.createGrid = (gridHolder) => {
     if(gridHolder === null) throw "Gridholder not found";
-    //Spawns the grid
     const amountofSqaures = this.mapRows * this.mapColumns;
+
     for (let index = 0; index < amountofSqaures; index++) {
         const grid = document.createElement("div");
         grid.classList.add("grid");
         grid.classList.add(`${index}`);
         gridHolder.appendChild(grid);
         
-        grid.addEventListener("click", () => {
-            const gridHasChild = grid.firstChild !== null;
-            if(!gridHasChild && !keyInputs.holdingShift){
-                this.spawnRoom(grid);
-                if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
-            }
-            if(gridHasChild && keyInputs.holdingShift) eraser.removeRoom(grid);
-        });
-        grid.addEventListener("contextmenu", ()=>{
-            if(grid.firstChild === null && !keyInputs.holdingShift) this.createNewRoom(grid);
-            if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
-        });
-        
-        doors.createDoor(grid);
-        icon.createIcon(grid);
-        text.createText(grid);
+        this.addEvents(grid);
     }
     this.gridList = document.querySelectorAll(".grid");
+}
+
+exports.addEvents = grid =>{
+    grid.addEventListener("click", () => {
+        const gridHasChild = grid.firstChild !== null;
+        if(!gridHasChild && !keyInputs.holdingShift){
+            this.spawnRoom(grid);
+            if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
+        }
+        if(gridHasChild && keyInputs.holdingShift) eraser.removeRoom(grid);
+        this.undoRedoSystem.saveMap();
+    });
+    grid.addEventListener("contextmenu", ()=>{
+        if(grid.firstChild === null && !keyInputs.holdingShift) this.createNewRoom(grid);
+        if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
+        this.undoRedoSystem.saveMap();
+    });
+    
+    doors.createDoor(grid, this.undoRedoSystem);
+    icon.createIcon(grid, this.undoRedoSystem);
+    text.createText(grid, this.undoRedoSystem);
 }
 
 //Spawns a connected room

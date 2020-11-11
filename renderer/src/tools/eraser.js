@@ -1,7 +1,6 @@
 const roomItem = require("../grid/room");
 const gridItem = require("../grid/grid");
 
-var hasDoor;
 exports.removeRoom = (grid) => {
     const room = grid.firstChild;
     const roomNum = room.classList.item(1);

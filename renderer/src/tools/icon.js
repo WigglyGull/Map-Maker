@@ -41,7 +41,7 @@ exports.createIconSelector = () =>{
     });
 }
 
-exports.createIcon = (grid) => {
+exports.createIcon = (grid, undoRedoSystem) => {
     grid.addEventListener("click", (e)=>{
         if(grid.firstChild === null || tools.activeTool !== "iconTool") return;
         if(grid.querySelector(".gridIconSingle") !== null) return;
