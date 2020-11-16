@@ -3,6 +3,7 @@ const icon = require("./icon");
 
 exports.activeTool;
 exports.tools;
+let hover = false;
 
 exports.createToolbar = tools => {
     if(tools === null){
@@ -16,6 +17,14 @@ exports.createToolbar = tools => {
             if(tool.classList.contains(activeClass)) return;
             else this.setActive(tool, tools); 
             icon.closeSelector();  
+        });
+        tool.addEventListener("mouseenter", ()=>{
+            hover = true;
+            tool.childNodes[3].style.opacity = 1;
+        });
+        tool.addEventListener("mouseleave", ()=>{
+            hover = false;
+            tool.childNodes[3].style.opacity = 0;
         });
     });
 }

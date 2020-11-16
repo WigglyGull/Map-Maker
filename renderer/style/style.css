@@ -48,6 +48,18 @@ body {
   z-index: 100;
 }
 
+.toolName {
+  position: absolute;
+  left: -5rem;
+  background: transparent;
+  font-size: 1.5rem;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  border: none;
+  width: 10rem;
+  color: white;
+  opacity: 0;
+}
+
 .tool {
   background: #53555F;
   height: 6rem;

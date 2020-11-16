@@ -74,6 +74,10 @@ exports.createNewRoom = (grid)=>{
     
     roomItem.setStyle(room);
     grid.appendChild(room);
+    room.addEventListener("click", ()=>{
+        roomItem.currentRoom = room.classList.item(1);
+    
+    })
     roomItem.roomList.push(room);
 }
 

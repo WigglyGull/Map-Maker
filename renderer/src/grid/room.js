@@ -83,6 +83,10 @@ exports.createRoom = grid =>{
  
     fillSqaures();
     if(!createdNew)this.currentRoom = room.classList.item(1);
+    room.addEventListener("click", ()=>{
+        this.currentRoom = room.classList.item(1);
+    })
+    console.log(this.currentRoom)
 }
 
 exports.findPos = (grid, isNeighbour) => {

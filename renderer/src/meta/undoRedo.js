@@ -7,7 +7,6 @@ exports.createUndoRedoSystem = ()=>{
     return {
         setHistory(firstGrid){
             history[0] = firstGrid; 
-            console.log(position, history)
         },
 
         currentMap(){
