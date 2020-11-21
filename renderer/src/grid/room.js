@@ -1,5 +1,4 @@
 //This whole thing is a mess resiting the urge to rewrite everything
-
 const gridItem = require("./grid.js");
 const biome = require("../tools/biome");
 let createdNew = false;
@@ -83,10 +82,7 @@ exports.createRoom = grid =>{
  
     fillSqaures();
     if(!createdNew)this.currentRoom = room.classList.item(1);
-    room.addEventListener("click", ()=>{
-        this.currentRoom = room.classList.item(1);
-    })
-    console.log(this.currentRoom)
+    gridItem.setCurrentRoom(room);
 }
 
 exports.findPos = (grid, isNeighbour) => {
@@ -128,10 +124,10 @@ exports.findPosByStyle = (grid) => {
 exports.setStyle = (room, backColour, borderColor)=>{
     if(backColour === undefined){
         room.style.setProperty("--room", this.currentRoomColor);
-        room.style.setProperty("--roomBorder", this.currentBorderColor);
+        room.style.setProperty("--roomBorder", "black");
     }else{
         room.style.setProperty("--room", backColour);
-        room.style.setProperty("--roomBorder", borderColor);
+        room.style.setProperty("--roomBorder", "black");
     }
 }
 
@@ -164,7 +160,7 @@ const changeNeighbour = (grid, byStyle) =>{
     const borderStyle = room.style.getPropertyValue("--roomBorder");
 
     if(this.singleRoom(directions)){
-        gridItem.setDefault(room, style, borderStyle, roomNum);
+        gridItem.setDefault(room, style, roomNum);
         this.setStyle(room, style, borderStyle);
     }else{
         room.style = "";
