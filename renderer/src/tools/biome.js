@@ -11,7 +11,7 @@ const biomeBar = document.querySelector(".biomeBar");
 
 exports.roomGrey = "#9F9F9F";
 exports.roomDarkGrey = "#383838";
-const roomGreen = "#33a163";
+const roomGreen = "#14A653";
 const roomDarkGreen = "#073F1F";
 const roomRed = "#CF3652";
 const roomDarkRed = "#560029";
@@ -140,24 +140,5 @@ const fadeOut = () => {
     if(slectorOpactiy <= 0.05){
         biomeSelector.remove();
         resetOpacity();
-    }
-}
-
-exports.setDefaultBorder = (room) =>{
-    const roomColor = room.style.getPropertyValue("--room");
-    console.log(roomColor)
-    switch (roomColor){
-        case(this.roomGrey):
-            room.style.setProperty("--roomBorder", this.roomDarkGrey);
-            break;
-        case(roomGreen):
-            room.style.setProperty("--roomBorder", roomDarkGreen);
-            break;
-        case(roomRed):
-            room.style.setProperty("--roomBorder", roomDarkRed);
-            break;
-        case(roomGreen):
-            room.style.setProperty("--roomBorder", roomDarkGreen);
-            break;
     }
 }
