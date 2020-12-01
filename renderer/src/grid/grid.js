@@ -1,5 +1,6 @@
 const roomItem = require("./room");
 const toolItem = require("../tools/tool");
+const biomeItem = require("../tools/biome");
 const doors = require("../tools/door");
 const icon = require("../tools/icon");
 const text = require("../tools/text");
@@ -69,32 +70,48 @@ exports.spawnRoom = (grid) => {
 exports.createNewRoom = (grid)=>{
     const room = document.createElement("div");
     roomItem.numOfRooms++;
-    this.setDefault(room, roomItem.currentRoomColor, roomItem.currentBorderColor, `${roomItem.numOfRooms}`);
+    this.setDefault(room, roomItem.currentRoomColor, `${roomItem.numOfRooms}`);
     roomItem.currentRoom = room.classList.item(1);
     
     roomItem.setStyle(room);
     grid.appendChild(room);
-    room.addEventListener("click", ()=>{
-        roomItem.currentRoom = room.classList.item(1);
-    
-    })
+    this.setCurrentRoom(room);
     roomItem.roomList.push(room);
 }
 
-exports.setDefault = (room, style, outlineStyle, roomNum) =>{
+exports.setCurrentRoom = (room)=>{
+    roomItem.roomList.forEach(room =>{
+        if(roomItem.currentRoom !== room.classList.item(1)){
+            biomeItem.setDefaultBorder(room);
+            return;
+        }
+    });
+
+    room.addEventListener("click", ()=>{
+        roomItem.currentRoom = room.classList.item(1);
+        roomItem.roomList.forEach(room =>{
+            if(roomItem.currentRoom !== room.classList.item(1)){
+                biomeItem.setDefaultBorder(room);
+                return;
+            }
+            room.style.setProperty("--roomBorder", "black");
+        });
+    });
+}
+
+exports.setDefault = (room, style, roomNum) =>{
     room.style = "";
     room.className = "";
     room.style.width = "6.7rem";
     room.style.height = "6.7rem";
     room.style.background = style;
     room.style.zIndex = "2";
-    room.style.border = `0.3rem solid ${outlineStyle}`;
+    room.style.border = `0.3rem solid black`;
     room.style.borderRadius = "0.6rem";
     room.style.position = "absolute"
     room.classList.add("single");
     room.classList.add(roomNum);
 }
-
 exports.getNeighbours = grid=>{
     const gridList = this.gridList;
     const index = this.gridIndex(grid);
