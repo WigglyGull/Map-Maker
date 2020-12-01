@@ -10,8 +10,6 @@ exports.currentRoomColor = biome.roomGrey;
 exports.currentBorderColor = biome.roomDarkGrey;
 
 //Todo: a cojoin room button
-//Todo: click the room you want to add to
-//Todo: make sure find neighbour only picks up filled rooms
 
 exports.createRoom = grid =>{
     createdNew = false;

@@ -106,7 +106,7 @@ exports.setDefault = (room, style, roomNum) =>{
     room.style.height = "6.7rem";
     room.style.background = style;
     room.style.zIndex = "2";
-    room.style.border = `0.3rem solid black`;
+    room.style.border = `0.3rem solid var(--roomBorder)`;
     room.style.borderRadius = "0.6rem";
     room.style.position = "absolute"
     room.classList.add("single");

@@ -145,9 +145,11 @@ const fadeOut = () => {
 
 exports.setDefaultBorder = (room) =>{
     const roomColor = room.style.getPropertyValue("--room");
-    console.log(roomColor)
     switch (roomColor){
         case(this.roomGrey):
+            room.style.setProperty("--roomBorder", this.roomDarkGrey);
+            break;
+        case(this.secretRoom):
             room.style.setProperty("--roomBorder", this.roomDarkGrey);
             break;
         case(roomGreen):
@@ -156,8 +158,14 @@ exports.setDefaultBorder = (room) =>{
         case(roomRed):
             room.style.setProperty("--roomBorder", roomDarkRed);
             break;
-        case(roomGreen):
-            room.style.setProperty("--roomBorder", roomDarkGreen);
+        case(roomBlue):
+            room.style.setProperty("--roomBorder", roomDarkBlue);
+            break;
+        case(roomYellow):
+            room.style.setProperty("--roomBorder", roomDarkYellow);
+            break;
+        case(roomPurple):
+            room.style.setProperty("--roomBorder", roomDarkPurple);
             break;
     }
 }
