@@ -29,6 +29,7 @@ exports.createToolbar = tools => {
     });
 }
 
+//Sets the current tool to be active
 exports.setActive=(currentTool, tools)=>{
     tools.forEach(tool => {
         if(tool === currentTool){

@@ -11,6 +11,23 @@
 <body>
     <section class="mapCenterer">
         <section class="map">
+            <!-- Settings Bar -->
+            <section class="settingsBarHidden">
+                <div class="settingsButton setting">
+                    <img src="../assets/settings/SettingIconClosed.svg" class="settingIcon">
+                </div>
+                <div class="restartButton setting">
+                    <img src="../assets/settings/Restart.svg" class="restartIcon">
+                </div>
+                <div class="exportButton setting">
+                    <img src="../assets/settings/Export.svg" class="exportIcon">
+                </div>
+                <div class="exitButton setting">
+                    <img src="../assets/settings/Exit.svg" class="exitIcon">
+                </div>
+            </section>
+
+            <!-- Tool Bar -->
             <section class="toolBar">
                 <div class="roomTool tool">
                     <img src="../assets/ui/sqaure.svg" class="sqaureIcon icon">
@@ -29,6 +46,8 @@
                     <p class="toolName">Text</p>
                 </div>
             </section>
+
+            <!-- Biome Bar -->
             <section class="biomeBar">
                 <div class="normalBiome biome activeBiome"></div>
                 <div class="grassBiome biome"></div>
@@ -36,12 +55,16 @@
                     <img src="../assets/ui/plus.svg" class="plusIcon">
                 </div>
             </section>
+
+            <!-- Grid -->
             <section class="gridHolder">
             </section>
         </section> 
     </section>
 </body>
 </html>
+<!-- Pop up menus that are remove and stored when the app is ran -->
+<!-- Because its easier then creating them from nothing -->
 <div class="iconHolder">
     <div class="iconSelect">
         <div class="pickDiv activePickDiv"><img src="../assets/icons/key.svg" class="smallKeyIcon pickIcon"></div>

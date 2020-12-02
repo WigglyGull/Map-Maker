@@ -4,13 +4,15 @@ const path = require("path");
 
 function createWindow(){
     //Todo: Make desgin responsive
+
+    //Sets windows height
     const _width = 1500;
     const _height = 936;
-
     let winState = windowStateKeeper({
         defaultWidth: _width, defaultHeight:_height
     });
 
+    //Creates and opens a window and dev tools
     let mainWindow = new BrowserWindow({
         width: _width, height: _height,
         minWidth: _width, minHeight: _height, maxWidth:_width, maxHeight: _height,
@@ -21,10 +23,10 @@ function createWindow(){
             preload: path.join(__dirname, "preload.js")
         }
     });
-
     mainWindow.loadFile('renderer/main.html');
     mainWindow.webContents.openDevTools();
 
+    //Keeps track of windows width, height, and poistion
     winState.manage(mainWindow);
 }
 

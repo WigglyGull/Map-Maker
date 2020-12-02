@@ -1,0 +1,62 @@
+.settingsBar{
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    z-index: 100;
+    padding-left: 89.7rem;
+    transform: translateY(-3rem);
+}
+.setting{
+    background: $uiColor;
+    height: 6rem;
+    width: 6rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+    box-shadow: $boxShadow;
+
+    //Centers icons
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+.settingsButton{
+    width: 7rem;
+    height: 7rem; 
+    border: 3px solid white;
+    box-shadow: $boxShadowActive;
+    background: $uiHighlight;
+    transform: translateY(-0.5rem);
+}
+
+.settingsBarHidden{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    z-index: 100;
+    padding-left: 113.8rem;
+    transform: translateY(-2.5rem);
+
+    .setting{
+        display: none;
+    }
+    .settingsButton{
+        width: 6rem;
+        height: 6rem; 
+        border: 0px solid white;
+        box-shadow: $boxShadow;
+        background: $uiColor;
+        z-index: 10;
+        transform: translateY(0rem);
+    }
+}
+
+.setting:hover{
+    height: 6.3rem;
+    width: 6.3rem;
+    box-shadow: $boxShadowActive;
+}
+.settingsButton:hover{
+    transform: scale(1.1); 
+}

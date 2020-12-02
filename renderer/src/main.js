@@ -4,6 +4,7 @@ const biome = require("./src/tools/biome.js");
 const keyInput = require("./src/meta/keyInputs.js");
 const icon = require("./src/tools/icon.js");
 const undoRedo = require("./src/meta/undoRedo");
+const settings = require("./src/settings/settings.js");
 
 const gridHolder = document.querySelector(".gridHolder");
 const undoRedoSystem = undoRedo.createUndoRedoSystem();
@@ -15,5 +16,6 @@ tool.createToolbar(tools);
 biome.createBiome();
 grid.createGrid(gridHolder);
 icon.createIconSelector();
+settings.setUpSettings();
 
 tool.setActive(tools[0], tools);
