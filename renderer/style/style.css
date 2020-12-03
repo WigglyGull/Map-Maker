@@ -1307,7 +1307,7 @@ body {
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
   z-index: 100;
-  padding-left: 89.7rem;
+  padding-left: 82.7rem;
   -webkit-transform: translateY(-3rem);
           transform: translateY(-3rem);
 }
@@ -1340,8 +1340,6 @@ body {
   -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
   background: #2B2C31;
-  -webkit-transform: translateY(-0.5rem);
-          transform: translateY(-0.5rem);
 }
 
 .settingsBarHidden {
@@ -1354,12 +1352,12 @@ body {
       -ms-flex-direction: row;
           flex-direction: row;
   z-index: 100;
-  padding-left: 113.8rem;
+  padding-left: 111rem;
   -webkit-transform: translateY(-2.5rem);
           transform: translateY(-2.5rem);
 }
 
-.settingsBarHidden .setting {
+.settingsBarHidden .otherSetting {
   display: none;
 }
 
@@ -1370,20 +1368,23 @@ body {
   -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   background: #53555F;
-  z-index: 10;
-  -webkit-transform: translateY(0rem);
-          transform: translateY(0rem);
 }
 
-.setting:hover {
+.settingsBarHidden .settingsButton:hover {
   height: 6.3rem;
   width: 6.3rem;
   -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
 }
 
-.settingsButton:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+.otherSetting {
+  margin-top: 0.5rem;
+}
+
+.otherSetting:hover {
+  height: 6.3rem;
+  width: 6.3rem;
+  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
 }
 /*# sourceMappingURL=style.css.map */
