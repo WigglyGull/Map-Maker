@@ -20,6 +20,7 @@ exports.createGrid = (gridHolder) => {
     if(gridHolder === null) throw "Gridholder not found";
     const amountofSqaures = this.mapRows * this.mapColumns;
 
+    //Creates the grid
     for (let index = 0; index < amountofSqaures; index++) {
         const grid = document.createElement("div");
         grid.classList.add("grid");
@@ -32,6 +33,7 @@ exports.createGrid = (gridHolder) => {
 }
 
 exports.addEvents = grid =>{
+    //Spawns a conjoining room 
     grid.addEventListener("click", () => {
         const gridHasChild = grid.firstChild !== null;
         if(!gridHasChild && !keyInputs.holdingShift){
@@ -39,11 +41,14 @@ exports.addEvents = grid =>{
             this.undoRedoSystem.saveMap();
             if(toolItem.activeTool !== "roomTool") toolItem.setActive(toolItem.tools[0], toolItem.tools);
         }
+        //Removes room
         if(gridHasChild && keyInputs.holdingShift){
             eraser.removeRoom(grid);
             this.undoRedoSystem.saveMap();
         }
     });
+
+    //Spawns a new room
     grid.addEventListener("contextmenu", ()=>{
         if(grid.firstChild === null && !keyInputs.holdingShift){
             this.createNewRoom(grid);
@@ -80,25 +85,41 @@ exports.createNewRoom = (grid)=>{
 }
 
 exports.setCurrentRoom = (room)=>{
+    roomItem.currentRoom = room.classList.item(1);
     roomItem.roomList.forEach(room =>{
-        if(roomItem.currentRoom !== room.classList.item(1)){
-            biomeItem.setDefaultBorder(room);
-            return;
-        }
+        setRoomColoursBack(room);
     });
 
+    //Sets clicked room to be active
     room.addEventListener("click", ()=>{
         roomItem.currentRoom = room.classList.item(1);
-        roomItem.roomList.forEach(room =>{
-            if(roomItem.currentRoom !== room.classList.item(1)){
-                biomeItem.setDefaultBorder(room);
-                return;
+        roomItem.roomList.forEach(_room =>{
+            //sets the current room to have a black outline 
+            if(roomItem.currentRoom === _room.classList.item(1)){
+                _room.style.setProperty("--roomBorder", "black");
+                const roomDoors = doors.getDoors(_room.parentElement);
+                roomDoors.forEach(door=>{
+                    const roomColour = _room.style.getPropertyValue("--roomBorder");
+                    door.style.setProperty("--background", roomColour);
+                });
             }
-            room.style.setProperty("--roomBorder", "black");
+            setRoomColoursBack(_room);
         });
     });
 }
 
+//Sets all the rooms back to the default colour
+const setRoomColoursBack= (room)=>{
+    if(roomItem.currentRoom === _room.classList.item(1)) return;
+    biomeItem.setDefaultBorder(room);
+    const roomDoors = doors.getDoors(room.parentElement);
+    roomDoors.forEach(door=>{
+        const roomColour = room.style.getPropertyValue("--roomBorder");
+        door.style.setProperty("--background", roomColour);
+    });
+}
+
+//sets the style for a default room
 exports.setDefault = (room, style, roomNum) =>{
     room.style = "";
     room.className = "";

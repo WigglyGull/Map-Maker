@@ -62,3 +62,21 @@
     80% {transform:scale(1.1);}
     to{transform:scale(1);}
 }
+
+//makes setting menu smoothly move left when opened
+@keyframes spawn-restart {
+    from{transform: translateX(7rem);}
+    to{transform: translateX(0rem);}
+}
+@keyframes spawn-save {
+    from{transform: translateX(14rem);}
+    to{transform: translateX(0rem);}
+}
+@keyframes spawn-export {
+    from{transform: translateX(21rem);}
+    to{transform: translateX(0rem);}
+}
+@keyframes spawn-exit {
+    from{transform: translateX(28rem);}
+    to{transform: translateX(0rem);}
+}

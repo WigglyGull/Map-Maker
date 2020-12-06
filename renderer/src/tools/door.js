@@ -38,6 +38,25 @@ exports.createDoor = (grid, _undoRedoSystem) => {
 }
 
 const spawnDoor = (grid, direction) =>{
+    const otherDoors = this.getDoors(grid);
+    let alreadyHasDoor = false;
+    otherDoors.forEach(door=> {
+        if(direction === "left" && door.classList.item(0) == "doorLeft"){
+            alreadyHasDoor = true;
+            return;
+        }else if(direction === "right" && door.classList.item(0) == "doorRight"){
+            alreadyHasDoor = true;
+            return;
+        }else if(direction === "bottom" && door.classList.item(0) == "doorDown"){
+            alreadyHasDoor = true;
+            return;
+        }else if(direction === "top" && door.classList.item(0) == "doorUp"){
+            alreadyHasDoor = true;
+            return;
+        }
+    })
+    if(alreadyHasDoor === true) return;
+
     const door = document.createElement("div");
     const room = grid.firstChild;
     const roomStyle = room.style;
@@ -114,4 +133,16 @@ const checkDistance = (currentNum, targetNum)=>{
 
         if(targetNum === distance) return i;
     }
+}
+
+exports.getDoors = (grid)=>{
+    const children = grid.children;
+    let doors = [];
+    for (let i = 0; i < children.length; i++) {
+        const childClass = children[i].classList.item(0)
+        if(childClass === "doorRight" || childClass === "doorDown" || childClass === "doorLeft" || childClass === "doorUp"){
+            doors.push(children[i]);
+        }
+    }
+    return doors;
 }
