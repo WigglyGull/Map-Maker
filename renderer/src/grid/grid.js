@@ -87,7 +87,7 @@ exports.createNewRoom = (grid)=>{
 exports.setCurrentRoom = (room)=>{
     roomItem.currentRoom = room.classList.item(1);
     roomItem.roomList.forEach(room =>{
-        setRoomColoursBack(room);
+        if(roomItem.currentRoom !== room.classList.item(1)) setRoomColoursBack(room);
     });
 
     //Sets clicked room to be active
@@ -103,14 +103,14 @@ exports.setCurrentRoom = (room)=>{
                     door.style.setProperty("--background", roomColour);
                 });
             }
-            setRoomColoursBack(_room);
+            if(roomItem.currentRoom !== _room.classList.item(1)) setRoomColoursBack(_room);
+            
         });
     });
 }
 
 //Sets all the rooms back to the default colour
 const setRoomColoursBack= (room)=>{
-    if(roomItem.currentRoom === _room.classList.item(1)) return;
     biomeItem.setDefaultBorder(room);
     const roomDoors = doors.getDoors(room.parentElement);
     roomDoors.forEach(door=>{
