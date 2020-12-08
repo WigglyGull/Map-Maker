@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+    height: 100%;
+    user-select: none;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    color: #F9F9F9;
+    position: static;
+    overflow: hidden;
+    height: 100%;
+    border: 1rem solid $uiColor;
+}
+button{
+    width: 25rem;
+    height: 10rem;
+    background: $uiColor;
+    border: 3px solid white;
+
+    color: white;
+    font-weight: 600;
+    font-size: 3rem;
+}

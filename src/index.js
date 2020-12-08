@@ -23,7 +23,7 @@ function createWindow(){
             preload: path.join(__dirname, "preload.js")
         }
     });
-    mainWindow.loadFile('renderer/main.html');
+    mainWindow.loadFile('renderer/menu.html');
     mainWindow.webContents.openDevTools();
 
     //Keeps track of windows width, height, and poistion
