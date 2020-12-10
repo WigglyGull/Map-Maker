@@ -5,6 +5,12 @@ $roomGrey: #9F9F9F;
 $roomDarkGrey: #383838;
 
 @import "global";
-@import "title";
+.title{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding-top: 2rem;
+}
+
 @import "footer";
-@import "main";
+@import "mainArea";
