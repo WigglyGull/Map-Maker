@@ -12,6 +12,9 @@ const gridHolder = document.querySelector(".gridHolder");
 const undoRedoSystem = undoRedo.createUndoRedoSystem();
 let tools = document.querySelectorAll(".tool");
 
+//Function called in settings.js to open menu.html
+const loadMenu =()=>{window.location.replace("./menu.html");}
+
 //Running all the components setup functions
 grid.getUndoRedoSystem(undoRedoSystem);
 keyInput.getKeyEvents(undoRedoSystem);
@@ -19,7 +22,7 @@ tool.createToolbar(tools);
 biome.createBiome();
 grid.createGrid(gridHolder);
 icon.createIconSelector();
-settings.setUpSettings();
+settings.setUpSettings(loadMenu);
 
 //Sets the first tool to be active
 tool.setActive(tools[0], tools);

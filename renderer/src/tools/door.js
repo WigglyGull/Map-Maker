@@ -136,6 +136,7 @@ const checkDistance = (currentNum, targetNum)=>{
 }
 
 exports.getDoors = (grid)=>{
+    if(grid === null || grid.children === null) return;
     const children = grid.children;
     let doors = [];
     for (let i = 0; i < children.length; i++) {

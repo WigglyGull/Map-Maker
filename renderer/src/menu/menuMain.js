@@ -1,6 +1,2 @@
 const newMap = document.querySelector(".newMap");
-
-newMap.addEventListener("click", ()=>{
-    console.log("New Map");
-    window.location.replace("./main.html");
-});
+newMap.addEventListener("click", ()=>{window.location.replace("./main.html");});

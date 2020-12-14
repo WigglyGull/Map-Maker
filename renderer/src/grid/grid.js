@@ -87,7 +87,7 @@ exports.createNewRoom = (grid)=>{
 exports.setCurrentRoom = (room)=>{
     roomItem.currentRoom = room.classList.item(1);
     roomItem.roomList.forEach(room =>{
-        if(roomItem.currentRoom !== room.classList.item(1)) setRoomColoursBack(room);
+        if(roomItem.currentRoom !== room.classList.item(1)) this.setRoomColoursBack(room);
     });
 
     //Sets clicked room to be active
@@ -97,22 +97,25 @@ exports.setCurrentRoom = (room)=>{
             //sets the current room to have a black outline 
             if(roomItem.currentRoom === _room.classList.item(1)){
                 _room.style.setProperty("--roomBorder", "black");
+                if(_room.parentElement === null) return;
                 const roomDoors = doors.getDoors(_room.parentElement);
                 roomDoors.forEach(door=>{
                     const roomColour = _room.style.getPropertyValue("--roomBorder");
                     door.style.setProperty("--background", roomColour);
                 });
             }
-            if(roomItem.currentRoom !== _room.classList.item(1)) setRoomColoursBack(_room);
-            
+            if(roomItem.currentRoom !== _room.classList.item(1)) this.setRoomColoursBack(_room);
         });
     });
 }
 
 //Sets all the rooms back to the default colour
-const setRoomColoursBack= (room)=>{
+exports.setRoomColoursBack = (room)=>{
     biomeItem.setDefaultBorder(room);
+    if(room.parentElement === null) return;
     const roomDoors = doors.getDoors(room.parentElement);
+
+    //loops through each room setting the outline depending on what the rooms colour is
     roomDoors.forEach(door=>{
         const roomColour = room.style.getPropertyValue("--roomBorder");
         door.style.setProperty("--background", roomColour);
@@ -159,13 +162,14 @@ exports.checkRightSide = grid => {
 exports.gridIndex = grid => {
     return Number(grid.classList.item(1));
 }
-exports.getRoom = room => {
+exports.getRoom = (room, getGrid) => {
     let fullRoom = [];
     this.gridList.forEach((listRoom)=>{
         if(listRoom.firstChild === null) return;
         const roomNum = listRoom.firstChild.classList.item(1);
         const currentRoomNum = room.classList.item(1);
-        if(currentRoomNum === roomNum) fullRoom.push(listRoom.firstChild);
+        if(getGrid) fullRoom.push(listRoom);
+        else if(currentRoomNum === roomNum) fullRoom.push(listRoom.firstChild);
     });
     return fullRoom;
 }

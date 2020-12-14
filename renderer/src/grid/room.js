@@ -125,7 +125,7 @@ exports.setStyle = (room, backColour, borderColor)=>{
         room.style.setProperty("--roomBorder", "black");
     }else{
         room.style.setProperty("--room", backColour);
-        room.style.setProperty("--roomBorder", "black");
+        room.style.setProperty("--roomBorder", borderColor);
     }
 }
 
@@ -255,6 +255,7 @@ const getClass = directions=>{
 exports.changeNeighboursGlobal = (grid) =>{
     const neighbours = gridItem.getRoom(grid);
 
+    //loops through the entier room resetting they way it looks
     neighbours.forEach((_neighbour) =>{
         const neighbour = _neighbour.parentElement;
         if(neighbour === undefined || neighbour.firstChild === null) return;

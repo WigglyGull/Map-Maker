@@ -4,17 +4,19 @@ const settingsButton = document.querySelector(".settingsButton");
 const settingsIcon = document.querySelector(".settingIcon");
 const restartButton = document.querySelector(".restartButton");
 const otherSettings = document.querySelectorAll(".otherSetting");
+const exitButton = document.querySelector(".exitButton");
 
 //Classes that change css to open and close the menu
 const hiddenClass = "settingsBarHidden";
 const openClass = "settingsBar";
 
-exports.setUpSettings = ()=>{
+exports.setUpSettings = (loadMenu)=>{
+
     //make each buttons text pop up when mouse is hovering
     otherSettings.forEach(setting => {
         setting.addEventListener("mouseenter", ()=>{
             setting.childNodes[3].style.opacity = 1;
-            console.log(setting.childNodes[3])
+            console.log(setting.childNodes[3]);
         });
         setting.addEventListener("mouseleave", ()=>{
             setting.childNodes[3].style.opacity = 0;
@@ -24,6 +26,7 @@ exports.setUpSettings = ()=>{
     //Functions hold logic for each button
     settings();
     restart();
+    exit(loadMenu);
 }
 
 const settings =()=>{
@@ -36,6 +39,12 @@ const restart =()=>{
     //Restarts window
     restartButton.addEventListener("click", ()=>{
         window.location.reload();
+    });
+}
+
+const exit =(loadMenu)=>{
+    exitButton.addEventListener("click", ()=>{
+        loadMenu();
     });
 }
 
