@@ -24,22 +24,24 @@ exports.removeRoom = (grid) => {
 
 const spearteRoom=(gridFirstChild, grid)=>{
     //Splits the fullRoom into two parts 
-    topRoom = [];
-    bottomRoom = [];
-    const fullRoom = gridItem.getRoom(gridFirstChild, true);
+    let topRoom = [];
+    let bottomRoom = [];
+    const fullRoom = gridItem.getRoom(gridFirstChild);
     const gridNum = grid.classList.item(1);
+    console.log(fullRoom)
 
     //loops through the room splitting it in half
     fullRoom.forEach(room=>{
-        const roomNum = Number(room.classList.item(1));
-        if(roomNum < gridNum) topRoom.push(room.firstChild), room.firstChild.classList.add("topRoom");
-        if(roomNum > gridNum) bottomRoom.push(room.firstChild), room.firstChild.classList.add("bottomRoom");;
+        const roomNum = Number(room.parentElement.classList.item(1));
+        if(roomNum < gridNum) topRoom.push(room), room.classList.add("topRoom");
+        if(roomNum > gridNum) bottomRoom.push(room);
     });
 
     //Removes unessari
     for (let index = 0; index < bottomRoom.length; index++) {
         const room = bottomRoom[index];
         const roomNeighbours = gridItem.getNeighbours(room.parentElement);
+        let isGood = true;
         roomNeighbours.forEach(neighbour=>{
             if(neighbour.firstChild === null)return;
             let _neighbour = neighbour.firstChild;
@@ -47,8 +49,10 @@ const spearteRoom=(gridFirstChild, grid)=>{
                 bottomRoom.splice(index, 1);
                 index--;
                 topRoom.push(room);
+                isGood = false;
             }
         });
+        if(isGood) room.classList.add("bottomRoom");
     }
 
     let cancleOut = false;
@@ -59,17 +63,24 @@ const spearteRoom=(gridFirstChild, grid)=>{
         roomNeighbours.forEach(neighbour=>{
             if(neighbour === undefined || neighbour.firstChild === null)return;
             let _neighbour = neighbour.firstChild;
-            if(_neighbour.classList.item(2) === "bottomRoom")cancleOut = true;
+            if(_neighbour.classList.item(2) === "bottomRoom"){
+                console.log(_neighbour)
+                cancleOut = true;
+            }
         });
     });
-    if(cancleOut) return;
+    if(cancleOut) {
+        console.log("cancled") 
+        return;
+    }
 
     // sets the bottom room back to default borders and a new room number
     roomItem.numOfRooms++;
     bottomRoom.forEach(room=>{
         //Sets room to a new room class
         const roomNum = room.classList.item(1);
-        room.classList.remove(`${roomNum}`);
+        room.classList.remove("bottomRoom");
+        room.classList.remove(`${roomNum}`)
         room.classList.add(`${roomItem.numOfRooms}`);
         //updates directions
         roomItem.changeNeighboursGlobal(room);

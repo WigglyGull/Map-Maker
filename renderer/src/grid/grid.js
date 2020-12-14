@@ -162,14 +162,13 @@ exports.checkRightSide = grid => {
 exports.gridIndex = grid => {
     return Number(grid.classList.item(1));
 }
-exports.getRoom = (room, getGrid) => {
+exports.getRoom = (room) => {
     let fullRoom = [];
     this.gridList.forEach((listRoom)=>{
         if(listRoom.firstChild === null) return;
         const roomNum = listRoom.firstChild.classList.item(1);
         const currentRoomNum = room.classList.item(1);
-        if(getGrid) fullRoom.push(listRoom);
-        else if(currentRoomNum === roomNum) fullRoom.push(listRoom.firstChild);
+        if(currentRoomNum === roomNum) fullRoom.push(listRoom.firstChild);
     });
     return fullRoom;
 }
