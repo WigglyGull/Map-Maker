@@ -80,7 +80,7 @@ exports.createRoom = grid =>{
  
     fillSqaures();
     if(!createdNew)this.currentRoom = room.classList.item(1);
-    gridItem.setCurrentRoom(room);
+    gridItem.setCurrentRoomEvent(room);
 }
 
 exports.findPos = (grid, isNeighbour) => {

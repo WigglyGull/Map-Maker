@@ -3,6 +3,7 @@ $uiColor: #53555F;
 $uiHighlight: #2B2C31;
 $roomGrey: #9F9F9F;
 $roomDarkGrey: #383838;
+$uiLightGrey: #C4C4C4;
 
 @import "global";
 .title{
@@ -11,6 +12,10 @@ $roomDarkGrey: #383838;
     align-items: center;
     padding-top: 2rem;
 }
+.invisible{
+    visibility: hidden;
+}
 
 @import "footer";
 @import "mainArea";
+@import "newMap";

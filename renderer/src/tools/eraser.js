@@ -1,6 +1,5 @@
 const roomItem = require("../grid/room");
 const gridItem = require("../grid/grid");
-const biomeItem = require("./biome");
 
 exports.removeRoom = (grid) => {
     const room = grid.firstChild;
@@ -8,10 +7,7 @@ exports.removeRoom = (grid) => {
     
     while(grid.firstChild){
         const roomDir = grid.firstChild.classList.item(0)
-        if(roomDir === "doorRight" || roomDir === "doorDown" || roomDir === "doorLeft" || roomDir === "doorUp"){
-            removeDoors(grid, roomDir);
-            doorList.push(roomDir);
-        }
+        if(roomDir === "doorRight" || roomDir === "doorDown" || roomDir === "doorLeft" || roomDir === "doorUp") removeDoors(grid, roomDir);
         grid.removeChild(grid.firstChild);
     }
 
@@ -37,7 +33,7 @@ const spearteRoom=(gridFirstChild, grid)=>{
         if(roomNum > gridNum) bottomRoom.push(room);
     });
 
-    //Removes unessari
+    //Removes bottom rooms that are still connected to top rooms
     for (let index = 0; index < bottomRoom.length; index++) {
         const room = bottomRoom[index];
         const roomNeighbours = gridItem.getNeighbours(room.parentElement);
@@ -56,25 +52,23 @@ const spearteRoom=(gridFirstChild, grid)=>{
     }
 
     let cancleOut = false;
-    //checks to see if the top room is conected to the bottom room and cancles out if it is
+    //checks if rooms split
     topRoom.forEach(room=>{
         room.classList.remove("topRoom");
         const roomNeighbours = gridItem.getNeighbours(room.parentElement);
         roomNeighbours.forEach(neighbour=>{
             if(neighbour === undefined || neighbour.firstChild === null)return;
             let _neighbour = neighbour.firstChild;
-            if(_neighbour.classList.item(2) === "bottomRoom"){
-                console.log(_neighbour)
-                cancleOut = true;
-            }
+            if(_neighbour.classList.item(2) === "bottomRoom") cancleOut = true;
         });
     });
-    if(cancleOut) {
-        console.log("cancled") 
-        return;
-    }
+    //if rooms dont split cancle
+    if(cancleOut) return;
+    if(topRoom.length === 0) return;
+    
 
     // sets the bottom room back to default borders and a new room number
+    console.log(topRoom)
     roomItem.numOfRooms++;
     bottomRoom.forEach(room=>{
         //Sets room to a new room class

@@ -8,24 +8,29 @@
     <script defer src="./src/menu/menuMain.js"></script>
     <link rel="stylesheet" href="./style/menuStyle/style.css">
 </head>
-<body>
+<body class="menu">
+    <!-- Title Image -->
     <section class="title"><img src="../assets/Title.png" class="title"></section>
     <section class="mainAreaHolder">
+        <!-- The main area -->
         <section class="mainArea">
             <div class="leftSide">
+                <!-- Create new and load map button-->
                 <div class="buttons">
                     <button class="newMap button"><p>New Map</p></button>
                     <button class="loadMap button"><p>Load Map</p></button>
                 </div>
+                <!-- Info/How to text -->
                 <div class="info">
                     <div class="infoBox">
-                        <p class="infoText">QuickRef</p>
+                        <div class="topBar"><p class="infoText">QuickRef</p></div>
                     </div>
                 </div>
             </div>
+            <!-- Box containing recent worked on maps -->
             <div class="rightSide">
                 <div class="recentMap">
-                    <p class="recentMapText">Recent Maps</p>
+                    <div class="topBar"><p class="recentMapText">Recent Maps</p></div>
                 </div>
             </div>
         </section>
@@ -33,3 +38,26 @@
     <section class="footer"><p class="credits">Map Maker a tool by <herf>WigglyGull</herf></p></section>
 </body>
 </html>
+
+<!-- Create new map pop up -->
+<section class="newMapPopUp invisible">
+    <div class="exitButton"><img src="../assets/settings/Exit.svg"></div>
+    <div class="topBar"><p class="setupText">Setup Map</p></div>
+    <div class="setupUi">
+        <div class="mapName">
+            <p class="nameText">Name</p>
+            <input type="text" class="nameInput">
+        </div>
+        <div class="mapSize">
+            <div class="width size">
+                <p class="mapWidthText text">Width</p>
+                <input type="number" class="mapWidth input">
+            </div>
+            <div class="height size">
+                <p class="mapHeightText text">Height</p>
+                <input type="number" class="mapHeight input">
+            </div>
+        </div>
+    </div>
+    <button class="start button"><p>Start</p></button>
+</section>

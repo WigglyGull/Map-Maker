@@ -80,11 +80,11 @@ exports.createNewRoom = (grid)=>{
     
     roomItem.setStyle(room);
     grid.appendChild(room);
-    this.setCurrentRoom(room);
+    this.setCurrentRoomEvent(room);
     roomItem.roomList.push(room);
 }
 
-exports.setCurrentRoom = (room)=>{
+exports.setCurrentRoomEvent = (room)=>{
     roomItem.currentRoom = room.classList.item(1);
     roomItem.roomList.forEach(room =>{
         if(roomItem.currentRoom !== room.classList.item(1)) this.setRoomColoursBack(room);
@@ -92,21 +92,25 @@ exports.setCurrentRoom = (room)=>{
 
     //Sets clicked room to be active
     room.addEventListener("click", ()=>{
-        roomItem.currentRoom = room.classList.item(1);
-        roomItem.roomList.forEach(_room =>{
-            //sets the current room to have a black outline 
-            if(roomItem.currentRoom === _room.classList.item(1)){
-                _room.style.setProperty("--roomBorder", "black");
-                if(_room.parentElement === null) return;
-                const roomDoors = doors.getDoors(_room.parentElement);
-                roomDoors.forEach(door=>{
-                    const roomColour = _room.style.getPropertyValue("--roomBorder");
-                    door.style.setProperty("--background", roomColour);
-                });
-            }
-            if(roomItem.currentRoom !== _room.classList.item(1)) this.setRoomColoursBack(_room);
-        });
+        this.setCurrentRoom(room)
     });
+}
+exports.setCurrentRoom = (room)=>{
+    roomItem.currentRoom = room.classList.item(1);
+    roomItem.roomList.forEach(_room =>{
+        //sets the current room to have a black outline 
+        if(roomItem.currentRoom === _room.classList.item(1)){
+            _room.style.setProperty("--roomBorder", "black");
+            if(_room.parentElement === null) return;
+            const roomDoors = doors.getDoors(_room.parentElement);
+            roomDoors.forEach(door=>{
+                const roomColour = _room.style.getPropertyValue("--roomBorder");
+                door.style.setProperty("--background", roomColour);
+            });
+        }
+        if(roomItem.currentRoom !== _room.classList.item(1)) this.setRoomColoursBack(_room);
+    });
+    
 }
 
 //Sets all the rooms back to the default colour

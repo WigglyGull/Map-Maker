@@ -20,7 +20,7 @@ exports.getKeyEvents = undoRedoSystem =>{
         if(this.holdingControl && e.key === "4") toolItem.setActive(toolItem.tools[3], toolItem.tools);
 
         //Open/Closes settings menu
-        if(this.holdingControl && e.key === "Tab") settings.changeSettings();
+        if(e.key === "Escape") settings.changeSettings();
     });
     
     window.addEventListener("keyup", (e)=>{

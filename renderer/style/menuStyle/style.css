@@ -30,6 +30,37 @@ button {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  width: 25rem;
+  height: 10rem;
+  background: #53555F;
+  border: 3px solid white;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+input {
+  outline: none;
+  border: none;
+  padding-left: 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.topBar {
+  background: #C4C4C4;
+  padding-bottom: 1rem;
 }
 
 .title {
@@ -43,6 +74,10 @@ button {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 2rem;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .footer {
@@ -85,19 +120,6 @@ button {
   height: 11rem;
 }
 
-.buttons .button {
-  width: 25rem;
-  height: 10rem;
-  background: #53555F;
-  border: 3px solid white;
-  border-radius: 1rem;
-  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  color: white;
-  font-weight: 600;
-  font-size: 3rem;
-}
-
 .buttons .loadMap {
   -webkit-transform: translateX(5rem);
           transform: translateX(5rem);
@@ -110,7 +132,7 @@ button {
 }
 
 .infoBox {
-  background: #9F9F9F;
+  background: white;
   width: 55rem;
   height: 42rem;
   border: 0.5rem solid #2B2C31;
@@ -128,7 +150,7 @@ button {
 }
 
 .recentMap {
-  background: #9F9F9F;
+  background: white;
   height: 55rem;
   width: 55rem;
   border: 0.5rem solid #2B2C31;
@@ -155,5 +177,144 @@ button {
   float: right;
   margin-top: 5rem;
   margin-right: 8rem;
+}
+
+.hidden {
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 98%;
+  position: absolute;
+  margin-top: 2%;
+}
+
+.newMapPopUp {
+  width: 70rem;
+  height: 40rem;
+  z-index: 20;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border: 0.5rem solid #53555F;
+  border-radius: 1rem;
+  font-size: 2.5rem;
+}
+
+.newMapPopUp .setupText {
+  background: #53555F;
+  display: inline;
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.newMapPopUp .start {
+  margin-top: 1.5rem;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.setupUi {
+  width: 65rem;
+  height: 20rem;
+  background: #53555F;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mapName {
+  margin-left: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.mapName .nameText {
+  font-weight: 600;
+  font-size: 3rem;
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+}
+
+.mapName .nameInput {
+  color: #53555F;
+  font-size: 2.5rem;
+  width: 18rem;
+  height: 6rem;
+  border-radius: 1rem;
+}
+
+.mapSize {
+  margin-left: 5rem;
+}
+
+.mapSize .text {
+  font-weight: 600;
+  font-size: 3rem;
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+}
+
+.mapSize .size {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2rem;
+}
+
+.mapSize .input {
+  color: #53555F;
+  font-size: 2.5rem;
+  width: 8rem;
+  height: 6rem;
+  border-radius: 1rem;
+  -webkit-appearance: none;
+}
+
+.mapSize .width {
+  margin-top: 3rem;
+  margin-left: 1rem;
+}
+
+.exitButton {
+  background: #53555F;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  right: -3rem;
+  top: -3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  border: 0.3rem solid white;
+}
+
+.exitButton:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 /*# sourceMappingURL=style.css.map */
