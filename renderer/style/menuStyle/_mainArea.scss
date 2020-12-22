@@ -12,9 +12,10 @@
 .buttons{
     width: 55rem;
     height: 11rem;
+    display: flex;
 
     .loadMap{
-        transform: translateX(5rem);
+        margin-left: 5rem;
     }
 }
 .info{

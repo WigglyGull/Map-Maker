@@ -35,6 +35,10 @@ button{
     color: white;
     font-weight: 600;
     font-size: 3rem;
+    transition: all 0.15s ease-in-out;
+}
+button:hover{
+    transform: scale(1.1);
 }
 input{
     outline: none;

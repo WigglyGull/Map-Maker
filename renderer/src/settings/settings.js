@@ -1,22 +1,21 @@
 //Gets elements from the dom
-const settingsMenu = document.querySelector(".settingsBarHidden");
+const settingsMenu = document.querySelector(".settingsBar");
 const settingsButton = document.querySelector(".settingsButton");
 const settingsIcon = document.querySelector(".settingIcon");
-const restartButton = document.querySelector(".restartButton");
 const otherSettings = document.querySelectorAll(".otherSetting");
-const exitButton = document.querySelector(".exitButton");
+
+const restartButton = document.querySelector(".restartButtonClose");
+const exitButton = document.querySelector(".exitButtonClose");
 
 //Classes that change css to open and close the menu
-const hiddenClass = "settingsBarHidden";
-const openClass = "settingsBar";
+const hiddenClass = "closed";
+const openClass = "open";
 
 exports.setUpSettings = (loadMenu)=>{
-
     //make each buttons text pop up when mouse is hovering
     otherSettings.forEach(setting => {
         setting.addEventListener("mouseenter", ()=>{
             setting.childNodes[3].style.opacity = 1;
-            console.log(setting.childNodes[3]);
         });
         setting.addEventListener("mouseleave", ()=>{
             setting.childNodes[3].style.opacity = 0;
@@ -50,14 +49,22 @@ const exit =(loadMenu)=>{
 
 //Open and closes setting menu
 exports.changeSettings = () =>{
-    const currentClass = settingsMenu.classList.item(0);
+    if(settingsMenu.classList.item(2) != null) settingsMenu.classList.remove(settingsMenu.classList.item(2));
+    const currentClass = settingsMenu.classList.item(1);
+
     if(currentClass === hiddenClass){
-        settingsMenu.classList.remove(currentClass);
-        settingsMenu.classList.add(openClass);
+        //Sets elements class to animate open
+        settingsMenu.classList.replace(hiddenClass, openClass);
+        otherSettings.forEach(setting=>{
+            setting.classList.replace(setting.classList.item(0), `${setting.classList.item(0).slice(0, -5)}Open`);
+        });
         settingsIcon.src = "../assets/settings/SettingIcon.svg";
     } else if(currentClass === openClass){
-        settingsMenu.classList.remove(currentClass);
-        settingsMenu.classList.add(hiddenClass);
+        //Sets elements class to animate close
+        settingsMenu.classList.replace(openClass, hiddenClass);
+        otherSettings.forEach(setting=>{
+            setting.classList.replace(setting.classList.item(0), `${setting.classList.item(0).slice(0, -4)}Close`);
+        });
         settingsIcon.src = "../assets/settings/SettingIconClosed.svg";
     }
 }

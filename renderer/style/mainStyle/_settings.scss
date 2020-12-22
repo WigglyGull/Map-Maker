@@ -6,6 +6,33 @@
     margin-left: 82.7rem;
     transform: translateY(-3rem);
 }
+.closed{
+    .settingsButton{
+        width: 6rem;
+        height: 6rem; 
+        background: $uiColor;
+        transition: all 0.15s ease-in-out;
+    }
+    .settingsButton:hover{
+        transform: scale(1.05);
+    }
+}
+.open{
+    .settingsButton{
+        transform: scale(1.1);
+        background: $uiHighlight;
+    }
+    .settingsButton:hover{
+        transform: scale(1.15);
+    }
+}
+
+.spawned{
+    margin-left: 110.7rem;
+    .otherSetting{
+        display: none;
+    }
+}
 .setting{
     background: $uiColor;
     height: 6rem;
@@ -20,67 +47,51 @@
     align-items: center;
     text-align: center;
 
-    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
-}
-.settingsButton{
-    width: 7rem;
-    height: 7rem; 
-    border: 3px solid white;
-    box-shadow: $boxShadowActive;
-    background: $uiHighlight;
-}
-
-.settingsBarHidden{
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    z-index: 100;
-    padding-left: 111rem;
-    transform: translateY(-2.5rem);
-
-    .otherSetting{
-        display: none;
-    }
-    .settingsButton{
-        width: 6rem;
-        height: 6rem; 
-        border: 0px solid white;
-        box-shadow: $boxShadow;
-        background: $uiColor;
-    }
-    .settingsButton:hover{
-        height: 6.3rem;
-        width: 6.3rem;
-        box-shadow: $boxShadowActive;
-    }
+    transition: all 0.15s ease-in-out;
 }
 
 //css for all buttons but settings
-.otherSetting{
-    margin-top: 0.5rem;
-}
 .otherSetting:hover{
-    height: 6.3rem;
-    width: 6.3rem;
-    box-shadow: $boxShadowActive;
+    transform:scale(1.1);
 }
 
 //spawn animation
-.restartButton{
+.restartButtonOpen{
     z-index: -10;
-    animation: spawn-restart 1s ease-in-out;
+    animation: spawn-restart $settingSeed ease-in-out;
 }
-.saveButton{
+.saveButtonOpen{
     z-index: -20;
-    animation: spawn-save 1s ease-in-out;
+    animation: spawn-save $settingSeed ease-in-out;
 }
-.exportButton{
+.exportButtonOpen{
     z-index: -30;
-    animation: spawn-export 1s ease-in-out;
+    animation: spawn-export $settingSeed ease-in-out;
 }
-.exitButton{
+.exitButtonOpen{
     z-index: -40;
-    animation: spawn-exit 1s ease-in-out;
+    animation: spawn-exit $settingSeed ease-in-out;
+}
+//Close animations
+.restartButtonClose{
+    z-index: -10;
+    animation: close-restart $settingSeed ease-in-out;
+    animation-fill-mode: forwards;  
+}
+.saveButtonClose{
+    z-index: -20;
+    animation: close-save $settingSeed ease-in-out;
+    animation-fill-mode: forwards;  
+}
+.exportButtonClose{
+    z-index: -30;
+    animation: close-export $settingSeed ease-in-out;
+    animation-fill-mode: forwards;  
+}
+.exitButtonClose{
+    z-index: -40;
+    animation: close-exit $settingSeed ease-in-out;
+    animation-fill-mode: forwards;  
 }
 
 //pop up text

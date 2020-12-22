@@ -40,6 +40,13 @@ button {
   color: white;
   font-weight: 600;
   font-size: 3rem;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 input {
@@ -96,6 +103,10 @@ input[type=number] {
   padding-top: 1.6rem;
 }
 
+.twitter {
+  color: white;
+}
+
 .mainAreaHolder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -118,11 +129,13 @@ input[type=number] {
 .buttons {
   width: 55rem;
   height: 11rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .buttons .loadMap {
-  -webkit-transform: translateX(5rem);
-          transform: translateX(5rem);
+  margin-left: 5rem;
 }
 
 .info {
@@ -189,8 +202,8 @@ input[type=number] {
 }
 
 .newMapPopUp {
-  width: 70rem;
-  height: 40rem;
+  width: 68rem;
+  height: 38rem;
   z-index: 20;
   background: white;
   position: absolute;
@@ -214,6 +227,8 @@ input[type=number] {
 }
 
 .newMapPopUp .start {
+  width: 20rem;
+  height: 8rem;
   margin-top: 1.5rem;
   position: absolute;
   left: 50%;
@@ -221,8 +236,13 @@ input[type=number] {
           transform: translateX(-50%);
 }
 
+.start:hover {
+  -webkit-transform: scale(1.1) translateX(-45.5%);
+          transform: scale(1.1) translateX(-45.5%);
+}
+
 .setupUi {
-  width: 65rem;
+  width: 62rem;
   height: 20rem;
   background: #53555F;
   margin: auto;
@@ -255,6 +275,13 @@ input[type=number] {
   width: 18rem;
   height: 6rem;
   border-radius: 1rem;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.mapName .nameInput:focus {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .mapSize {
@@ -282,6 +309,13 @@ input[type=number] {
   height: 6rem;
   border-radius: 1rem;
   -webkit-appearance: none;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.mapSize .input:focus {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .mapSize .width {
@@ -308,8 +342,8 @@ input[type=number] {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
   border: 0.3rem solid white;
 }
 

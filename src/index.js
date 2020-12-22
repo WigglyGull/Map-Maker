@@ -26,6 +26,12 @@ function createWindow(){
     mainWindow.loadFile('renderer/menu.html');
     mainWindow.webContents.openDevTools();
 
+    //open link in browser not the app
+    mainWindow.webContents.on('new-window', function(e, url) {
+        e.preventDefault();
+        require('electron').shell.openExternal(url);
+    });
+
     //Keeps track of windows width, height, and poistion
     winState.manage(mainWindow);
 }

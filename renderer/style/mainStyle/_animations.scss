@@ -80,3 +80,38 @@
     from{transform: translateX(28rem);}
     to{transform: translateX(0rem);}
 }
+
+//makes setting menu smoothly move rigth when closed
+@keyframes close-restart {
+    from{transform: translateX(0rem);}
+    to{
+        transform: translateX(7rem);
+        visibility: hidden;
+    }
+}
+@keyframes close-save {
+    from{transform: translateX(0rem);}
+    to{
+        transform: translateX(14rem);
+        visibility: hidden;
+    }
+}
+@keyframes close-export {
+    from{transform: translateX(0rem);}
+    to{
+        transform: translateX(21rem);
+        visibility: hidden;
+    }
+}
+@keyframes close-exit {
+    from{transform: translateX(0rem);}
+    to{
+        transform: translateX(28rem);
+        visibility: hidden;
+    }
+}
+
+@keyframes spawnGrid {
+    from{transform: scale(0);}
+    to{transform: scale(1);}
+}

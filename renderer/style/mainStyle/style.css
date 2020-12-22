@@ -20,6 +20,7 @@ body {
   position: static;
   overflow: hidden;
   height: 100%;
+  background: #DADEEB;
 }
 
 button {
@@ -116,7 +117,8 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #ebedf3;
+  -webkit-animation: spawnGrid 0.5s ease-in-out;
+          animation: spawnGrid 0.5s ease-in-out;
 }
 
 .map {
@@ -1297,6 +1299,124 @@ button {
   }
 }
 
+@-webkit-keyframes close-restart {
+  from {
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+  to {
+    -webkit-transform: translateX(7rem);
+            transform: translateX(7rem);
+    visibility: hidden;
+  }
+}
+
+@keyframes close-restart {
+  from {
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+  to {
+    -webkit-transform: translateX(7rem);
+            transform: translateX(7rem);
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes close-save {
+  from {
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+  to {
+    -webkit-transform: translateX(14rem);
+            transform: translateX(14rem);
+    visibility: hidden;
+  }
+}
+
+@keyframes close-save {
+  from {
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+  to {
+    -webkit-transform: translateX(14rem);
+            transform: translateX(14rem);
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes close-export {
+  from {
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+  to {
+    -webkit-transform: translateX(21rem);
+            transform: translateX(21rem);
+    visibility: hidden;
+  }
+}
+
+@keyframes close-export {
+  from {
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+  to {
+    -webkit-transform: translateX(21rem);
+            transform: translateX(21rem);
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes close-exit {
+  from {
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+  to {
+    -webkit-transform: translateX(28rem);
+            transform: translateX(28rem);
+    visibility: hidden;
+  }
+}
+
+@keyframes close-exit {
+  from {
+    -webkit-transform: translateX(0rem);
+            transform: translateX(0rem);
+  }
+  to {
+    -webkit-transform: translateX(28rem);
+            transform: translateX(28rem);
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes spawnGrid {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes spawnGrid {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 .iconHolder {
   position: absolute;
   -webkit-transform: translateX(18.5rem);
@@ -1421,6 +1541,38 @@ button {
           transform: translateY(-3rem);
 }
 
+.closed .settingsButton {
+  width: 6rem;
+  height: 6rem;
+  background: #53555F;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.closed .settingsButton:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.open .settingsButton {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background: #2B2C31;
+}
+
+.open .settingsButton:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.spawned {
+  margin-left: 110.7rem;
+}
+
+.spawned .otherSetting {
+  display: none;
+}
+
 .setting {
   background: #53555F;
   height: 6rem;
@@ -1438,87 +1590,69 @@ button {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
-}
-
-.settingsButton {
-  width: 7rem;
-  height: 7rem;
-  border: 3px solid white;
-  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-  background: #2B2C31;
-}
-
-.settingsBarHidden {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  z-index: 100;
-  padding-left: 111rem;
-  -webkit-transform: translateY(-2.5rem);
-          transform: translateY(-2.5rem);
-}
-
-.settingsBarHidden .otherSetting {
-  display: none;
-}
-
-.settingsBarHidden .settingsButton {
-  width: 6rem;
-  height: 6rem;
-  border: 0px solid white;
-  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-  background: #53555F;
-}
-
-.settingsBarHidden .settingsButton:hover {
-  height: 6.3rem;
-  width: 6.3rem;
-  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-}
-
-.otherSetting {
-  margin-top: 0.5rem;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .otherSetting:hover {
-  height: 6.3rem;
-  width: 6.3rem;
-  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
-.restartButton {
+.restartButtonOpen {
   z-index: -10;
-  -webkit-animation: spawn-restart 1s ease-in-out;
-          animation: spawn-restart 1s ease-in-out;
+  -webkit-animation: spawn-restart 0.8s ease-in-out;
+          animation: spawn-restart 0.8s ease-in-out;
 }
 
-.saveButton {
+.saveButtonOpen {
   z-index: -20;
-  -webkit-animation: spawn-save 1s ease-in-out;
-          animation: spawn-save 1s ease-in-out;
+  -webkit-animation: spawn-save 0.8s ease-in-out;
+          animation: spawn-save 0.8s ease-in-out;
 }
 
-.exportButton {
+.exportButtonOpen {
   z-index: -30;
-  -webkit-animation: spawn-export 1s ease-in-out;
-          animation: spawn-export 1s ease-in-out;
+  -webkit-animation: spawn-export 0.8s ease-in-out;
+          animation: spawn-export 0.8s ease-in-out;
 }
 
-.exitButton {
+.exitButtonOpen {
   z-index: -40;
-  -webkit-animation: spawn-exit 1s ease-in-out;
-          animation: spawn-exit 1s ease-in-out;
+  -webkit-animation: spawn-exit 0.8s ease-in-out;
+          animation: spawn-exit 0.8s ease-in-out;
+}
+
+.restartButtonClose {
+  z-index: -10;
+  -webkit-animation: close-restart 0.8s ease-in-out;
+          animation: close-restart 0.8s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.saveButtonClose {
+  z-index: -20;
+  -webkit-animation: close-save 0.8s ease-in-out;
+          animation: close-save 0.8s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.exportButtonClose {
+  z-index: -30;
+  -webkit-animation: close-export 0.8s ease-in-out;
+          animation: close-export 0.8s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.exitButtonClose {
+  z-index: -40;
+  -webkit-animation: close-exit 0.8s ease-in-out;
+          animation: close-exit 0.8s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .settingName {

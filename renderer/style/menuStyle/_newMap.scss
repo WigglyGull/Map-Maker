@@ -7,8 +7,8 @@
     margin-top: 2%;
 }
 .newMapPopUp{
-    width: 70rem;
-    height:40rem;
+    width: 68rem;
+    height:38rem;
     z-index: 20;
     background: white;
     position: absolute; 
@@ -31,15 +31,20 @@
     }
 
     .start{
+        width: 20rem;
+        height: 8rem;
         margin-top: 1.5rem;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
     }
 }
+.start:hover{
+    transform: scale(1.1) translateX(-45.5%);
+}
 
 .setupUi{
-    width:65rem;
+    width:62rem;
     height: 20rem;
     background: $uiColor;
     margin:auto;
@@ -65,6 +70,10 @@
         width: 18rem;
         height: 6rem;
         border-radius: 1rem;
+        transition: all 0.15s ease-in-out;
+    }
+    .nameInput:focus{
+        transform: scale(1.05);
     }
 }
 .mapSize{
@@ -87,6 +96,10 @@
         height: 6rem;
         border-radius: 1rem;
         -webkit-appearance: none;
+        transition: all 0.15s ease-in-out;
+    }
+    .input:focus{
+        transform: scale(1.05);
     }
     .width{
         margin-top: 3rem;
@@ -109,7 +122,7 @@
     justify-content: center; 
     align-items: center;
     text-align: center;
-    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
     border: 0.3rem solid white;
 }
 .exitButton:hover{

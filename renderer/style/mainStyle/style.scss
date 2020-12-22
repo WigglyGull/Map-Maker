@@ -15,6 +15,8 @@ $roomPurple: #904fa0;
 $roomDarkPurple: #35054B;
 $secretRoom: #E5E5E5;
 
+$background: #DADEEB;
+
 //Shadows
 $boxShadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
 $boxShadowActive: 0px 7px 5px rgba(0, 0, 0, 0.25);
@@ -27,6 +29,8 @@ $roomSizeFacingDouble: calc(8.5rem - 0.8rem);
 $gridBorderSize: 0.4rem;
 $grid: calc(7.5rem - 0.4rem);
 $borderRadius: 0.6rem;
+
+$settingSeed: 0.8s;
 
 //Mixins
 @mixin baseRoom($width, $height, $index, $left-right: false, $up-down: false) {
