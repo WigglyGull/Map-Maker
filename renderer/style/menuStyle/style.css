@@ -1,3 +1,7 @@
+.invisible {
+  visibility: hidden;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -83,8 +87,40 @@ input[type=number] {
   padding-top: 2rem;
 }
 
-.invisible {
-  visibility: hidden;
+.titleHolder {
+  display: inline-block;
+  position: relative;
+  padding-right: 8rem;
+  margin-left: 8rem;
+}
+
+.darkMode {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #53555F;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 5rem;
+  margin-left: -10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+
+.darkMode:hover {
+  height: 7.3rem;
+  width: 7.3rem;
 }
 
 .footer {
@@ -145,7 +181,7 @@ input[type=number] {
 }
 
 .infoBox {
-  background: white;
+  background: #F9F9F9;
   width: 55rem;
   height: 42rem;
   border: 0.5rem solid #2B2C31;
@@ -153,7 +189,7 @@ input[type=number] {
   font-size: 2.5rem;
 }
 
-.infoBox .infoText {
+.infoBox .infoHeader {
   background: #2B2C31;
   display: inline;
   padding-right: 2rem;
@@ -162,8 +198,14 @@ input[type=number] {
   border-bottom-right-radius: 1rem;
 }
 
+.infoBox .infoText {
+  color: black;
+  margin: 1rem;
+  margin-top: 0.5rem;
+}
+
 .recentMap {
-  background: white;
+  background: #F9F9F9;
   height: 55rem;
   width: 55rem;
   border: 0.5rem solid #2B2C31;

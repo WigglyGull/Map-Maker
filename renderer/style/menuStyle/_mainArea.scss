@@ -24,14 +24,14 @@
     margin-top: 2rem;
 }
 .infoBox{
-    background: white;
+    background: #F9F9F9;
     width:55rem;
     height: 42rem;
     border: 0.5rem solid $uiHighlight;
     border-radius: 1rem;
     font-size: 2.5rem;
 
-    .infoText{
+    .infoHeader{
         background: $uiHighlight;
         display: inline;
         padding-right: 2rem;
@@ -39,9 +39,14 @@
         padding-left: 1rem;
         border-bottom-right-radius: 1rem;
     }
+    .infoText{
+        color: black;
+        margin: 1rem;
+        margin-top: 0.5rem;
+    }
 }
 .recentMap{
-    background: white;
+    background: #F9F9F9;
     height: 55rem;
     width: 55rem;
     

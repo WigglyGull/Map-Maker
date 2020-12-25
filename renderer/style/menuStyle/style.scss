@@ -5,17 +5,12 @@ $roomGrey: #9F9F9F;
 $roomDarkGrey: #383838;
 $uiLightGrey: #C4C4C4;
 
-@import "global";
-.title{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding-top: 2rem;
-}
 .invisible{
     visibility: hidden;
 }
 
+@import "global";
+@import "header";
 @import "footer";
 @import "mainArea";
 @import "newMap";

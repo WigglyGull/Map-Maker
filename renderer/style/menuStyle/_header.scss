@@ -1,0 +1,35 @@
+.title{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding-top: 2rem;
+}
+.titleHolder{
+    display: inline-block;
+    position: relative;
+    padding-right: 8rem;
+    margin-left: 8rem;
+}
+.darkMode{
+    position: absolute;
+    right:0;
+    top:0;
+    background: $uiColor;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 5rem;
+    margin-left: -10px;
+
+    //Centers icons
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+}
+.darkMode:hover{
+    height: 7.3rem;
+    width: 7.3rem;
+}
