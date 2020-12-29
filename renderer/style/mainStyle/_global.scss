@@ -7,14 +7,56 @@ html {
     font-size: 10px;
     height: 100%;
     user-select: none;
+
+    --uiColor:#53555F;
+    --uiHighlight: #2B2C31;
+    --background: #DADEEB;
+    --backgroundWhite: #F9F9F9;
+    --textColor: white;
+    --gridBorder: #383838;
+
+    --roomGrey: #9F9F9F;
+    --roomAltGrey: #383838;
+    --roomGreen: #14A653;
+    --roomAltGreen: #073F1F;
+    --roomBlue: #3D92E1;
+    --roomAltBlue: #0D2562;
+    --roomRed: #CF3652;
+    --roomAltRed: #560029;
+    --roomYellow: #E0BC3D;
+    --roomAltYellow: #563708;
+    --roomPurple: #904fa0;
+    --roomAltPurple: #35054B;
+    --secretRoom: #E5E5E5;
+}
+html[data-theme='dark']{
+    --uiColor:#F9F9F9;
+    --uiHighlight: #F9F9F9;
+    --background: #3C3846;
+    --backgroundWhite: #0C0000;
+    --textColor: white;
+    --gridBorder: #0C0000;
+
+    --roomGrey: #9F9F9F;
+    --roomAltGrey: #D8D8D8;
+    --roomGreen: #14A653;
+    --roomAltGreen: #9EDAB8;
+    --roomBlue: #3D92E1;
+    --roomAltBlue: #B6D4EF;
+    --roomRed: #CF3652;
+    --roomAltRed: #EBACB7;
+    --roomYellow: #E0BC3D;
+    --roomAltYellow: #F2E3AF;
+    --roomPurple: #904fa0;
+    --roomAltPurple: #D6B2E0;
 }
 body {
     font-family: "Poppins", sans-serif;
-    color: $backgroundWhite;
+    color: var(--backgroundWhite);
     position: static;
     overflow: hidden;
     height: 100%;
-    background: $background;
+    background: var(--background);
 }
 button{
     background: none;

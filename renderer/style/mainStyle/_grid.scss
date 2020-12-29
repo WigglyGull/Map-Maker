@@ -13,14 +13,14 @@
     top: -1rem;
     padding-bottom: 0.4rem;
     padding-right: 0.4rem;
-    background: $backgroundWhite;
+    background: var(--backgroundWhite);
 
-    border-left: $gridBorderSize solid #383838;
-    border-bottom: $gridBorderSize solid #383838;
+    border-left: $gridBorderSize solid var(--gridBorder);
+    border-bottom: $gridBorderSize solid var(--gridBorder);
 }
 .grid{
     position: relative;
-    border: $gridBorderSize solid $background;
+    border: $gridBorderSize solid var(--background);
     width: $gridSize;
     height: $gridSize;
 }

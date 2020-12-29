@@ -4,23 +4,21 @@
 }
 @keyframes activateTool {
     70%{
-        width: 7.3rem;
-        height: 7.3rem; 
-    }
-    to{
         width: 7rem;
         height: 7rem; 
-        border: 3px solid white;
+    }
+    to{
+        width: 6.7rem;
+        height: 6.7rem; 
         box-shadow: $boxShadowActive;
-        background: $uiHighlight;
+        background: var(--uiHighlight);
     }
 }
 @keyframes activatePick {
     70%{transform: scale(1.15);}
     to{
         transform: scale(1);
-        box-shadow: $boxShadowActive;
-        background: $uiHighlight;
+        background: #2B2C31;
     }
 }
 @keyframes activateBiome {
@@ -31,8 +29,7 @@
     to{
         width: 7rem;
         height: 7rem;
-        box-shadow: $boxShadowActive;
-        border: 3px solid $roomDarkGrey;
+        border: 3px solid var(--gridBorder);
         border-radius: 50%;
         margin-top: 0;
     }

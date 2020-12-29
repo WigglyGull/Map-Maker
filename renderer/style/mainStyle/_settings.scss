@@ -10,7 +10,7 @@
     .settingsButton{
         width: 6rem;
         height: 6rem; 
-        background: $uiColor;
+        background: var(--uiColor);
         transition: all 0.15s ease-in-out;
     }
     .settingsButton:hover{
@@ -20,7 +20,7 @@
 .open{
     .settingsButton{
         transform: scale(1.1);
-        background: $uiHighlight;
+        background: var(--uiHighlight);
     }
     .settingsButton:hover{
         transform: scale(1.15);
@@ -34,7 +34,7 @@
     }
 }
 .setting{
-    background: $uiColor;
+    background: var(--uiColor);
     height: 6rem;
     width: 6rem;
     margin-right: 1rem;
@@ -103,6 +103,6 @@
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     border: none;
     width: 10rem;
-    color: white;
+    color: var(--textColor);
     opacity: 0;
 }

@@ -122,7 +122,7 @@ exports.findPosByStyle = (grid) => {
 exports.setStyle = (room, backColour, borderColor)=>{
     if(backColour === undefined){
         room.style.setProperty("--room", this.currentRoomColor);
-        room.style.setProperty("--roomBorder", "black");
+        room.style.setProperty("--roomBorder", gridItem.activeBorderColour);
     }else{
         room.style.setProperty("--room", backColour);
         room.style.setProperty("--roomBorder", borderColor);

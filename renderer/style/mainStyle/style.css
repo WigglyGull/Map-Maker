@@ -12,15 +12,55 @@ html {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  --uiColor:#53555F;
+  --uiHighlight: #2B2C31;
+  --background: #DADEEB;
+  --backgroundWhite: #F9F9F9;
+  --textColor: white;
+  --gridBorder: #383838;
+  --roomGrey: #9F9F9F;
+  --roomAltGrey: #383838;
+  --roomGreen: #14A653;
+  --roomAltGreen: #073F1F;
+  --roomBlue: #3D92E1;
+  --roomAltBlue: #0D2562;
+  --roomRed: #CF3652;
+  --roomAltRed: #560029;
+  --roomYellow: #E0BC3D;
+  --roomAltYellow: #563708;
+  --roomPurple: #904fa0;
+  --roomAltPurple: #35054B;
+  --secretRoom: #E5E5E5;
+}
+
+html[data-theme='dark'] {
+  --uiColor:#F9F9F9;
+  --uiHighlight: #F9F9F9;
+  --background: #3C3846;
+  --backgroundWhite: #0C0000;
+  --textColor: white;
+  --gridBorder: #0C0000;
+  --roomGrey: #9F9F9F;
+  --roomAltGrey: #D8D8D8;
+  --roomGreen: #14A653;
+  --roomAltGreen: #9EDAB8;
+  --roomBlue: #3D92E1;
+  --roomAltBlue: #B6D4EF;
+  --roomRed: #CF3652;
+  --roomAltRed: #EBACB7;
+  --roomYellow: #E0BC3D;
+  --roomAltYellow: #F2E3AF;
+  --roomPurple: #904fa0;
+  --roomAltPurple: #D6B2E0;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  color: #F9F9F9;
+  color: var(--backgroundWhite);
   position: static;
   overflow: hidden;
   height: 100%;
-  background: #DADEEB;
+  background: var(--background);
 }
 
 button {
@@ -67,12 +107,12 @@ button {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   border: none;
   width: 10rem;
-  color: white;
+  color: var(--textColor);
   opacity: 0;
 }
 
 .tool {
-  background: #53555F;
+  background: var(--uiColor);
   height: 6rem;
   width: 6rem;
   margin: 1rem 0rem;
@@ -132,14 +172,14 @@ button {
   top: -1rem;
   padding-bottom: 0.4rem;
   padding-right: 0.4rem;
-  background: #F9F9F9;
-  border-left: 0.4rem solid #383838;
-  border-bottom: 0.4rem solid #383838;
+  background: var(--backgroundWhite);
+  border-left: 0.4rem solid var(--gridBorder);
+  border-bottom: 0.4rem solid var(--gridBorder);
 }
 
 .grid {
   position: relative;
-  border: 0.4rem solid #DADEEB;
+  border: 0.4rem solid var(--background);
   width: 7.5rem;
   height: 7.5rem;
 }
@@ -164,7 +204,7 @@ button {
   height: 16rem;
   -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-  background: #FFFFFF;
+  background: #F9F9F9;
   border: 3px solid #383838;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -202,13 +242,11 @@ button {
 }
 
 .biome {
-  background: #53555F;
+  background: var(--uiColor);
   height: 6rem;
   width: 6rem;
   margin: 0rem 2rem;
   border-radius: 50%;
-  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -219,18 +257,18 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
 }
 
 .addBiome {
-  background: #53555F;
+  background: var(--uiColor);
   height: 6rem;
   width: 6rem;
   margin: 0rem 2rem;
   border-radius: 50%;
-  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -241,20 +279,20 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
 }
 
 .biome:hover {
-  height: 6.3rem;
-  width: 6.3rem;
-  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .addBiome:hover {
-  height: 6.3rem;
-  width: 6.3rem;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -271,35 +309,35 @@ button {
 .activeBiome {
   -webkit-animation: activateBiome 0.3s ease-in-out forwards;
           animation: activateBiome 0.3s ease-in-out forwards;
-  background: #2B2C31;
+  background: var(--uiHighlight);
 }
 
 .normalBiome {
-  background: #9F9F9F;
+  background: var(--roomGrey);
 }
 
 .grassBiome {
-  background: #14A653;
+  background: var(--roomGreen);
 }
 
 .redBiome {
-  background: #CF3652;
+  background: var(--roomRed);
 }
 
 .blueBiome {
-  background: #3D92E1;
+  background: var(--roomBlue);
 }
 
 .yellowBiome {
-  background: #E0BC3D;
+  background: var(--roomYellow);
 }
 
 .purpleBiome {
-  background: #904fa0;
+  background: var(--roomPurple);
 }
 
 .secretBiome {
-  background: #E5E5E5;
+  background: var(--secretRoom);
 }
 
 .activated {
@@ -973,31 +1011,29 @@ button {
 
 @-webkit-keyframes activateTool {
   70% {
-    width: 7.3rem;
-    height: 7.3rem;
-  }
-  to {
     width: 7rem;
     height: 7rem;
-    border: 3px solid white;
+  }
+  to {
+    width: 6.7rem;
+    height: 6.7rem;
     -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
             box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-    background: #2B2C31;
+    background: var(--uiHighlight);
   }
 }
 
 @keyframes activateTool {
   70% {
-    width: 7.3rem;
-    height: 7.3rem;
-  }
-  to {
     width: 7rem;
     height: 7rem;
-    border: 3px solid white;
+  }
+  to {
+    width: 6.7rem;
+    height: 6.7rem;
     -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
             box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-    background: #2B2C31;
+    background: var(--uiHighlight);
   }
 }
 
@@ -1009,8 +1045,6 @@ button {
   to {
     -webkit-transform: scale(1);
             transform: scale(1);
-    -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
     background: #2B2C31;
   }
 }
@@ -1023,8 +1057,6 @@ button {
   to {
     -webkit-transform: scale(1);
             transform: scale(1);
-    -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
     background: #2B2C31;
   }
 }
@@ -1037,9 +1069,7 @@ button {
   to {
     width: 7rem;
     height: 7rem;
-    -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-    border: 3px solid #383838;
+    border: 3px solid var(--gridBorder);
     border-radius: 50%;
     margin-top: 0;
   }
@@ -1053,9 +1083,7 @@ button {
   to {
     width: 7rem;
     height: 7rem;
-    -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-    border: 3px solid #383838;
+    border: 3px solid var(--gridBorder);
     border-radius: 50%;
     margin-top: 0;
   }
@@ -1463,8 +1491,6 @@ button {
           transform: scale(1);
   margin: 1rem 0rem;
   border-radius: 50%;
-  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1483,8 +1509,6 @@ button {
 .pickDiv:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
-  -webkit-box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.25);
 }
 
 .activePickDiv {
@@ -1513,11 +1537,11 @@ button {
   font-size: 1.8rem;
   border: none;
   width: 10rem;
-  color: white;
+  color: var(--textColor);
 }
 
 .text::-webkit-input-placeholder {
-  color: #DADEEB;
+  color: var(--background);
   text-shadow: none;
 }
 
@@ -1544,7 +1568,7 @@ button {
 .closed .settingsButton {
   width: 6rem;
   height: 6rem;
-  background: #53555F;
+  background: var(--uiColor);
   -webkit-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
 }
@@ -1557,7 +1581,7 @@ button {
 .open .settingsButton {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
-  background: #2B2C31;
+  background: var(--uiHighlight);
 }
 
 .open .settingsButton:hover {
@@ -1574,7 +1598,7 @@ button {
 }
 
 .setting {
-  background: #53555F;
+  background: var(--uiColor);
   height: 6rem;
   width: 6rem;
   margin-right: 1rem;
@@ -1663,7 +1687,7 @@ button {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   border: none;
   width: 10rem;
-  color: white;
+  color: var(--textColor);
   opacity: 0;
 }
 /*# sourceMappingURL=style.css.map */

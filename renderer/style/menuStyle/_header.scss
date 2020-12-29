@@ -26,10 +26,8 @@
     display: flex;
     justify-content: center; 
     align-items: center;
-
-    transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out;
 }
 .darkMode:hover{
-    height: 7.3rem;
-    width: 7.3rem;
+    transform: scale(1.1);
 }

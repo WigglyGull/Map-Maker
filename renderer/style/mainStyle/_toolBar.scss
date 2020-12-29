@@ -18,18 +18,18 @@
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     border: none;
     width: 10rem;
-    color: white;
+    color: var(--textColor);
     opacity: 0;
 }
 .tool{
-    background: $uiColor;
+    background: var(--uiColor);
     height: 6rem;
     width: 6rem;
     margin: 1rem 0rem;
     border-radius: 50%;
     box-shadow: $boxShadow;
     cursor: pointer;
-
+    
     //Centers icons
     display: flex;
     justify-content: center; 

@@ -114,13 +114,15 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
-  transition: width 0.15s ease-in-out, height 0.15s ease-in-out;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
 }
 
 .darkMode:hover {
-  height: 7.3rem;
-  width: 7.3rem;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .footer {

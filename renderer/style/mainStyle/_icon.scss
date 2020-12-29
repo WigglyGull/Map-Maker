@@ -7,7 +7,7 @@
     height: 22.5rem;
 
     box-shadow: $boxShadowActive;
-    background: $backgroundWhite;
+    background:  #F9F9F9;
     border: 3px solid #383838;
     box-sizing: border-box;
     border-radius: 0.5rem; 
@@ -26,13 +26,12 @@
     transform: translateY(-15rem);
 }
 .pickDiv{
-    background: $uiColor;
+    background: #53555F;
     height: 6rem;
     width: 6rem;
     transform: scale(1);
     margin: 1rem 0rem;
     border-radius: 50%;
-    box-shadow: $boxShadow;
 
     display: flex;
     justify-content: center; 
@@ -42,7 +41,6 @@
 }
 .pickDiv:hover{
     transform: scale(1.05);
-    box-shadow: $boxShadowActive;
 }
 .activePickDiv{
     animation: activatePick 0.3s ease-in-out forwards;

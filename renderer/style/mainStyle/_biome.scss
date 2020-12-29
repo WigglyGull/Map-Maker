@@ -7,7 +7,7 @@
     height: 16rem;
 
     box-shadow: $boxShadowActive;
-    background: #FFFFFF;
+    background:  #F9F9F9;
     border: 3px solid #383838;
     box-sizing: border-box;
     border-radius: 0.5rem; 
@@ -31,43 +31,38 @@
     z-index: 100;
 }
 .biome{
-    background: $uiColor;
+    background: var(--uiColor);
     height: 6rem;
     width: 6rem;
     margin: 0rem 2rem;
     border-radius: 50%;
-    box-shadow: $boxShadow;
     cursor: pointer;
 
     display: flex;
     justify-content: center; 
     align-items: center;
 
-    transition: all 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out;
 }
 .addBiome{
-    background: $uiColor;
+    background: var(--uiColor);
     height: 6rem;
     width: 6rem;
     margin: 0rem 2rem;
     border-radius: 50%;
-    box-shadow: $boxShadow;
     cursor: pointer;
 
     display: flex;
     justify-content: center; 
     align-items: center;
 
-    transition: all 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out;
 }
 .biome:hover{
-    height: 6.3rem;
-    width: 6.3rem;
-    box-shadow: $boxShadowActive;
+    transform: scale(1.05);
 }
 .addBiome:hover{
-    height: 6.3rem;
-    width: 6.3rem;
+    transform: scale(1.05);
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -75,28 +70,28 @@
 }
 .activeBiome{
     animation: activateBiome 0.3s ease-in-out forwards;
-    background: $uiHighlight;
+    background: var(--uiHighlight);
 }
 .normalBiome{
-    background: $roomGrey;
+    background: var(--roomGrey);
 }
 .grassBiome{
-    background: $roomGreen;
+    background: var(--roomGreen);
 }
 .redBiome{
-    background: $roomRed;
+    background: var(--roomRed);
 }
 .blueBiome{
-    background: $roomBlue;
+    background: var(--roomBlue);
 }
 .yellowBiome{
-    background: $roomYellow;
+    background: var(--roomYellow);
 }
 .purpleBiome{
-    background: $roomPurple;
+    background: var(--roomPurple);
 }
 .secretBiome{
-    background: $secretRoom;
+    background: var(--secretRoom);
 }
 .activated{
     border: 3px solid $roomDarkGrey;

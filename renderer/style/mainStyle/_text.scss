@@ -9,10 +9,10 @@
     
     border: none;
     width: 10rem;
-    color: white;
+    color: var(--textColor);
 }
 .text::-webkit-input-placeholder {
-    color: #DADEEB;
+    color: var(--background);
     text-shadow: none;
 }
 .text:focus {

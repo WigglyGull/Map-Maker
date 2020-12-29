@@ -7,6 +7,10 @@ const text = require("../tools/text");
 const eraser = require("../tools/eraser");
 const keyInputs = require("../meta/keyInputs");
 
+const globalData = require("../../../src/globalData.js");
+const darkMode = globalData.darkMode;
+
+exports.activeBorderColour = darkMode ? "white" : "black";
 exports.mapRows = 16;
 exports.mapColumns = 10;
 exports.gridList = [];
@@ -92,7 +96,7 @@ exports.setCurrentRoomEvent = (room)=>{
 
     //Sets clicked room to be active
     room.addEventListener("click", ()=>{
-        this.setCurrentRoom(room)
+        this.setCurrentRoom(room);
     });
 }
 exports.setCurrentRoom = (room)=>{
@@ -100,7 +104,7 @@ exports.setCurrentRoom = (room)=>{
     roomItem.roomList.forEach(_room =>{
         //sets the current room to have a black outline 
         if(roomItem.currentRoom === _room.classList.item(1)){
-            _room.style.setProperty("--roomBorder", "black");
+            _room.style.setProperty("--roomBorder", this.activeBorderColour);
             if(_room.parentElement === null) return;
             const roomDoors = doors.getDoors(_room.parentElement);
             roomDoors.forEach(door=>{
@@ -175,4 +179,7 @@ exports.getRoom = (room) => {
         if(currentRoomNum === roomNum) fullRoom.push(listRoom.firstChild);
     });
     return fullRoom;
+}
+exports.getDarkMode =()=>{
+    
 }

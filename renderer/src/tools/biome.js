@@ -1,5 +1,6 @@
 const roomItem = require("../grid/room");
 const activeClass = "activeBiome";
+
 let activeBiome = undefined;
 let hover = false;
 let biomes;
@@ -9,19 +10,28 @@ const biomeSelector = document.querySelector(".biomeHolder");
 const addBiome = document.querySelector(".addBiome");
 const biomeBar = document.querySelector(".biomeBar");
 
-exports.roomGrey = "#9F9F9F";
-exports.roomDarkGrey = "#383838";
-const roomGreen = "#33a163";
-const roomDarkGreen = "#073F1F";
-const roomRed = "#CF3652";
-const roomDarkRed = "#560029";
-const roomBlue = "#3D92E1";
-const roomDarkBlue = "#0D2562";
-const roomYellow = "#E0BC3D";
-const roomDarkYellow = "#563708";
-const roomPurple = "#904fa0";
-const roomDarkPurple = "#35054B";
-const secretRoom = "#E5E5E5";
+//Gets colour depending of in darkmode or lightmode
+const htmlStyle = getComputedStyle(document.documentElement);
+exports.roomGrey = htmlStyle.getPropertyValue('--roomGrey');
+exports.roomAltGrey = htmlStyle.getPropertyValue('--roomAltGrey');
+
+const roomGreen = htmlStyle.getPropertyValue('--roomGreen');
+const roomAltGreen = htmlStyle.getPropertyValue('--roomAltGreen');
+console.log(roomGreen)
+
+const roomRed = htmlStyle.getPropertyValue('--roomRed');
+const roomAltRed = htmlStyle.getPropertyValue('--roomAltRed');
+
+const roomBlue = htmlStyle.getPropertyValue('--roomBlue');
+const roomAltBlue = htmlStyle.getPropertyValue('--roomAltBlue');
+
+const roomYellow = htmlStyle.getPropertyValue('--roomYellow');
+const roomAltYellow = htmlStyle.getPropertyValue('--roomAltYellow');
+
+const roomPurple = htmlStyle.getPropertyValue('--roomPurple');
+const roomAltPurple = htmlStyle.getPropertyValue('--roomAltPurple');
+
+const secretRoom = htmlStyle.getPropertyValue('--secretRoom');
 
 exports.createBiome = () => {
     let fade = setInterval(fadeOut, 50);
@@ -96,27 +106,27 @@ const setRoomBiome = () =>{
     switch(activeBiome){
         case "normalBiome": 
             roomItem.currentRoomColor = this.roomGrey;
-            roomItem.currentBorderColor = this.roomDarkGrey;
+            roomItem.currentBorderColor = this.roomAltGrey;
             break;
         case "grassBiome": 
             roomItem.currentRoomColor = roomGreen;
-            roomItem.currentBorderColor = roomDarkGreen;
+            roomItem.currentBorderColor = roomAltGreen;
             break;
         case "redBiome":
             roomItem.currentRoomColor = roomRed;
-            roomItem.currentBorderColor = roomDarkRed;
+            roomItem.currentBorderColor = roomAltRed;
             break;
         case "blueBiome":
             roomItem.currentRoomColor = roomBlue;
-            roomItem.currentBorderColor = roomDarkBlue;
+            roomItem.currentBorderColor = roomAltBlue;
             break;
         case "yellowBiome":
             roomItem.currentRoomColor = roomYellow;
-            roomItem.currentBorderColor = roomDarkYellow;
+            roomItem.currentBorderColor = roomAltYellow;
         break;
         case "purpleBiome":
             roomItem.currentRoomColor = roomPurple;
-            roomItem.currentBorderColor = roomDarkPurple;
+            roomItem.currentBorderColor = roomAltPurple;
         break;
         case "secretBiome":
             roomItem.currentRoomColor = secretRoom;
@@ -147,25 +157,25 @@ exports.setDefaultBorder = (room) =>{
     const roomColor = room.style.getPropertyValue("--room");
     switch (roomColor){
         case(this.roomGrey):
-            room.style.setProperty("--roomBorder", this.roomDarkGrey);
+            room.style.setProperty("--roomBorder", this.roomAltGrey);
             break;
         case(this.secretRoom):
-            room.style.setProperty("--roomBorder", this.roomDarkGrey);
+            room.style.setProperty("--roomBorder", this.roomAltGrey);
             break;
         case(roomGreen):
-            room.style.setProperty("--roomBorder", roomDarkGreen);
+            room.style.setProperty("--roomBorder", roomAltGreen);
             break;
         case(roomRed):
-            room.style.setProperty("--roomBorder", roomDarkRed);
+            room.style.setProperty("--roomBorder", roomAltRed);
             break;
         case(roomBlue):
-            room.style.setProperty("--roomBorder", roomDarkBlue);
+            room.style.setProperty("--roomBorder", roomAltBlue);
             break;
         case(roomYellow):
-            room.style.setProperty("--roomBorder", roomDarkYellow);
+            room.style.setProperty("--roomBorder", roomAltYellow);
             break;
         case(roomPurple):
-            room.style.setProperty("--roomBorder", roomDarkPurple);
+            room.style.setProperty("--roomBorder", roomAltPurple);
             break;
     }
 }

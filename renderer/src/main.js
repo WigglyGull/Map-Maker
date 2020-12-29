@@ -26,3 +26,15 @@ settings.setUpSettings(loadMenu);
 
 //Sets the first tool to be active
 tool.setActive(tools[0], tools);
+
+//Sets icon depending on 
+const setIcon = ()=>{
+    if(!darkMode) return;
+    else{
+        const settingIcon = document.querySelector("settingIcon");
+        const restartIcon = document.querySelector("restartIcon");
+        
+        settingIcon.src = "../assets/settings/SettingIconWhite.svg";
+    }
+}
+setIcon();
