@@ -94,7 +94,7 @@
     background: var(--secretRoom);
 }
 .activated{
-    border: 3px solid $roomDarkGrey;
+    border: 3px solid var(--roomAltGrey);
     height: 6rem;
     width: 6rem;
     margin: 0rem 2rem;

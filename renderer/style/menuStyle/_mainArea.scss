@@ -6,7 +6,7 @@
 .mainArea{
     width: 135rem;
     height: 65rem;
-    background: #DADEEB;
+    background: var(--background);
     border-radius: 2rem;
 }
 .buttons{
@@ -24,15 +24,16 @@
     margin-top: 2rem;
 }
 .infoBox{
-    background: #F9F9F9;
+    background: var(--backgroundWhite);
     width:55rem;
     height: 42rem;
-    border: 0.5rem solid $uiHighlight;
+    border: 0.5rem solid var(--uiHighlight);
     border-radius: 1rem;
-    font-size: 2.5rem;
-
+    font-size: 2.2rem;
+    
     .infoHeader{
-        background: $uiHighlight;
+        background: var(--uiHighlight);
+        color: var(--topBar);
         display: inline;
         padding-right: 2rem;
         padding-bottom: 1rem;
@@ -40,22 +41,23 @@
         border-bottom-right-radius: 1rem;
     }
     .infoText{
-        color: black;
-        margin: 1rem;
-        margin-top: 0.5rem;
+        color: var(--textColour);
+        padding: 1rem;
+        padding-top: 0.5rem;
     }
 }
 .recentMap{
-    background: #F9F9F9;
+    background: var(--backgroundWhite);
     height: 55rem;
     width: 55rem;
     
-    border: 0.5rem solid $uiHighlight;
+    border: 0.5rem solid var(--uiHighlight);
     border-radius: 1rem; 
     font-size: 2.5rem;
 
     .recentMapText{
-        background: $uiHighlight;
+        background: var(--uiHighlight);
+        color: var(--topBar);
         display: inline;
         padding-right: 2rem;
         padding-bottom: 1rem;

@@ -1,12 +1,12 @@
 .footer{
     width: 100%;
     height: 50px;
-    background: $uiColor;
+    background: var(--uiColor);
     position: absolute;
     bottom: 0;
     font-size: 1.5rem;
     font-weight: 100;
-    color: #DADEEB;
+    color: white;
 }
 .credits{
     padding-left: 2rem;

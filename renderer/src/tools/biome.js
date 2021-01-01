@@ -11,27 +11,25 @@ const addBiome = document.querySelector(".addBiome");
 const biomeBar = document.querySelector(".biomeBar");
 
 //Gets colour depending of in darkmode or lightmode
-const htmlStyle = getComputedStyle(document.documentElement);
+let htmlStyle = getComputedStyle(document.querySelector("html"));
 exports.roomGrey = htmlStyle.getPropertyValue('--roomGrey');
 exports.roomAltGrey = htmlStyle.getPropertyValue('--roomAltGrey');
 
-const roomGreen = htmlStyle.getPropertyValue('--roomGreen');
-const roomAltGreen = htmlStyle.getPropertyValue('--roomAltGreen');
-console.log(roomGreen)
+let roomGreen = htmlStyle.getPropertyValue('--roomGreen');
+let roomAltGreen = htmlStyle.getPropertyValue('--roomAltGreen');
 
-const roomRed = htmlStyle.getPropertyValue('--roomRed');
-const roomAltRed = htmlStyle.getPropertyValue('--roomAltRed');
+let roomRed = htmlStyle.getPropertyValue('--roomRed');
+let roomAltRed = htmlStyle.getPropertyValue('--roomAltRed');
 
-const roomBlue = htmlStyle.getPropertyValue('--roomBlue');
-const roomAltBlue = htmlStyle.getPropertyValue('--roomAltBlue');
+let roomBlue = htmlStyle.getPropertyValue('--roomBlue');
+let roomAltBlue = htmlStyle.getPropertyValue('--roomAltBlue');
 
-const roomYellow = htmlStyle.getPropertyValue('--roomYellow');
-const roomAltYellow = htmlStyle.getPropertyValue('--roomAltYellow');
+let roomYellow = htmlStyle.getPropertyValue('--roomYellow');
+let roomAltYellow = htmlStyle.getPropertyValue('--roomAltYellow');
 
-const roomPurple = htmlStyle.getPropertyValue('--roomPurple');
-const roomAltPurple = htmlStyle.getPropertyValue('--roomAltPurple');
-
-const secretRoom = htmlStyle.getPropertyValue('--secretRoom');
+let roomPurple = htmlStyle.getPropertyValue('--roomPurple');
+let roomAltPurple = htmlStyle.getPropertyValue('--roomAltPurple');
+let secretRoom = htmlStyle.getPropertyValue('--secretRoom');
 
 exports.createBiome = () => {
     let fade = setInterval(fadeOut, 50);
@@ -178,4 +176,28 @@ exports.setDefaultBorder = (room) =>{
             room.style.setProperty("--roomBorder", roomAltPurple);
             break;
     }
+}
+
+//resets colours if they didnt get added the first time
+exports.resetColours = ()=>{
+    htmlStyle = getComputedStyle(document.querySelector("html"));
+    this.roomGrey = htmlStyle.getPropertyValue('--roomGrey');
+    this.roomAltGrey = htmlStyle.getPropertyValue('--roomAltGrey');
+
+    roomGreen = htmlStyle.getPropertyValue('--roomGreen');
+    roomAltGreen = htmlStyle.getPropertyValue('--roomAltGreen');
+
+    roomRed = htmlStyle.getPropertyValue('--roomRed');
+    roomAltRed = htmlStyle.getPropertyValue('--roomAltRed');
+
+    roomBlue = htmlStyle.getPropertyValue('--roomBlue');
+    roomAltBlue = htmlStyle.getPropertyValue('--roomAltBlue');
+
+    roomYellow = htmlStyle.getPropertyValue('--roomYellow');
+    roomAltYellow = htmlStyle.getPropertyValue('--roomAltYellow');
+
+    roomPurple = htmlStyle.getPropertyValue('--roomPurple');
+    roomAltPurple = htmlStyle.getPropertyValue('--roomAltPurple');
+
+    secretRoom = htmlStyle.getPropertyValue('--secretRoom');
 }

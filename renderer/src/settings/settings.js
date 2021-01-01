@@ -10,9 +10,7 @@ const exitButton = document.querySelector(".exitButtonClose");
 //Classes that change css to open and close the menu
 const hiddenClass = "closed";
 const openClass = "open";
-
-const globalData = require("../../../src/globalData.js");
-const darkMode = globalData.darkMode;
+const darkMode = localStorage.getItem("darkMode");
 
 exports.setUpSettings = (loadMenu)=>{
     //make each buttons text pop up when mouse is hovering
@@ -61,13 +59,13 @@ exports.changeSettings = () =>{
         otherSettings.forEach(setting=>{
             setting.classList.replace(setting.classList.item(0), `${setting.classList.item(0).slice(0, -5)}Open`);
         });
-        if(darkMode === false) settingsIcon.src = "../assets/settings/SettingIcon.svg";
+        if(darkMode === "false") settingsIcon.src = "../assets/settings/SettingIcon.svg";
     } else if(currentClass === openClass){
         //Sets elements class to animate close
         settingsMenu.classList.replace(openClass, hiddenClass);
         otherSettings.forEach(setting=>{
             setting.classList.replace(setting.classList.item(0), `${setting.classList.item(0).slice(0, -4)}Close`);
         });
-        if(darkMode === false) settingsIcon.src = "../assets/settings/SettingIconClosed.svg";
+        if(darkMode === "false") settingsIcon.src = "../assets/settings/SettingIconClosed.svg";
     }
 }

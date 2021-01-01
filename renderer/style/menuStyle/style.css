@@ -16,11 +16,49 @@ html {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  --uiColor: #53555F;
+  --uiHighlight: #2B2C31;
+  --roomGrey: #9F9F9F;
+  --roomDarkGrey: #383838;
+  --uiLightGrey: #C4C4C4;
+  --textColour: black;
+  --headerColour: white;
+  --popUpBackground: #F9F9F9;
+  --popUp: #53555F;
+  --background: #DADEEB;
+  --backgroundWhite: #F9F9F9;
+  --topBar: white;
+}
+
+html[data-theme='dark'] {
+  --uiColor: #53555F;
+  --uiHighlight: #F9F9F9;
+  --roomGrey: #9F9F9F;
+  --roomDarkGrey: #383838;
+  --uiLightGrey: #53555F;
+  --textColour: white;
+  --headerColour: black;
+  --popUpBackground:  #3C3846;
+  --popUp: #2B2C31;
+  --background: #3C3846;
+  --backgroundWhite: #2B2C31;
+  --topBar: #2B2C31;
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  -webkit-transition: all 750ms !important;
+  transition: all 750ms !important;
+  -webkit-transition-delay: 0 !important;
+          transition-delay: 0 !important;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  color: #F9F9F9;
+  color: var(--backgroundWhite);
+  background: var(--topBar);
   position: static;
   overflow: hidden;
   height: 100%;
@@ -36,8 +74,8 @@ button {
   outline: inherit;
   width: 25rem;
   height: 10rem;
-  background: #53555F;
-  border: 3px solid white;
+  background: var(--uiColor);
+  border: 5px solid white;
   border-radius: 1rem;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -70,7 +108,7 @@ input[type=number] {
 }
 
 .topBar {
-  background: #C4C4C4;
+  background: var(--uiLightGrey);
   padding-bottom: 1rem;
 }
 
@@ -98,7 +136,7 @@ input[type=number] {
   position: absolute;
   right: 0;
   top: 0;
-  background: #53555F;
+  background: var(--uiColor);
   height: 7rem;
   width: 7rem;
   border-radius: 50%;
@@ -128,12 +166,12 @@ input[type=number] {
 .footer {
   width: 100%;
   height: 50px;
-  background: #53555F;
+  background: var(--uiColor);
   position: absolute;
   bottom: 0;
   font-size: 1.5rem;
   font-weight: 100;
-  color: #DADEEB;
+  color: white;
 }
 
 .credits {
@@ -160,7 +198,7 @@ input[type=number] {
 .mainArea {
   width: 135rem;
   height: 65rem;
-  background: #DADEEB;
+  background: var(--background);
   border-radius: 2rem;
 }
 
@@ -183,16 +221,17 @@ input[type=number] {
 }
 
 .infoBox {
-  background: #F9F9F9;
+  background: var(--backgroundWhite);
   width: 55rem;
   height: 42rem;
-  border: 0.5rem solid #2B2C31;
+  border: 0.5rem solid var(--uiHighlight);
   border-radius: 1rem;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 
 .infoBox .infoHeader {
-  background: #2B2C31;
+  background: var(--uiHighlight);
+  color: var(--topBar);
   display: inline;
   padding-right: 2rem;
   padding-bottom: 1rem;
@@ -201,22 +240,23 @@ input[type=number] {
 }
 
 .infoBox .infoText {
-  color: black;
-  margin: 1rem;
-  margin-top: 0.5rem;
+  color: var(--textColour);
+  padding: 1rem;
+  padding-top: 0.5rem;
 }
 
 .recentMap {
-  background: #F9F9F9;
+  background: var(--backgroundWhite);
   height: 55rem;
   width: 55rem;
-  border: 0.5rem solid #2B2C31;
+  border: 0.5rem solid var(--uiHighlight);
   border-radius: 1rem;
   font-size: 2.5rem;
 }
 
 .recentMap .recentMapText {
-  background: #2B2C31;
+  background: var(--uiHighlight);
+  color: var(--topBar);
   display: inline;
   padding-right: 2rem;
   padding-bottom: 1rem;
@@ -249,19 +289,19 @@ input[type=number] {
   width: 68rem;
   height: 38rem;
   z-index: 20;
-  background: white;
+  background: var(--popUpBackground);
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  border: 0.5rem solid #53555F;
+  border: 0.5rem solid var(--uiHighlight);
   border-radius: 1rem;
   font-size: 2.5rem;
 }
 
 .newMapPopUp .setupText {
-  background: #53555F;
+  background: var(--uiHighlight);
   display: inline;
   padding-right: 2rem;
   padding-bottom: 1rem;
@@ -288,7 +328,7 @@ input[type=number] {
 .setupUi {
   width: 62rem;
   height: 20rem;
-  background: #53555F;
+  background: var(--popUp);
   margin: auto;
   margin-top: 2rem;
   border-radius: 1rem;
@@ -311,10 +351,11 @@ input[type=number] {
   font-size: 3rem;
   margin-top: 1.5rem;
   margin-right: 1rem;
+  color: white;
 }
 
 .mapName .nameInput {
-  color: #53555F;
+  color: var(--uiColor);
   font-size: 2.5rem;
   width: 18rem;
   height: 6rem;
@@ -337,6 +378,7 @@ input[type=number] {
   font-size: 3rem;
   margin-top: 1.5rem;
   margin-right: 1rem;
+  color: white;
 }
 
 .mapSize .size {
@@ -347,7 +389,7 @@ input[type=number] {
 }
 
 .mapSize .input {
-  color: #53555F;
+  color: var(--uiColor);
   font-size: 2.5rem;
   width: 8rem;
   height: 6rem;
@@ -368,7 +410,7 @@ input[type=number] {
 }
 
 .exitButton {
-  background: #53555F;
+  background: var(--uiColor);
   height: 6rem;
   width: 6rem;
   border-radius: 50%;

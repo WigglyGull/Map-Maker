@@ -7,10 +7,10 @@ const text = require("../tools/text");
 const eraser = require("../tools/eraser");
 const keyInputs = require("../meta/keyInputs");
 
-const globalData = require("../../../src/globalData.js");
-const darkMode = globalData.darkMode;
+const darkMode = localStorage.getItem("darkMode");
+exports.activeBorderColour = "black";
+if(darkMode === "true") this.activeBorderColour = "white";
 
-exports.activeBorderColour = darkMode ? "white" : "black";
 exports.mapRows = 16;
 exports.mapColumns = 10;
 exports.gridList = [];
@@ -77,6 +77,12 @@ exports.spawnRoom = (grid) => {
 
 //Spawns a sperate room
 exports.createNewRoom = (grid)=>{
+    if(roomItem.currentRoomColor === ""){
+        biome.resetColours();
+        roomItem.currentRoomColor = biome.roomGrey;
+        roomItem.currentBorderColor = biome.roomDarkGrey;
+    }
+    
     const room = document.createElement("div");
     roomItem.numOfRooms++;
     this.setDefault(room, roomItem.currentRoomColor, `${roomItem.numOfRooms}`);
@@ -179,7 +185,4 @@ exports.getRoom = (room) => {
         if(currentRoomNum === roomNum) fullRoom.push(listRoom.firstChild);
     });
     return fullRoom;
-}
-exports.getDarkMode =()=>{
-    
 }

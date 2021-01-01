@@ -10,18 +10,18 @@
     width: 68rem;
     height:38rem;
     z-index: 20;
-    background: white;
+    background: var(--popUpBackground);
     position: absolute; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    border: 0.5rem solid $uiColor;
+    border: 0.5rem solid var(--uiHighlight);
     border-radius: 1rem; 
     font-size: 2.5rem;
 
     .setupText{
-        background: $uiColor;
+        background: var(--uiHighlight);
         display: inline;
         padding-right: 2rem;
         padding-bottom: 1rem;
@@ -46,7 +46,7 @@
 .setupUi{
     width:62rem;
     height: 20rem;
-    background: $uiColor;
+    background: var(--popUp);
     margin:auto;
     margin-top: 2rem;
     border-radius: 1rem;
@@ -63,9 +63,10 @@
         font-size: 3rem;
         margin-top: 1.5rem;
         margin-right: 1rem;
+        color:white;
     }
     .nameInput{
-        color: $uiColor;
+        color: var(--uiColor);
         font-size: 2.5rem;
         width: 18rem;
         height: 6rem;
@@ -84,13 +85,14 @@
         font-size: 3rem;
         margin-top: 1.5rem;
         margin-right: 1rem;
+        color:white;
     }
     .size{
         display: flex;
         margin-top: 2rem;
     }
     .input{
-        color: $uiColor;
+        color: var(--uiColor);
         font-size: 2.5rem;
         width: 8rem;
         height: 6rem;
@@ -107,7 +109,7 @@
     }
 }
 .exitButton{
-    background: $uiColor;
+    background: var(--uiColor);
     height: 6rem;
     width: 6rem;
     border-radius: 50%;

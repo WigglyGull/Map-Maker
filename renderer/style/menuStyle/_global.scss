@@ -7,10 +7,48 @@ html {
     font-size: 10px;
     height: 100%;
     user-select: none;
+
+    --uiColor: #53555F; 
+    --uiHighlight: #2B2C31;
+    --roomGrey: #9F9F9F;
+    --roomDarkGrey: #383838;
+    --uiLightGrey: #C4C4C4;
+    --textColour: black;
+    --headerColour: white;
+    --popUpBackground: #F9F9F9;
+    --popUp: #53555F;
+
+    --background: #DADEEB;
+    --backgroundWhite: #F9F9F9;
+    --topBar: white;
 }
+html[data-theme='dark']{
+    --uiColor: #53555F; 
+    --uiHighlight: #F9F9F9;
+    --roomGrey: #9F9F9F;
+    --roomDarkGrey: #383838;
+    --uiLightGrey: #53555F;
+    --textColour: white;
+    --headerColour: black;
+    --popUpBackground:  #3C3846;
+    --popUp: #2B2C31;
+
+    --background: #3C3846;
+    --backgroundWhite: #2B2C31;
+    --topBar: #2B2C31;
+}
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+
 body {
     font-family: "Poppins", sans-serif;
-    color: #F9F9F9;
+    color: var(--backgroundWhite);
+    background: var(--topBar);
     position: static;
     overflow: hidden;
     height: 100%;
@@ -27,8 +65,8 @@ button{
     
     width: 25rem;
     height: 10rem;
-    background: $uiColor;
-    border: 3px solid white;
+    background: var(--uiColor);
+    border: 5px solid white;
     border-radius: 1rem;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -40,6 +78,7 @@ button{
 button:hover{
     transform: scale(1.1);
 }
+
 input{
     outline: none;
     border: none;
@@ -49,12 +88,11 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
 .topBar{
-    background: $uiLightGrey;
+    background: var(--uiLightGrey);
     padding-bottom: 1rem;
 }
