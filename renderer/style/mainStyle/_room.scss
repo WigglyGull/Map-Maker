@@ -4,184 +4,184 @@
 }
 .room-left{
     animation: spawn-left 0.2s ease-in-out;
-    @include baseRoom($roomSizeFacing, $roomSize, 2);
+    @include baseRoom(var(--roomSizeFacing), var(--roomSize), 2);
     border-right: 0.3rem solid var(--roomBorder); border-top: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder);
     border-top-right-radius: $borderRadius; border-bottom-right-radius: $borderRadius;
     transform: translate(-0.5rem, 0);
 }
 .room-right{
     animation: spawn 0.2s ease-in-out;
-    @include baseRoom($roomSizeFacing, $roomSize, 2);
+    @include baseRoom(var(--roomSizeFacing), var(--roomSize), 2);
     border-left: 0.3rem solid var(--roomBorder); border-top: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder);
     border-top-left-radius: $borderRadius; border-bottom-left-radius: $borderRadius;
 }
-.room-up{
+.room-up{ 
     animation: spawn 0.2s ease-in-out;
-    @include baseRoom($roomSize, $roomSizeFacing, 2);
+    @include baseRoom(var(--roomSize), var(--roomSizeFacing), 2);
     border-left: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder); border-right: 0.3rem solid var(--roomBorder);
     border-bottom-right-radius: $borderRadius; border-bottom-left-radius: $borderRadius;
     transform: translate(0, -0.5rem);
 }
 .room-down{
     animation: spawn 0.2s ease-in-out;
-    @include baseRoom($roomSize, $roomSizeFacing, 2);
+    @include baseRoom(var(--roomSize), var(--roomSizeFacing), 2);
     border-left: 0.3rem solid var(--roomBorder); border-top: 0.3rem solid var(--roomBorder); border-right: 0.3rem solid var(--roomBorder);
     border-top-right-radius: $borderRadius; border-top-left-radius: $borderRadius;
 }
 .room-left-right{
     animation: spawn 0.2s ease-in-out;
-    @include baseRoom($roomSizeFacingDouble, $roomSize, 2);
+    @include baseRoom(var(--roomSizeFacingDouble), var(--roomSize), 2);
     border-bottom: 0.3rem solid var(--roomBorder); border-top: 0.3rem solid var(--roomBorder);
     transform: translateX(-0.5rem);
 }
 .room-left-up{
     animation: spawn-left 0.2s ease-in-out;
-    @include baseRoom($roomSizeFacing, $roomSize, 1);
+    @include baseRoom(var(--roomSizeFacing), var(--roomSize), 1);
     transform: translateX(-0.5rem);
     border-bottom: 0.3rem solid var(--roomBorder); border-right: 0.3rem solid var(--roomBorder); border-bottom-right-radius: $borderRadius; border-top: 0.3rem solid var(--roomBorder);
 }
 .room-left-up::after{
     content:"";
-    @include baseRoom(6.1rem, 0.7rem, 1, $left-right: true);
+    @include baseRoom(var(--leftUp), 0.7rem, 1, $left-right: true);
     transform: translate(0.5rem, -0.67rem);
 }
 .room-left-down{
     animation: spawn-left 0.2s ease-in-out;
-    @include baseRoom($roomSizeFacing, $roomSize, 1);
+    @include baseRoom(var(--roomSizeFacing), var(--roomSize), 1);
     transform: translateX(-0.5rem);
     border-top: 0.3rem solid var(--roomBorder); border-right: 0.3rem solid var(--roomBorder); border-top-right-radius: $borderRadius;
     border-bottom: 0.3rem solid var(--roomBorder);
 }
 .room-left-down::after{
     content:"";
-    @include baseRoom(6.1rem, 0.7rem, 1, $left-right: true);
-    transform: translate(0.5rem, 6.05rem);
+    @include baseRoom(var(--leftUp), 0.7rem, 1, $left-right: true);
+    transform: translate(0.5rem, var(--leftUp));
 }
 .room-right-up{
     animation: spawn 0.2s ease-in-out;
-    @include baseRoom($roomSizeFacing, $roomSize, 1);
+    @include baseRoom(var(--roomSizeFacing), var(--roomSize), 1);
     border-bottom: 0.3rem solid var(--roomBorder); border-left: 0.3rem solid var(--roomBorder); border-bottom-left-radius: $borderRadius;border-top: 0.3rem solid var(--roomBorder);
 }
 .room-right-up::after{
     content:"";
-    @include baseRoom(6.1rem, 0.7rem, 1, $left-right: true);
+    @include baseRoom(var(--leftUp), 0.7rem, 1, $left-right: true);
     transform: translate(-0.3rem, -0.7rem);           
 }
 .room-right-down{
     animation: spawn 0.2s ease-in-out;
-    @include baseRoom($roomSizeFacing, $roomSize, 1);
+    @include baseRoom(var(--roomSizeFacing), var(--roomSize), 1);
     border-top: 0.3rem solid var(--roomBorder); border-left: 0.3rem solid var(--roomBorder); border-top-left-radius: $borderRadius; border-bottom: 0.3rem solid var(--roomBorder);
 }
 .room-right-down::after{
     content:"";
-    @include baseRoom(6.1rem, 0.7rem, 1, $left-right: true);
-    transform: translate(-0.3rem, 6.1rem);
+    @include baseRoom(var(--leftUp), 0.7rem, 1, $left-right: true);
+    transform: translate(-0.3rem, var(--leftUp));
 }
 .room-up-down{
     animation: spawn 0.2s ease-in-out;
-    @include baseRoom($roomSize, $roomSizeFacingDouble, 2, $left-right: true);
+    @include baseRoom(var(--roomSize), var(--roomSizeFacingDouble), 2, $left-right: true);
     transform: translateY(-0.5rem);
 }
 .room-left-right-up{
     animation: spawn-left 0.2s ease-in-out;
-    @include baseRoom($roomSizeFacingDouble, $roomSize, 1);
+    @include baseRoom(var(--roomSizeFacingDouble), var(--roomSize), 1);
     border-bottom: 0.3rem solid var(--roomBorder); border-top: 0.3rem solid var(--roomBorder);
     transform: translate(-0.5rem,0rem);
 }
 .room-left-right-up::after{
     content: "";
-    @include baseRoom(6.1rem, 0.7rem, 2, $left-right: true);
+    @include baseRoom(var(--leftUp), 0.7rem, 2, $left-right: true);
     transform: translate(0.5rem, -0.7rem);
 }
 .room-right-up-down{
     animation: spawn 0.2s ease-in-out;
-    @include baseRoom($roomSize, $roomSizeFacingDouble, 1, $left-right: true);
+    @include baseRoom(var(--roomSize), var(--roomSizeFacingDouble), 1, $left-right: true);
     transform: translate(-0rem,-0.5rem);
 }
 .room-right-up-down::after{
     content: "";
-    @include baseRoom(0.7rem, 6.1rem, 2);
-    transform: translate(6.1rem, 0.5rem);
+    @include baseRoom(0.7rem, var(--leftUp), 2);
+    transform: translate(var(--leftUp), 0.5rem);
     border-top: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder);
 }
 .room-left-right-down{
     animation: spawn-left 0.2s ease-in-out;
-    @include baseRoom($roomSizeFacingDouble, $roomSize, 1);
+    @include baseRoom(var(--roomSizeFacingDouble), var(--roomSize), 1);
     border-top: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder);
     transform: translate(-0.5rem,0rem);
 }
 .room-left-right-down::after{
     content: "";
-    @include baseRoom(6.1rem, 0.7rem, 2, $left-right: true);
-    transform: translate(0.5rem, 6.1rem);
+    @include baseRoom(var(--leftUp), 0.7rem, 2, $left-right: true);
+    transform: translate(0.5rem, var(--leftUp));
 }
 .room-left-up-down{
     animation: spawn 0.2s ease-in-out;
-    @include baseRoom($roomSize, $roomSizeFacingDouble, 1, $left-right: true);
+    @include baseRoom(var(--roomSize), var(--roomSizeFacingDouble), 1, $left-right: true);
     transform: translate(-0rem,-0.5rem);
 }
 .room-left-up-down::after{
     content: "";
-    @include baseRoom(0.7rem, 6.1rem, 2);
+    @include baseRoom(0.7rem, var(--leftUp), 2);
     border-top: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder);
     transform: translate(-0.7rem, 0.5rem);
 }
 .room-left-right-up-down{
     animation: spawn-left 0.2s ease-in-out;
-    @include baseRoom($roomSizeFacingDouble, $roomSize, 1);
+    @include baseRoom(var(--roomSizeFacingDouble), var(--roomSize), 1);
     border-top: 0.3rem solid var(--roomBorder); border-bottom: 0.3rem solid var(--roomBorder);
     transform: translate(-0.5rem,0rem);
 }
 .room-left-right-up-down::after{
     content: "";
-    @include baseRoom(6.1rem, 0.7rem, 1, $left-right: true);
+    @include baseRoom(var(--leftUp), 0.7rem, 1, $left-right: true);
     transform: translate(0.5rem, -0.7rem);
 }
 .room-left-right-up-down::before{
     content: "";
-    @include baseRoom(6.1rem, 0.7rem, 1, $left-right: true);
-    transform: translate(0.5rem,6.1rem);
+    @include baseRoom(var(--leftUp), 0.7rem, 1, $left-right: true);
+    transform: translate(0.5rem, var(--leftUp));
 }
 .room-right-down-fill{
     animation: spawn 0.3s ease-in-out;
-    @include baseRoom($roomSizeFacingDouble, $roomSizeFacingDouble, 2);
+    @include baseRoom(var(--roomSizeFacingDouble), var(--roomSizeFacingDouble), 2);
     border-top: 0.3rem solid var(--roomBorder); border-left: 0.3rem solid var(--roomBorder); border-top-left-radius: $borderRadius;
 }
 .room-left-right-down-fill{
     animation: spawn 0.3s ease-in-out;
-    @include baseRoom($roomSizeFacingDouble, 6.4rem, 2);
+    @include baseRoom(var(--roomSizeFacingDouble), 6.4rem, 2);
     border-top: 0.3rem solid var(--roomBorder);
     transform: translate(-0.5rem,0rem);
 }
 .room-left-right-down-fill::before{
     content: "";
-    @include baseRoom($roomSizeFacingDouble, 5rem, 2);
+    @include baseRoom(var(--roomSizeFacingDouble), 5rem, 2);
     transform: translate(0.8rem, 2.5rem);
 }
 .room-right-up-down-fill{
     animation: spawn 0.3s ease-in-out;
-    @include baseRoom(6.4rem, $roomSizeFacingDouble, 2);
+    @include baseRoom(6.4rem, var(--roomSizeFacingDouble), 2);
     border-left: 0.3rem solid var(--roomBorder);
     transform: translate(-0rem,-0.5rem);
 }
 .room-right-up-down-fill::after{
     content: "";
-    @include baseRoom(5rem, $roomSizeFacingDouble, 2);
+    @include baseRoom(5rem, var(--roomSizeFacingDouble), 2);
     transform: translate(2.2rem, 0.8rem);
 }
 
 .room-left-right-up-down-fill{
     animation: spawn 0.3s ease-in-out;
-    @include baseRoom($roomSizeFacingDouble, 5.6rem, 2);
+    @include baseRoom(var(--roomSizeFacingDouble), 5.6rem, 2);
     transform: translate(-0.5rem,0.5rem);
 }
 .room-left-right-up-down-fill::before{
     content: "";
-    @include baseRoom($roomSize, $roomSize, 2);
+    @include baseRoom(var(--roomSize), var(--roomSize), 2);
     transform: translate(1.5rem, 0.5rem);
 }
 .room-left-right-up-down-fill::after{
     content: "";
-    @include baseRoom(5.7rem, $roomSizeFacingDouble, 2);
+    @include baseRoom(5.7rem, var(--roomSizeFacingDouble), 2);
     transform: translate(0.9rem, -1rem);
 }

@@ -4,6 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.restart{
     animation: spawnGrid 0.5s ease-in-out;
 }
 .map{
@@ -21,11 +23,9 @@
 .grid{
     position: relative;
     border: $gridBorderSize solid var(--background);
-    width: $gridSize;
-    height: $gridSize;
+    width: var(--gridSize);
+    height: var(--gridSize);
 }
 .gridHolder{
     display: grid;
-    grid-template-columns: $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid;
-    grid-template-rows: $grid $grid $grid $grid $grid $grid $grid $grid $grid $grid;
 }

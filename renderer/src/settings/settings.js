@@ -38,7 +38,7 @@ const settings =()=>{
 const restart =()=>{
     //Restarts window
     restartButton.addEventListener("click", ()=>{
-        window.location.reload();
+        this.restartGlobal();
     });
 }
 
@@ -46,6 +46,12 @@ const exit =(loadMenu)=>{
     exitButton.addEventListener("click", ()=>{
         loadMenu();
     });
+}
+
+exports.restartGlobal =()=>{
+    localStorage.setItem("restart", true);
+    window.location.reload();
+    console.log("thing")
 }
 
 //Open and closes setting menu

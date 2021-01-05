@@ -37,6 +37,12 @@ const setIcon = ()=>{
 }
 setIcon();
 
+//popups only when  opened from menu
+if(localStorage.getItem("restart") === "true"){
+    const mapHolder = document.querySelector(".restart");
+    mapHolder.classList.remove("restart");
+}
+
 //Dont act like you dont know what this is doing
 const grid = require("./src/grid/grid.js");
 const tool = require("./src/tools/tool.js");

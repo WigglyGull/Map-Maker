@@ -27,7 +27,15 @@ html {
     --roomAltYellow: #563708;
     --roomPurple: #904fa0;
     --roomAltPurple: #35054B;
+
     --secretRoom: #E5E5E5;
+
+    --gridSize: 7.5rem;
+    --roomSize: 6.7rem;
+    --roomSizeFacing: 7.2rem;
+    --roomSizeFacingDouble: 7.7rem;
+
+    --leftUp: 6.1rem;
 }
 html[data-theme='dark']{
     --uiColor:#F9F9F9;

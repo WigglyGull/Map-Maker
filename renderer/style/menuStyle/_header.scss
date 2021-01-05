@@ -3,16 +3,21 @@
     justify-content: center; 
     align-items: center;
     padding-top: 2rem;
+
+    position: absolute;
+    top:-0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    
 }
 .titleHolder{
     display: inline-block;
     position: relative;
     padding-right: 8rem;
-    margin-left: 8rem;
 }
 .darkMode{
     position: absolute;
-    right:0;
+    right:-35rem;
     top:0;
     background: var(--uiColor);
     height: 7rem;

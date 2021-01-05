@@ -21,6 +21,11 @@ exports.getKeyEvents = undoRedoSystem =>{
 
         //Open/Closes settings menu
         if(e.key === "Escape") settings.changeSettings();
+        if(window.event.ctrlKey){
+            e.preventDefault();
+            e.stopPropagation();
+            if(e.key === "r")settings.restartGlobal();
+        }
     });
     
     window.addEventListener("keyup", (e)=>{

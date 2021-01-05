@@ -15,7 +15,7 @@ function createWindow(){
     //Creates and opens a window and dev tools
     let mainWindow = new BrowserWindow({
         width: _width, height: _height,
-        minWidth: _width, minHeight: _height, maxWidth:_width, maxHeight: _height,
+        minWidth: 1440, minHeight: 950,
         x: winState.x, y: winState.y,
         frame: false,
         webPreferences: {

@@ -9,21 +9,21 @@ exports.setupMapPopUp = () =>{
     const mapHeightInput = document.querySelector(".mapHeight");
     const nameInput = document.querySelector(".nameInput");
 
-    const minRows = 16;
-    const maxRows = 16;
-    const minColumns = 10;
-    const maxColumns = 10;
+    const minRows = 6;
+    const maxRows = 22;
+    const minColumns = 6;
+    const maxColumns = 14;
 
     let hiddenBlock = undefined;
     let whiteBorder = undefined;
 
-    mapWidthInput.value = `${minRows}`;
-    mapHeightInput.value = `${minColumns}`;
+    mapWidthInput.value = `16`;
+    mapHeightInput.value = `10`;
     nameInput.value = "Map";
 
     exitButton.addEventListener("click", ()=>{
-    newMapPopUp.remove();
-    hiddenBlock.remove();
+        newMapPopUp.remove();
+        hiddenBlock.remove();
     });
 
     newMapPopUp.remove();
@@ -79,6 +79,9 @@ exports.setupMapPopUp = () =>{
 
     //loads the actual tool
     startButton.addEventListener("click", ()=>{
+        localStorage.setItem("mapWidth", mapWidthInput.value);
+        localStorage.setItem("mapHeight", mapHeightInput.value);
+        localStorage.setItem("restart", false);
         window.location.replace("./main.html");
     });
 }

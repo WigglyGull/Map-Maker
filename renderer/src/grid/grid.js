@@ -11,8 +11,10 @@ const darkMode = localStorage.getItem("darkMode");
 exports.activeBorderColour = "black";
 if(darkMode === "true") this.activeBorderColour = "white";
 
-exports.mapRows = 16;
-exports.mapColumns = 10;
+//min = 6
+//max: rows: 22, columns: 14
+exports.mapRows = Number(localStorage.getItem("mapWidth"));
+exports.mapColumns = Number(localStorage.getItem("mapHeight"));
 exports.gridList = [];
 exports.undoRedoSystem = undefined;
 
@@ -23,6 +25,26 @@ exports.getUndoRedoSystem = (_undoRedoSystem)=>{
 exports.createGrid = (gridHolder) => {
     if(gridHolder === null) throw "Gridholder not found";
     const amountofSqaures = this.mapRows * this.mapColumns;
+    let gridSize = 7.1;
+
+    if(this.mapRows > 18 || this.mapColumns > 12){
+        let htmlStyle = document.querySelector("html").style;
+        htmlStyle.setProperty("--gridSize", "6.5rem");
+        htmlStyle.setProperty("--roomSize", "5.7rem");
+        htmlStyle.setProperty("--roomSizeFacing", "6.2rem");
+        htmlStyle.setProperty("--roomSizeFacingDouble", "6.7rem");
+        htmlStyle.setProperty("--leftUp", "5.1rem");
+        gridSize = 6.1;
+    }
+    const gridString = " " + gridSize + "rem";
+    let columString = `${gridString}`;
+    let rowString = `${gridString}`;
+    
+    for (let i = 0; i < this.mapColumns-1; i++) {columString += gridString;}
+    for (let i = 0; i < this.mapRows-1; i++) {rowString += gridString;}
+
+    gridHolder.style.gridTemplateColumns = rowString;
+    gridHolder.style.gridTemplateRows = columString;
 
     //Creates the grid
     for (let index = 0; index < amountofSqaures; index++) {
@@ -140,8 +162,8 @@ exports.setRoomColoursBack = (room)=>{
 exports.setDefault = (room, style, roomNum) =>{
     room.style = "";
     room.className = "";
-    room.style.width = "6.7rem";
-    room.style.height = "6.7rem";
+    room.style.width = "var(--roomSize)";
+    room.style.height = "var(--roomSize)";
     room.style.background = style;
     room.style.zIndex = "2";
     room.style.border = `0.3rem solid var(--roomBorder)`;

@@ -1,7 +1,10 @@
 .mainAreaHolder{
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
+    animation: spawnGrid 0.5s ease-in-out;
 }
 .mainArea{
     width: 135rem;
