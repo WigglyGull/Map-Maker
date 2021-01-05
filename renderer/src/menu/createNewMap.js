@@ -40,19 +40,22 @@ exports.setupMapPopUp = () =>{
         whiteBorder.appendChild(whiteBorder);
     });
 
-    mapWidthInput.addEventListener("blur", ()=>{
-        restrictMapSize(mapWidthInput, minRows, maxRows);
-    });
-    mapWidthInput.onkeypress = (e)=>{
-        if(!inputKeypress(e, mapWidthInput, minRows, maxRows)) return false;
+    const setupInput = (input, min, max)=>{
+        input.addEventListener("blur", ()=>{
+            restrictMapSize(input, min, max);
+        });
+        input.onkeypress = (e)=>{
+            if(!inputKeypress(e, input, min, max)) return false;
+        }
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                restrictMapSize(input, min, max);
+            }
+        });
     }
-
-    mapHeightInput.addEventListener("blur", ()=>{
-        restrictMapSize(mapHeightInput, minColumns, maxColumns);
-    });
-    mapHeightInput.onkeypress = (e)=>{
-        if(!inputKeypress(e, mapHeightInput, minColumns, maxColumns)) return false;
-    }
+    setupInput(mapWidthInput, minRows, maxRows);
+    setupInput(mapHeightInput, minColumns, maxColumns);
 
     const inputKeypress = (e, input, min, max)=>{
         //stops the "-" symblo from being typed

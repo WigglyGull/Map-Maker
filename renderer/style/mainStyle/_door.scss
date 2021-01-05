@@ -2,9 +2,9 @@
     animation: spawn-door-side 0.4s ease-in-out;
     background: var(--background);
     width: $gridBorderSize;
-    height: 3rem;
+    height: var(--doorSize);
     position: absolute;
-    left: 6.5rem;
+    left: var(--doorPos);
     bottom: 2rem;
     z-index: 50;
 }
@@ -12,7 +12,7 @@
 .doorDown {
     animation: spawn-door-up 0.4s ease-in-out;
     background: var(--background);
-    width: 3rem;
+    width: var(--doorSize);
     height: $gridBorderSize;
     position: absolute;
     left: 1.8rem;
@@ -24,7 +24,7 @@
     animation: spawn-door-side 0.4s ease-in-out;
     background: var(--background);
     width: $gridBorderSize;
-    height: 3rem;
+    height: var(--doorSize);
     position: absolute;
     left: -0.2rem;
     bottom: 2rem;
@@ -34,10 +34,10 @@
 .doorUp {
     animation: spawn-door-up 0.4s ease-in-out;
     background: var(--background);
-    width: 3rem;
+    width: var(--doorSize);
     height: $gridBorderSize;
     position: absolute;
     left: 1.8rem;
-    bottom: 6.5rem;
+    bottom: var(--doorPos);
     z-index: 50;
 }

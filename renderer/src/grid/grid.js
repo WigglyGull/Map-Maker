@@ -27,6 +27,7 @@ exports.createGrid = (gridHolder) => {
     const amountofSqaures = this.mapRows * this.mapColumns;
     let gridSize = 7.1;
 
+    //If the map size is to big sets css to make the map smaller
     if(this.mapRows > 18 || this.mapColumns > 12){
         let htmlStyle = document.querySelector("html").style;
         htmlStyle.setProperty("--gridSize", "6.5rem");
@@ -34,6 +35,8 @@ exports.createGrid = (gridHolder) => {
         htmlStyle.setProperty("--roomSizeFacing", "6.2rem");
         htmlStyle.setProperty("--roomSizeFacingDouble", "6.7rem");
         htmlStyle.setProperty("--leftUp", "5.1rem");
+        htmlStyle.setProperty("--doorSize", "2rem");
+        htmlStyle.setProperty("--doorPos", "5.5rem");
         gridSize = 6.1;
     }
     const gridString = " " + gridSize + "rem";
