@@ -84,6 +84,7 @@ exports.setupMapPopUp = () =>{
     startButton.addEventListener("click", ()=>{
         localStorage.setItem("mapWidth", mapWidthInput.value);
         localStorage.setItem("mapHeight", mapHeightInput.value);
+        localStorage.setItem("mapName", nameInput.value);
         localStorage.setItem("restart", false);
         window.location.replace("./main.html");
     });

@@ -29,3 +29,38 @@
 .gridHolder{
     display: grid;
 }
+.savePopup{
+    z-index: 10000;
+    background: var(--uiColor);
+    width: 18rem;
+    height: 5rem;
+
+    position: absolute;
+    bottom: 4rem;
+    border-radius: 1.5rem;
+
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+
+    font-weight: 600;
+    font-size: 2.5rem;
+
+    animation: savePopup 2s ease-in-out forwards;
+    visibility: hidden;
+}
+@keyframes savePopup {
+    0%{bottom: 4rem; opacity: 1; visibility: visible;}
+    90%{bottom: 4rem; opacity: 1; visibility: visible;}
+    100%{bottom: 0rem; opacity: 0; visibility: hidden;}
+}
+
+@media (max-height:1000px){
+    .savePopup { bottom: 2rem; }
+
+    @keyframes savePopup {
+        0%{bottom: 2rem; opacity: 1; visibility: visible;}
+        90%{bottom: 2rem; opacity: 1; visibility: visible;}
+        100%{bottom: 0rem; opacity: 0; visibility: hidden;}
+    }
+}

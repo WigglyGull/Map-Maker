@@ -199,6 +199,106 @@ button {
   display: grid;
 }
 
+.savePopup {
+  z-index: 10000;
+  background: var(--uiColor);
+  width: 18rem;
+  height: 5rem;
+  position: absolute;
+  bottom: 4rem;
+  border-radius: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 600;
+  font-size: 2.5rem;
+  -webkit-animation: savePopup 2s ease-in-out forwards;
+          animation: savePopup 2s ease-in-out forwards;
+  visibility: hidden;
+}
+
+@-webkit-keyframes savePopup {
+  0% {
+    bottom: 4rem;
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    bottom: 4rem;
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    bottom: 0rem;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes savePopup {
+  0% {
+    bottom: 4rem;
+    opacity: 1;
+    visibility: visible;
+  }
+  90% {
+    bottom: 4rem;
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    bottom: 0rem;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (max-height: 1000px) {
+  .savePopup {
+    bottom: 2rem;
+  }
+  @-webkit-keyframes savePopup {
+    0% {
+      bottom: 2rem;
+      opacity: 1;
+      visibility: visible;
+    }
+    90% {
+      bottom: 2rem;
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      bottom: 0rem;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  @keyframes savePopup {
+    0% {
+      bottom: 2rem;
+      opacity: 1;
+      visibility: visible;
+    }
+    90% {
+      bottom: 2rem;
+      opacity: 1;
+      visibility: visible;
+    }
+    100% {
+      bottom: 0rem;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
 .biomeHolder {
   position: absolute;
   -webkit-transform: translateY(-13rem);

@@ -6,6 +6,9 @@ const otherSettings = document.querySelectorAll(".otherSetting");
 
 const restartButton = document.querySelector(".restartButtonClose");
 const exitButton = document.querySelector(".exitButtonClose");
+const saveButton = document.querySelector(".saveButtonClose");
+
+const saveSystem = require("../meta/saveSystem");
 
 //Classes that change css to open and close the menu
 const hiddenClass = "closed";
@@ -22,27 +25,19 @@ exports.setUpSettings = (loadMenu)=>{
             setting.childNodes[3].style.opacity = 0;
         });
     });
-
-    //Functions hold logic for each button
-    settings();
-    restart();
-    exit(loadMenu);
-}
-
-const settings =()=>{
+    
     settingsButton.addEventListener("click", ()=>{
         this.changeSettings();
     });
-}
 
-const restart =()=>{
-    //Restarts window
     restartButton.addEventListener("click", ()=>{
         this.restartGlobal();
     });
-}
 
-const exit =(loadMenu)=>{
+    saveButton.addEventListener("click", ()=>{
+        saveSystem.saveMap();
+    });
+
     exitButton.addEventListener("click", ()=>{
         loadMenu();
     });

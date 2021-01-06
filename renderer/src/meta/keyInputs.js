@@ -1,5 +1,6 @@
 const toolItem = require("../tools/tool");
-const settings = require("../settings/settings");
+const settings = require("../tools/settings");
+const saveSystem = require("./saveSystem");
 
 exports.holdingShift = false;
 exports.holdingControl = false;
@@ -18,6 +19,10 @@ exports.getKeyEvents = undoRedoSystem =>{
         if(this.holdingControl && e.key === "2") toolItem.setActive(toolItem.tools[1], toolItem.tools);
         if(this.holdingControl && e.key === "3") toolItem.setActive(toolItem.tools[2], toolItem.tools);
         if(this.holdingControl && e.key === "4") toolItem.setActive(toolItem.tools[3], toolItem.tools);
+
+        if(this.holdingControl && e.key === "s") saveSystem.saveMap();
+        if(this.holdingControl && e.key === "d") saveSystem.deleteMap(localStorage.getItem("mapName"));
+        if(this.holdingControl && e.key === "a") saveSystem.deleteAllMaps();
 
         //Open/Closes settings menu
         if(e.key === "Escape") settings.changeSettings();

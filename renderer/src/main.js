@@ -50,7 +50,7 @@ const biome = require("./src/tools/biome.js");
 const keyInput = require("./src/meta/keyInputs.js");
 const icon = require("./src/tools/icon.js");
 const undoRedo = require("./src/meta/undoRedo");
-const settings = require("./src/settings/settings.js");
+const settings = require("./src/tools/settings.js");
 
 //Getting Elements from dom that setup functions need
 const gridHolder = document.querySelector(".gridHolder");
