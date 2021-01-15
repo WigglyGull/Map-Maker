@@ -351,6 +351,7 @@ input[type=number] {
   display: flex;
   margin-top: auto;
   margin-bottom: auto;
+  position: relative;
 }
 
 .mapName .nameText {
@@ -359,6 +360,22 @@ input[type=number] {
   margin-top: 1.5rem;
   margin-right: 1rem;
   color: white;
+}
+
+.mapName .overwrite {
+  font-weight: 300;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+  color: white;
+  position: absolute;
+  bottom: -5.5rem;
+}
+
+.mapName .overwrite .overwriteButton {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .mapName .nameInput {

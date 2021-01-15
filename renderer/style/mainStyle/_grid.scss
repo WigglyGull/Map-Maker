@@ -31,7 +31,7 @@
 }
 .savePopup{
     z-index: 10000;
-    background: var(--uiColor);
+    background: var(--uiHighlight);
     width: 18rem;
     height: 5rem;
 
@@ -46,7 +46,7 @@
     font-weight: 600;
     font-size: 2.5rem;
 
-    animation: savePopup 2s ease-in-out forwards;
+    animation: savePopup 1.5s ease-in-out forwards;
     visibility: hidden;
 }
 @keyframes savePopup {

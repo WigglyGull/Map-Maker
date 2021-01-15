@@ -1,11 +1,11 @@
-const getMaps = () =>{
-    if(localStorage.getItem("maps") === null) return [];
-    else return JSON.parse(localStorage.getItem("maps"));
-}
-
 const setMap = (maps)=>{
     localStorage.setItem("maps", JSON.stringify(maps));
     console.log(localStorage.getItem("maps"));
+}
+
+const getMaps = ()=>{
+    if(localStorage.getItem("maps") === null) return [];
+    else return JSON.parse(localStorage.getItem("maps"));
 }
 
 const popUp = document.querySelector(".savePopup");
