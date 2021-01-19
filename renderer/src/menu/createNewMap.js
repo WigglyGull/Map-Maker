@@ -12,7 +12,7 @@ const mapName = document.querySelector(".mapName");
 const overwriteButton = document.querySelector(".overwriteButton");
 const overwriteText = document.querySelector(".overwrite")
 
-exports.setupMapPopUp = (_saveSystem) =>{
+exports.setupMapPopUp = () =>{
     const minRows = 6;
     const maxRows = 22;
     const minColumns = 6;
@@ -54,6 +54,7 @@ exports.setupMapPopUp = (_saveSystem) =>{
         localStorage.setItem("mapHeight", mapHeightInput.value);
         localStorage.setItem("mapName", nameInput.value);
         localStorage.setItem("restart", false);
+        localStorage.setItem("load", false);
         window.location.replace("./main.html");
     }
 

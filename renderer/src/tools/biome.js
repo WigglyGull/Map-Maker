@@ -11,25 +11,29 @@ const addBiome = document.querySelector(".addBiome");
 const biomeBar = document.querySelector(".biomeBar");
 
 //Gets colour depending of in darkmode or lightmode
-let htmlStyle = getComputedStyle(document.querySelector("html"));
-exports.roomGrey = htmlStyle.getPropertyValue('--roomGrey');
-exports.roomAltGrey = htmlStyle.getPropertyValue('--roomAltGrey');
+exports.htmlStyle = getComputedStyle(document.querySelector("html"));
+exports.roomGrey = this.htmlStyle.getPropertyValue('--roomGrey');
+exports.roomAltGrey = this.htmlStyle.getPropertyValue('--roomAltGrey');
 
-let roomGreen = htmlStyle.getPropertyValue('--roomGreen');
-let roomAltGreen = htmlStyle.getPropertyValue('--roomAltGreen');
+let roomGreen = this.htmlStyle.getPropertyValue('--roomGreen');
+let roomAltGreen = this.htmlStyle.getPropertyValue('--roomAltGreen');
 
-let roomRed = htmlStyle.getPropertyValue('--roomRed');
-let roomAltRed = htmlStyle.getPropertyValue('--roomAltRed');
+let roomRed = this.htmlStyle.getPropertyValue('--roomRed');
+let roomAltRed = this.htmlStyle.getPropertyValue('--roomAltRed');
 
-let roomBlue = htmlStyle.getPropertyValue('--roomBlue');
-let roomAltBlue = htmlStyle.getPropertyValue('--roomAltBlue');
+let roomBlue = this.htmlStyle.getPropertyValue('--roomBlue');
+let roomAltBlue = this.htmlStyle.getPropertyValue('--roomAltBlue');
 
-let roomYellow = htmlStyle.getPropertyValue('--roomYellow');
-let roomAltYellow = htmlStyle.getPropertyValue('--roomAltYellow');
+let roomYellow = this.htmlStyle.getPropertyValue('--roomYellow');
+let roomAltYellow = this.htmlStyle.getPropertyValue('--roomAltYellow');
 
-let roomPurple = htmlStyle.getPropertyValue('--roomPurple');
-let roomAltPurple = htmlStyle.getPropertyValue('--roomAltPurple');
-let secretRoom = htmlStyle.getPropertyValue('--secretRoom');
+let roomPurple = this.htmlStyle.getPropertyValue('--roomPurple');
+let roomAltPurple = this.htmlStyle.getPropertyValue('--roomAltPurple');
+let secretRoom = this.htmlStyle.getPropertyValue('--secretRoom');
+
+exports.numOfBiomes = 2;
+exports.currentBiomes = [{num: 1, background: this.roomGrey, border: this.roomAltGrey}, {num: 2, background: roomGreen, border: roomAltGreen}];
+exports.loadMap = false;
 
 exports.createBiome = () => {
     let fade = setInterval(fadeOut, 50);
@@ -54,6 +58,17 @@ exports.createBiome = () => {
 
             biome.classList.remove("biome");
             biome.classList.add("activated");
+
+            this.numOfBiomes++;
+            
+            const colours = getRoomColour(newBiome.classList.item(0));
+            const biomeInfo = {
+                num: this.numOfBiomes,
+                background: colours[0],
+                border: colours[1]
+            };
+            this.currentBiomes.push(biomeInfo);
+            console.log(this.currentBiomes);
         });
     });
 
@@ -100,6 +115,24 @@ const setActive = (currentBiome, biomes)=>{
     });
 }
 
+const resetOpacity = () => {
+    slectorOpactiy = 1;
+    biomeSelector.style.opacity = slectorOpactiy;
+}
+const fadeOut = () => {
+    if(hover){
+        slectorOpactiy = 1;
+        return;
+    } 
+    slectorOpactiy -= 0.1;
+    biomeSelector.style.opacity = slectorOpactiy;
+
+    if(slectorOpactiy <= 0.05){
+        biomeSelector.remove();
+        resetOpacity();
+    }
+}
+
 const setRoomBiome = () =>{
     switch(activeBiome){
         case "normalBiome": 
@@ -133,71 +166,93 @@ const setRoomBiome = () =>{
     }
 }
 
-const resetOpacity = () => {
-    slectorOpactiy = 1;
-    biomeSelector.style.opacity = slectorOpactiy;
-}
-const fadeOut = () => {
-    if(hover){
-        slectorOpactiy = 1;
-        return;
-    } 
-    slectorOpactiy -= 0.1;
-    biomeSelector.style.opacity = slectorOpactiy;
-
-    if(slectorOpactiy <= 0.05){
-        biomeSelector.remove();
-        resetOpacity();
+const getRoomColour = (biome) =>{
+    let colours = [];
+    switch(biome){
+        case "normalBiome": colours = [this.roomGrey, this.roomAltGrey]; break;
+        case "grassBiome": colours = [roomGreen, roomAltGreen]; break;
+        case "redBiome": colours = [roomRed, roomAltRed]; break;
+        case "blueBiome": colours = [roomBlue, roomAltBlue]; break;
+        case "yellowBiome": colours = [roomYellow, roomAltYellow]; break;
+        case "purpleBiome": colours = [roomPurple, roomAltPurple]; break;
+        case "secretBiome": colours = [secretRoom, this.roomGrey]; break;
     }
+    return colours;
+}
+
+exports.getClassFromColour=(colour)=>{
+    let biomeClass = undefined;
+    console.log(colour);
+    switch (colour){
+        case(this.roomGrey): biomeClass = "normalBiome"; break;
+        case(this.secretRoom): biomeClass = "secretBiome"; break;
+        case(roomGreen): biomeClass = "grassBiome"; break;
+        case(roomRed): biomeClass = "redBiome"; break;
+        case(roomBlue): biomeClass = "blueBiome"; break;
+        case(roomYellow): biomeClass = "yellowBiome"; break;
+        case(roomPurple): biomeClass = "purpleBiome"; break;
+    }
+    return biomeClass;
 }
 
 exports.setDefaultBorder = (room) =>{
     const roomColor = room.style.getPropertyValue("--room");
     switch (roomColor){
-        case(this.roomGrey):
-            room.style.setProperty("--roomBorder", this.roomAltGrey);
-            break;
-        case(this.secretRoom):
-            room.style.setProperty("--roomBorder", this.roomAltGrey);
-            break;
-        case(roomGreen):
-            room.style.setProperty("--roomBorder", roomAltGreen);
-            break;
-        case(roomRed):
-            room.style.setProperty("--roomBorder", roomAltRed);
-            break;
-        case(roomBlue):
-            room.style.setProperty("--roomBorder", roomAltBlue);
-            break;
-        case(roomYellow):
-            room.style.setProperty("--roomBorder", roomAltYellow);
-            break;
-        case(roomPurple):
-            room.style.setProperty("--roomBorder", roomAltPurple);
-            break;
+        case(this.roomGrey): room.style.setProperty("--roomBorder", this.roomAltGrey); break;
+        case(this.secretRoom): room.style.setProperty("--roomBorder", this.roomAltGrey); break;
+        case(roomGreen): room.style.setProperty("--roomBorder", roomAltGreen); break;
+        case(roomRed): room.style.setProperty("--roomBorder", roomAltRed); break;
+        case(roomBlue): room.style.setProperty("--roomBorder", roomAltBlue); break;
+        case(roomYellow): room.style.setProperty("--roomBorder", roomAltYellow); break;
+        case(roomPurple): room.style.setProperty("--roomBorder", roomAltPurple); break;
     }
 }
 
 //resets colours if they didnt get added the first time
 exports.resetColours = ()=>{
-    htmlStyle = getComputedStyle(document.querySelector("html"));
-    this.roomGrey = htmlStyle.getPropertyValue('--roomGrey');
-    this.roomAltGrey = htmlStyle.getPropertyValue('--roomAltGrey');
+    this.htmlStyle = getComputedStyle(document.querySelector("html"));
+    this.roomGrey = this.htmlStyle.getPropertyValue('--roomGrey');
+    this.roomAltGrey = this.htmlStyle.getPropertyValue('--roomAltGrey');
 
-    roomGreen = htmlStyle.getPropertyValue('--roomGreen');
-    roomAltGreen = htmlStyle.getPropertyValue('--roomAltGreen');
+    roomGreen = this.htmlStyle.getPropertyValue('--roomGreen');
+    roomAltGreen = this.htmlStyle.getPropertyValue('--roomAltGreen');
 
-    roomRed = htmlStyle.getPropertyValue('--roomRed');
-    roomAltRed = htmlStyle.getPropertyValue('--roomAltRed');
+    roomRed = this.htmlStyle.getPropertyValue('--roomRed');
+    roomAltRed = this.htmlStyle.getPropertyValue('--roomAltRed');
 
-    roomBlue = htmlStyle.getPropertyValue('--roomBlue');
-    roomAltBlue = htmlStyle.getPropertyValue('--roomAltBlue');
+    roomBlue = this.htmlStyle.getPropertyValue('--roomBlue');
+    roomAltBlue = this.htmlStyle.getPropertyValue('--roomAltBlue');
 
-    roomYellow = htmlStyle.getPropertyValue('--roomYellow');
-    roomAltYellow = htmlStyle.getPropertyValue('--roomAltYellow');
+    roomYellow = this.htmlStyle.getPropertyValue('--roomYellow');
+    roomAltYellow = this.htmlStyle.getPropertyValue('--roomAltYellow');
 
-    roomPurple = htmlStyle.getPropertyValue('--roomPurple');
-    roomAltPurple = htmlStyle.getPropertyValue('--roomAltPurple');
+    roomPurple = this.htmlStyle.getPropertyValue('--roomPurple');
+    roomAltPurple = this.htmlStyle.getPropertyValue('--roomAltPurple');
 
-    secretRoom = htmlStyle.getPropertyValue('--secretRoom');
+    secretRoom = this.htmlStyle.getPropertyValue('--secretRoom');
+    console.log("set colour");
+    if(this.loadMap){
+        const loadedElement = localStorage.getItem("loadElement");
+        const parser = new DOMParser();
+
+        const doc = parser.parseFromString(loadedElement, 'text/html');
+        const div = doc.body.firstChild;
+        gridHolder.appendChild(div);
+
+        const loadInfo = JSON.parse(localStorage.getItem("loadInfo"));
+        const biomes = loadInfo.biomes;
+        for (let i=0; i < biomes.length; i++) {
+            if(i > 1){
+                //Spawns biome
+                const newBiome = document.createElement("div");
+                const biomeBar = document.querySelector(".biomeBar");
+                const biomeClass = biome.getClassFromColour(biomes[i].background);
+
+                newBiome.classList.add(biomeClass);
+                newBiome.classList.add("biome");
+                biomeBar.insertBefore(newBiome, biomeBar.children[biomeBar.children.length - 1]);
+            }
+        }
+    }
+    if(this.roomGrey !== "") clearInterval(setColours);
 }

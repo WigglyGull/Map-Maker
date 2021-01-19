@@ -51,6 +51,9 @@ const keyInput = require("./src/meta/keyInputs.js");
 const icon = require("./src/tools/icon.js");
 const undoRedo = require("./src/meta/undoRedo");
 const settings = require("./src/tools/settings.js");
+const saveSystem = require("./src/meta/saveSystem");
+
+const load = localStorage.getItem("load");
 
 //Getting Elements from dom that setup functions need
 const gridHolder = document.querySelector(".gridHolder");
@@ -58,16 +61,18 @@ const undoRedoSystem = undoRedo.createUndoRedoSystem();
 let tools = document.querySelectorAll(".tool");
 
 //Function called in settings.js to open menu.html
-const loadMenu =()=>{window.location.replace("./menu.html");}
+const loadMenu =()=>{window.location.replace("./menu.html");} 
 
-//Running all the components setup functions
+let setColours = setInterval(function(){ biome.resetColours(); }, 1);
+biome.createBiome();
 grid.getUndoRedoSystem(undoRedoSystem);
 keyInput.getKeyEvents(undoRedoSystem);
-tool.createToolbar(tools);
-grid.createGrid(gridHolder);
-icon.createIconSelector();
 settings.setUpSettings(loadMenu);
-biome.createBiome();
+tool.createToolbar(tools);
+icon.createIconSelector();
 
 //Sets the first tool to be active
 tool.setActive(tools[0], tools);
+
+if(load === "false")grid.createGrid(gridHolder);
+else biome.loadMap = true;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" class="main">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,6 @@
                 <!-- Create new and load map button-->
                 <div class="buttons">
                     <button class="newMap"><p>New Map</p></button>
-                    <button class="loadMap"><p>Load Map</p></button>
                 </div>
                 <!-- Info/How to text -->
                 <div class="info">
@@ -37,7 +36,8 @@
             <!-- Box containing recent worked on maps -->
             <div class="rightSide">
                 <div class="recentMap">
-                    <div class="topBar"><p class="recentMapText">Recent Maps</p></div>
+                    <div class="topBar"><p class="recentMapText">Maps</p></div>
+                    <div class="savedMaps"></div>
                 </div>
             </div>
         </section>
@@ -69,3 +69,4 @@
     </div>
     <button class="start button"><p>Start</p></button>
 </section>
+<img src="../assets/ui/Trash.svg" class="trashIcon">

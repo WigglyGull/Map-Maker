@@ -130,6 +130,12 @@ input[type=number] {
           transform: translateX(-50%);
 }
 
+@media (max-height: 1000px) {
+  .title {
+    padding-top: 1.5rem;
+  }
+}
+
 .titleHolder {
   display: inline-block;
   position: relative;
@@ -218,10 +224,6 @@ input[type=number] {
   display: flex;
 }
 
-.buttons .loadMap {
-  margin-left: 5rem;
-}
-
 .info {
   width: 55rem;
   height: 42rem;
@@ -266,10 +268,83 @@ input[type=number] {
   background: var(--uiHighlight);
   color: var(--topBar);
   display: inline;
-  padding-right: 2rem;
+  padding-right: 5rem;
   padding-bottom: 1rem;
   padding-left: 1rem;
   border-bottom-right-radius: 1rem;
+}
+
+.recentMap .savedMaps {
+  height: 50rem;
+  overflow-y: auto;
+}
+
+.savedMap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  height: 10rem;
+  position: relative;
+  background: var(--uiColor);
+  border-top: 0.3rem solid var(--headerColour);
+  cursor: pointer;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.savedMap .savedMapTitle {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-top: 2.8rem;
+  margin-left: 1.5rem;
+  color: white;
+}
+
+.savedMap .trashIcon {
+  position: absolute;
+  right: 1.5rem;
+  top: 2.5rem;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.15s ease-in-out;
+  transition: -webkit-transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
+}
+
+.savedMap .trashIcon:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.savedMap .mapSizeText {
+  font-size: 2rem;
+  margin-top: 4.4rem;
+  margin-left: 0.5rem;
+  color: white;
+}
+
+.biomes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  width: auto;
+  height: 4.5rem;
+  position: absolute;
+  right: 6.75rem;
+  top: 3rem;
+}
+
+.biomes .mapBiome {
+  width: 4.25rem;
+  height: 4.25rem;
+  border: 0.25rem solid #2B2C31;
+  border-radius: 1rem;
+  margin-left: 0.2rem;
 }
 
 .leftSide {

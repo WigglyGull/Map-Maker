@@ -8,7 +8,9 @@
     top:-0.5rem;
     left: 50%;
     transform: translateX(-50%);
-    
+}
+@media (max-height:1000px){
+    .title{padding-top: 1.5rem;}
 }
 .titleHolder{
     display: inline-block;

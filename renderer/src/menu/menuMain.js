@@ -1,5 +1,7 @@
 const mapPopUp = require("./src/menu/createNewMap");
-mapPopUp.setupMapPopUp(); 
+const loadMaps = require("./src/menu/loadMaps");
+mapPopUp.setupMapPopUp();
+loadMaps.setupLoadmaps();
 
 const darkModeButton = document.querySelector(".darkMode");
 if(localStorage.getItem("darkMode") === null) localStorage.setItem("darkMode", false);

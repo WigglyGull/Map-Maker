@@ -1,15 +1,15 @@
-const setMap = (maps)=>{
-    localStorage.setItem("maps", JSON.stringify(maps));
-    console.log(localStorage.getItem("maps"));
-}
+const biomeTool = require("../tools/biome");
 
+const setMap = (maps)=>{ localStorage.setItem("maps", JSON.stringify(maps)); }
 const getMaps = ()=>{
     if(localStorage.getItem("maps") === null) return [];
     else return JSON.parse(localStorage.getItem("maps"));
 }
 
+//spawns pop up for a visual queue when saving
 const popUp = document.querySelector(".savePopup");
-popUp.remove();
+if(popUp !== null) popUp.remove();
+
 let removeTimer;
 const savePopup = ()=>{
     popUp.remove();
@@ -22,22 +22,27 @@ const savePopup = ()=>{
 
 exports.saveMap = ()=>{
     const maps = getMaps();
+    const mapGrid = document.querySelector(".gridHolder");
 
     const mapObj = {
         name: localStorage.getItem("mapName"),
         width: localStorage.getItem("mapWidth"),
         height: localStorage.getItem("mapHeight"),
+        biomeNum: biomeTool.numOfBiomes,
+        biomes: biomeTool.currentBiomes,
+        mapGrid: mapGrid.outerHTML,
     }
     
     //if map is already saved, doesnt make a new save
     let alreadySaved = false;
+    let mapIndex = -1;
     maps.forEach(map => {
-        if(map.name === mapObj.name){
-            alreadySaved = true;
-            map = mapObj;
-        }
+        mapIndex++;
+        if(map.name === mapObj.name) alreadySaved = true;
     });
+
     if(!alreadySaved) maps.push(mapObj);
+    else maps[mapIndex] = mapObj;
 
     setMap(maps);
     savePopup();

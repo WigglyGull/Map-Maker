@@ -16,10 +16,6 @@
     width: 55rem;
     height: 11rem;
     display: flex;
-
-    .loadMap{
-        margin-left: 5rem;
-    }
 }
 .info{
     width:55rem;
@@ -62,10 +58,68 @@
         background: var(--uiHighlight);
         color: var(--topBar);
         display: inline;
-        padding-right: 2rem;
+        padding-right: 5rem;
         padding-bottom: 1rem;
         padding-left: 1rem;
         border-bottom-right-radius: 1rem;
+    }
+    .savedMaps{
+        height:50rem;
+        overflow-y: auto;
+    }
+}
+.savedMap{
+    display: flex;
+    width:auto;
+    height: 10rem;
+    position: relative;
+
+    background: var(--uiColor);
+    border-top: 0.3rem solid var(--headerColour);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    
+    .savedMapTitle{
+        font-size: 4rem;
+        font-weight: bold;
+        margin-top: 2.8rem;
+        margin-left: 1.5rem;
+        color: white;
+    }
+    
+    .trashIcon{
+        position: absolute;
+        right: 1.5rem;
+        top: 2.5rem;
+        cursor: pointer;
+        transition: transform 0.15s ease-in-out;
+    }
+    .trashIcon:hover{
+        transform: scale(1.1);
+    }
+
+    .mapSizeText{
+        font-size: 2rem;
+        margin-top: 4.4rem;
+        margin-left: 0.5rem;
+        color: white;
+    }
+}
+.biomes{
+    display: flex;
+    flex-direction: row-reverse;
+    width: auto;
+    height: 4.5rem;
+    position: absolute;
+    right: 6.75rem;
+    top: 3rem;
+
+    .mapBiome {
+        width: 4.25rem;
+        height: 4.25rem;
+        border: 0.25rem solid #2B2C31;
+        border-radius: 1rem;
+        margin-left: 0.2rem;
     }
 }
 .leftSide{
